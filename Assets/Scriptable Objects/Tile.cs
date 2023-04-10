@@ -6,6 +6,8 @@ using UnityEngine;
 public class Tile : ScriptableObject
 {
 
+    public Tile tile;
+
     public Sprite Image;
 
     public GameObject Event;
