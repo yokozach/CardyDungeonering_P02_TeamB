@@ -6,6 +6,8 @@ public class PlayerBattleState : State
 {
     private GameFSM _stateMachine;
     private GameController _controller;
+    public int _enemyHealth;
+    public PlayerStats _player;
     public PlayerBattleState(GameFSM stateMachine, GameController controller)
     {
         //hold on to our parameters in our class variables for reuse
@@ -32,9 +34,16 @@ public class PlayerBattleState : State
     public override void Tick()
     {
         base.Tick();
-        if (StateDuration >= 2.5f)
+        //Check if Enemy health is <= 0 then switch states if true
+        if(_enemyHealth <= 0)
         {
-            _stateMachine.ChangeState(_stateMachine.EnemyBattleState);
+            _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
         }
     }
+
+    public void PlayerAttack()
+    {
+        _enemyHealth -= _player._playerAttack;
+        _stateMachine.ChangeState(_stateMachine.EnemyBattleState);
+    } 
 }
