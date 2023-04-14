@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c8453ea31ebdf40802a6f93dbced12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colCount: 0
-  _rowCount: 0
-  _widthSpacing: 1
-  _heightSpacing: 1
+  _colCount: 5
+  _rowCount: 5
+  _widthSpacing: 1.25
+  _heightSpacing: 1.25
   _tilePrafab: {fileID: 1070388423398743686, guid: 3d6b8b80748463746b45137554a83cfc, type: 3}
-  _cam: {fileID: 0}
-  _cards: []
+  playerController: {fileID: 0}
+  _cards:
+  - {fileID: 0}
