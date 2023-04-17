@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if (gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard() != null)
         {
             Debug.Log("Next Tile is Occupied!");
-            Debug.Log("Run Card Encounter Code!");
+            gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard().GetComponent<MainCard>().ReturnOpenTile().Open();
             return true;
         }
 

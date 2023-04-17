@@ -17,9 +17,9 @@ public class GridManager : MonoBehaviour
 
     [Header("Set-up")]
 
-    // [SerializeField] private gameObject _emptyCardPrefab;
-    [SerializeField] private List<TempCard> _cards;
-    private TempCard _currentCard;
+    [SerializeField] private GameObject _emptyCardPrefab;
+    [SerializeField] private List<MainCard> _cards;
+    private MainCard _currentCard;
 
     private Dictionary<Vector2, Tile> _tiles;
 
@@ -101,7 +101,27 @@ public class GridManager : MonoBehaviour
                 Debug.Log($"Tile {_currentCard.ReturnCardRow()} {_currentCard.ReturnCardCol()} is already occupied.");
             }   
         }
-        SetUpPlayer();
+
+        for (int x = 0; x < _colCount; x++)
+        {
+            for (int y = 0; y < _rowCount; y++)
+            {
+                if (playerController.ReturnCurGridPos() != new Vector2(x, y))
+                {
+                    Tile retrievedTile = _tiles[new Vector2(x, y)];
+
+                    if (retrievedTile.ReturnCurrentCard() == null)
+                    {
+                        GameObject _currentEmptyCard = Instantiate(_emptyCardPrefab, new Vector3(retrievedTile.transform.position.x, retrievedTile.transform.position.y), Quaternion.identity);
+                        retrievedTile.SetCurrentCard(_currentEmptyCard);
+                    }
+
+                }
+
+            }
+        }
+
+            SetUpPlayer();
     }
 
     void SetUpPlayer()
