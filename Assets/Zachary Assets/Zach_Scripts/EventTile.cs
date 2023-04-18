@@ -11,4 +11,10 @@ public class EventTile : MonoBehaviour
         EventObject.SetActive(true);
         
     }
+
+    public void EndEvent()
+    {
+        gameObject.SetActive(false);
+    }
+
 }

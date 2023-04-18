@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class OpenTile : MonoBehaviour
 {
-
-
+    
     [SerializeField] public EventTile eventTile;
-    private void OnMouseDown()
+    public void Open()
     {
+        eventTile.gameObject.SetActive(true);
         eventTile.PlayEvent();
         gameObject.SetActive(false);
-
 
     }
 
