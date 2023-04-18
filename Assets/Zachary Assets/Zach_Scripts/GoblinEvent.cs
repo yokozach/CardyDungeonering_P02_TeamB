@@ -18,6 +18,37 @@ public class GoblinEvent : MonoBehaviour
         HPdisplay.text = enemyHP.ToString();
         ShieldDisplay.text = enemmyShield.ToString();
         Attackdisplay.text = enemyAttack.ToString();
+
+
+        if (enemyHP <= 0)
+        {
+
+            death();
+        }
+
+
+    }
+
+
+
+    void damage()
+    {
+
+        if (enemmyShield >=0)
+        {
+            enemmyShield -= 1;
+            if (enemmyShield <= 0)
+            {
+                enemyHP -= 1;
+            }
+        }
+    }
+
+    void death()
+    {
+
+        gameObject.SetActive(false);
+
     }
 
 }
