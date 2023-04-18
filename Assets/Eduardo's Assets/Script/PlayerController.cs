@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Data")]
-    [SerializeField] private bool playerActive = true; // is player actionable?
+    [SerializeField] public bool playerActive = true; // is player actionable?
     [SerializeField] private Vector2Int startGridPos = new Vector2Int(2, 2); // Where on the grid the player starts
     [SerializeField] private float moveCooldown = 0.2f; // Cooldown for movement
 

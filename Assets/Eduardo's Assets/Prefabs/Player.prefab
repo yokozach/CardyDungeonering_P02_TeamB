@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5239304313178141961}
   - component: {fileID: 5239304313178141960}
   - component: {fileID: 5239304313178141967}
+  - component: {fileID: 9063207721097772109}
+  - component: {fileID: -5206863508291066323}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -151,3 +153,34 @@ MonoBehaviour:
     m_Flags: 0
   inputManager: {fileID: 0}
   gridManager: {fileID: 0}
+--- !u!114 &9063207721097772109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239304313178141966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98d1d45eada249479563936935a6d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 10
+  _currentHealth: 10
+--- !u!114 &-5206863508291066323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239304313178141966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e4c5f8f17317047a2c9a3069f61b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAttack: 5
+  _playerMaxHealth: 25
+  _playerCurrentHealth: 25
+  _playerDefense: 10
+  PlayerInventory: []

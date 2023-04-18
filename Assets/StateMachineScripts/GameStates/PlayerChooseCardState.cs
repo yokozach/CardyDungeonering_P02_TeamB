@@ -18,26 +18,22 @@ public class PlayerChooseCardState : State
     {
         base.Enter();
         Debug.Log("Entering Player Choose a Card State");
-        Debug.Log(StateDuration);
+        _controller._playerController.playerActive = true;
     }
 
     public override void Exit()
     {
         base.Exit();
+        _controller._playerController.playerActive = false;
     }
 
     public override void FixedTick()
     {
         base.FixedTick();
-        Debug.Log(StateDuration);
     }
 
     public override void Tick()
     {
         base.Tick();
-        if (StateDuration >= 2.5f)
-        {
-            _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
-        }
     }
 }

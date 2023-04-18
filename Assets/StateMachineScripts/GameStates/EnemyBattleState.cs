@@ -6,7 +6,6 @@ public class EnemyBattleState : State
 {
     private GameFSM _stateMachine;
     private GameController _controller;
-    PlayerStats _playerHP;
 
     public EnemyBattleState(GameFSM stateMachine, GameController controller)
     {
@@ -35,15 +34,20 @@ public class EnemyBattleState : State
     {
         base.Tick();
         //Check if player health <= 0 and if true switch state to lose state
-        if(_playerHP._playerCurrentHealth <= 0)
+        if(_controller._playerHP._currentHealth <= 0)
         {
             _stateMachine.ChangeState(_stateMachine.LoseState);
         }
         //Enemy Attack After thinking 
         if (StateDuration >= 2.5f)
         {
-            _playerHP._playerCurrentHealth -= 1;
-            _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
+            EnemyBasicAttack();
         }
+    }
+
+    public void EnemyBasicAttack()
+    {
+        _controller._playerHP.TakeDamage(1);
+        _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
     }
 }

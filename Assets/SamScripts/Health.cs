@@ -6,6 +6,7 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] public int _maxHealth = 10;
     [SerializeField] public int _currentHealth = 10;
+    [SerializeField] public int _currentDefense = 0;
 
     void Awake()
     {
@@ -13,7 +14,19 @@ public class Health : MonoBehaviour, IDamageable
     }
     public void TakeDamage(int damage)
     {
-        _currentHealth -= damage;
+        if (_currentDefense >= 1)
+        {
+            _currentDefense -= damage;
+            if (_currentDefense < 0)
+            {
+                _currentHealth += _currentDefense;
+                _currentDefense = 0;
+            }
+        }
+        else
+        {
+            _currentHealth -= damage;
+        }
         Debug.Log("Took: " + damage);
     }
     public void Kill()
