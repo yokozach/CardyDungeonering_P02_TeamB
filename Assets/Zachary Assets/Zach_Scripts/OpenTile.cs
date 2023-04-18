@@ -11,7 +11,7 @@ public class OpenTile : MonoBehaviour
     {
         eventTile.PlayEvent();
         gameObject.SetActive(false);
-
+        
 
     }
 
