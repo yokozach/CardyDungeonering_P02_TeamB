@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Hayden's Assets/Main Menu.unity
+    guid: c9d5111b7a822cc42b982d96abb78f46
+  - enabled: 1
     path: Assets/Zachary Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
