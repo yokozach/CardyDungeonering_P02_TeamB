@@ -88,7 +88,7 @@ public class GridManager : MonoBehaviour
         for (int i=0; i < _cards.Count; i++)
         {
             _currentCard = _cards[i];
-            Tile retrievedTile = _tiles[new Vector2(_currentCard.ReturnCardRow(), _currentCard.ReturnCardCol())];
+            Tile retrievedTile = _tiles[new Vector2(_currentCard.ReturnCardCol(), _currentCard.ReturnCardRow())];
 
             // Sets current card to the tile & moves it if unoccupied
             if (retrievedTile.ReturnCurrentCard() == null)
@@ -98,7 +98,7 @@ public class GridManager : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Tile {_currentCard.ReturnCardRow()} {_currentCard.ReturnCardCol()} is already occupied.");
+                Debug.Log($"Tile {_currentCard.ReturnCardCol()} {_currentCard.ReturnCardRow()} is already occupied.");
             }   
         }
 

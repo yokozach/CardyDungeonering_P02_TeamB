@@ -33,14 +33,14 @@ public class MainCard : MonoBehaviour
         _cardObject.SetActive(state);
     }
 
-    public int ReturnCardRow()
-    {
-        return _cardRow;
-    }
-
     public int ReturnCardCol()
     {
         return _cardCol;
+    }
+
+    public int ReturnCardRow()
+    {
+        return _cardRow;
     }
 
     public OpenTile ReturnOpenTile()
