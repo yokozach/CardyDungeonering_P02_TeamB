@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Data")]
-    [SerializeField] private bool playerActive = true; // is player actionable?
+    [SerializeField] public bool playerActive = true; // is player actionable?
     [SerializeField] private Vector2Int startGridPos = new Vector2Int(2, 2); // Where on the grid the player starts
     [SerializeField] private float moveCooldown = 0.2f; // Cooldown for movement
 
@@ -22,6 +22,15 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private InputManager inputManager; // InputManager script
     [SerializeField] private GridManager gridManager; // GridManager script
+    [SerializeField] private PlayerAnimator playerAnim; // PlayerAnimator script
+
+    // Bools for player animator
+    public bool _entering;
+    public bool _killed;
+    public bool _hurt;
+    public bool _shield;
+    public bool _healed;
+    public bool lowHP;
 
     private void Awake()
     {
@@ -35,6 +44,7 @@ public class PlayerController : MonoBehaviour
         // Find components in scene if not directly linked
         if (inputManager == null) inputManager = FindObjectOfType<InputManager>();
         if (gridManager == null) gridManager = FindObjectOfType<GridManager>();
+        if (playerAnim == null) playerAnim = GetComponentInChildren<PlayerAnimator>();
 
         curGridPos = startGridPos;
         moveDis = gridManager.ReturnSpacing() / 30;
@@ -45,6 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         if (curCooldown > 0)
             curCooldown -= Time.deltaTime;
+
     }
 
     bool CheckTile(Vector2 direction)
@@ -123,6 +134,11 @@ public class PlayerController : MonoBehaviour
     public void SetPlayerPos(Vector2 pos)
     {
         transform.position = pos;
+    }
+
+    public bool ReturnPlayerActive()
+    {
+        return playerActive;
     }
 
 }
