@@ -31,6 +31,6 @@ public class GameFSM : StateMachineMB
 
     private void Start()
     {
-        ChangeState(PlayerChooseCardState);
+        ChangeState(SetupState);
     }
 }

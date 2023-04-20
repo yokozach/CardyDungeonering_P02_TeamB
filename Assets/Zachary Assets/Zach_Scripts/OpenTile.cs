@@ -11,10 +11,6 @@ public class OpenTile : MonoBehaviour
         eventTile.gameObject.SetActive(true);
         eventTile.PlayEvent();
         gameObject.SetActive(false);
-<<<<<<< HEAD
-=======
-        
->>>>>>> main
 
     }
 

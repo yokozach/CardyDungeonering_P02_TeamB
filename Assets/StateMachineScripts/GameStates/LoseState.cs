@@ -18,11 +18,13 @@ public class LoseState : State
     {
         base.Enter();
         Debug.Log("Entering Lose State");
+        _controller._youLose.SetActive(true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        _controller._youLose.SetActive(false);
     }
 
     public override void FixedTick()
@@ -33,9 +35,5 @@ public class LoseState : State
     public override void Tick()
     {
         base.Tick();
-        if (StateDuration >= 2.5f)
-        {
-            _stateMachine.ChangeState(_stateMachine.SetupState);
-        }
     }
 }

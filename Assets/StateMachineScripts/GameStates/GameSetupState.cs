@@ -30,7 +30,7 @@ public class GameSetupState : State
     public override void Tick()
     {
         base.Tick();
-        _stateMachine.ChangeState(_stateMachine.SetupState);
+        _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
     }
 
     public override void Exit()

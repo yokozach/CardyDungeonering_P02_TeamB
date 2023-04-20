@@ -6,9 +6,11 @@ public class PlayerBattleState : State
 {
     private GameFSM _stateMachine;
     private GameController _controller;
-    public int _enemyHealth;
+    public int _enemyHealth = 100;
     public PlayerStats _player;
     private int _battleTurn = 0;
+    public GoblinEvent _currentEnemy;
+    
     public PlayerBattleState(GameFSM stateMachine, GameController controller)
     {
         //hold on to our parameters in our class variables for reuse
@@ -20,9 +22,22 @@ public class PlayerBattleState : State
     {
         base.Enter();
         Debug.Log("Entering Player Battle State");
-        if(_battleTurn == 0)
+        if (_battleTurn == 0)
         {
             //Find Current Enemy
+            if(_controller._whatEvent1._battleStart)
+            {
+                _currentEnemy = _controller._goblin1;
+            }
+            else if(_controller._whatEvent2._battleStart)
+            {
+                _currentEnemy = _controller._goblin2;
+            }
+            else if (_controller._whatEvent3._battleStart)
+            {
+                _currentEnemy = _controller._goblin3;
+            }
+
         }
     }
 
@@ -40,18 +55,24 @@ public class PlayerBattleState : State
     {
         base.Tick();
         //Check if Enemy health is <= 0 then switch states if true
-        if(_enemyHealth <= 0)
+        if(_currentEnemy.enemyHP <= 0)
         {
             _battleTurn = 0;
+            _controller._whatEvent4._enemiesDefeated++;
             _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
         }
+        
         //Check if Player Tapped then put Player Attack here 
-        //PlayerAttack()
+        if(_controller._checkTouched._touched == true)
+        {
+            PlayerAttack();
+        }
     }
 
     public void PlayerAttack()
     {
-        _enemyHealth -= _player._playerAttack;
+        Debug.Log("Attacked");
+        _currentEnemy.damage();
         _battleTurn++;
         _stateMachine.ChangeState(_stateMachine.EnemyBattleState);
     } 

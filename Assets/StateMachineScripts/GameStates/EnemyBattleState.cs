@@ -47,7 +47,10 @@ public class EnemyBattleState : State
 
     public void EnemyBasicAttack()
     {
-        _controller._playerHP.TakeDamage(1);
+        Debug.Log("EnemyAttack");
+        int _damage;
+        _damage = Random.Range(1, 4);
+        _controller._playerHP.TakeDamage(_damage);
         _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
     }
 }
