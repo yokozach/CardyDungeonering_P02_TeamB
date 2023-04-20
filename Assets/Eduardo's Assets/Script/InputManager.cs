@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     public event StartTouchEvent onStartTouch;
     public delegate void EndTouchEvent(Vector2 position, float time);
     public event EndTouchEvent onEndTouch;
+    public bool _touched = false;
 
     private TouchManager touchControls;
 
@@ -61,12 +62,14 @@ public class InputManager : MonoBehaviour
     {
         //Debug.Log("Touch Started " + touchControls.Touch.TouchPosition.ReadValue<Vector2>());
         if (onStartTouch != null) onStartTouch(touchControls.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.startTime);
+        _touched = true;
     }
 
     private void EndTouch(InputAction.CallbackContext context)
     {
         //Debug.Log("Touch Ended " + touchControls.Touch.TouchPosition.ReadValue<Vector2>());
         if (onEndTouch != null) onEndTouch(touchControls.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.time);
+        _touched = false;
     }
 
     private void DetectSwipeMethod()
