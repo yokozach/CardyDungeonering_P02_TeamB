@@ -24,7 +24,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ToucPosition",
+                    "name": "TouchHold",
+                    "type": "Button",
+                    "id": "6f525ca5-d47f-463d-bc28-ff99ec6f237c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TouchPosition",
                     "type": "PassThrough",
                     "id": "55292b1a-2344-4403-b265-0570e547e1ec",
                     "expectedControlType": "Vector2",
@@ -60,10 +69,21 @@
                     "name": "",
                     "id": "91c2cf52-acdb-4eb8-9f29-fe6be56f89af",
                     "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "Touchscreen",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0ce0336-34fe-49f2-ae2b-79f776eab413",
+                    "path": "<Touchscreen>/primaryTouch/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",
-                    "action": "ToucPosition",
+                    "action": "TouchHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
