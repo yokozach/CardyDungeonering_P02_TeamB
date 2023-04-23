@@ -14,43 +14,43 @@ public class AudioClipPlayer_Floors : MonoBehaviour
 
     public void Audio_Step()
     {
-        AudioSource audioSource = AudioHelper._playClip2D(_step, 1);
-        //audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
+        AudioSource audioSource = AudioHelper._playClip2D(_step, 0.75f);
+        audioSource.pitch = UnityEngine.Random.Range(0.9f, 1);
     }
 
     public void Audio_DmgHealth()
     {
-        AudioSource audioSource = AudioHelper._playClip2D(_dmgHealth, 1);
+        AudioSource audioSource = AudioHelper._playClip2D(_dmgHealth, 0.75f);
         audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
     }
 
     public void Audio_DmgShield()
     {
-        AudioSource audioSource = AudioHelper._playClip2D(_dmgShield, 1);
+        AudioSource audioSource = AudioHelper._playClip2D(_dmgShield, 0.75f);
         audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
     }
 
     public void Audio_Death()
     {
-        AudioSource audioSource = AudioHelper._playClip2D(_death, 1);
+        AudioSource audioSource = AudioHelper._playClip2D(_death, 0.75f);
         //audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
     }
 
     public void Audio_EnemyEncounter()
     {
-        AudioSource audioSource = AudioHelper._playClip2D(_enemyEncounter, 1);
+        AudioSource audioSource = AudioHelper._playClip2D(_enemyEncounter, 0.75f);
         //audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
     }
 
     public void Audio_ItemCollected()
     {
-        AudioSource audioSource = AudioHelper._playClip2D(_itemCollected, 1);
+        AudioSource audioSource = AudioHelper._playClip2D(_itemCollected, 0.75f);
         //audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
     }
 
     public void Audio_Event()
     {
-        AudioSource audioSource = AudioHelper._playClip2D(_event, 1);
+        AudioSource audioSource = AudioHelper._playClip2D(_event, 0.75f);
         //audioSource.pitch = UnityEngine.Random.Range(0.5f, 1);
     }
 }

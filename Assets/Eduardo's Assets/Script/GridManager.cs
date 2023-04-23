@@ -14,6 +14,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile _tilePrafab; // Tile Prefab
 
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private CameraController camController;
 
     [Header("Set-up")]
 
@@ -29,8 +30,8 @@ public class GridManager : MonoBehaviour
 
     private void Start()
     {
-        if (playerController == null)
-            playerController = FindObjectOfType<PlayerController>();
+        if (playerController == null) playerController = FindObjectOfType<PlayerController>();
+        if (camController == null) camController = FindObjectOfType<CameraController>();
         GenerateGrid();
     }
 
@@ -127,7 +128,7 @@ public class GridManager : MonoBehaviour
     void SetUpPlayer()
     {
         Tile startTile = ReturnTileDictionary()[playerController.ReturnCurGridPos()];
-        playerController.SetPlayerPos(startTile.transform.position);
+        StartCoroutine(playerController.EnteringFloor(3, startTile.transform.position));
     }
 
     public Tile GetTileAtPosition(Vector2 pos)

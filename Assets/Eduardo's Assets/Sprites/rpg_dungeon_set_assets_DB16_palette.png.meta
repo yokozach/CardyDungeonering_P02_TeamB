@@ -124,7 +124,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,7 +145,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -166,7 +166,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -187,7 +187,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,7 +208,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,7 +229,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,7 +250,7 @@ TextureImporter:
         width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -271,7 +271,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -292,7 +292,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -313,7 +313,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -334,7 +334,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -355,7 +355,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -376,7 +376,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -397,7 +397,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -418,7 +418,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -439,7 +439,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -460,7 +460,7 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -481,7 +481,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -502,7 +502,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -523,7 +523,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -544,7 +544,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -565,7 +565,7 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -573,6 +573,540 @@ TextureImporter:
       bones: []
       spriteID: 8f87447a105346542a93216e92964f58
       internalID: -704987118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_22
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 367
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbae66d9496f5a1489a755b79c6bdde1
+      internalID: 988220238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_23
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 361
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85288bf7b664a0e4cafb5b21d2dd043b
+      internalID: -88386382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 46
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9371d447f2e77374a90304b9858af765
+      internalID: -2065895648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_25
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 46
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2dfca252cc7b9d42853f8945b88faab
+      internalID: 1684146204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_26
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 45
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd0efe513fcdc24c954fc02324493ce
+      internalID: -1594035607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 46
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3775572cb7d530e4cab47dcc031de33e
+      internalID: -652233888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_28
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 46
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5826e1bd564afcd4583a042dfed7d975
+      internalID: -430952334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_29
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 46
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fbca634f734e1f409fce4d16bf2197a
+      internalID: 1705051474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_30
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 46
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7c4854af447bb469c2b2d322fdf71b
+      internalID: -1277678670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_31
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 45
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7fabca85e6845442a157702d73e0f72
+      internalID: -493237519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_32
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 51
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e7bbce6ce4ae644949a3455d1f3351
+      internalID: 438169725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_33
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 49
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83fe58cbfb233624984ef8ff7210f781
+      internalID: 1832210093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_34
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 536
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26176356a4790104a84ec66fd4e1a10a
+      internalID: 654125695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_35
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 536
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d9a9cb475e9c14bb2e97ddba08e162
+      internalID: 1835677106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_36
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 536
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ebdfed99dae8d4ebf7c1233a8c7c9c
+      internalID: -723846653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_37
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 536
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460bc1a0a6c97fa4fb489ad0e467aa45
+      internalID: -830126901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_38
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 537
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61be4850eaceca84bace177b7ebcd487
+      internalID: 237405688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_39
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 537
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b7a157ff798b5145ad0c2421f42332d
+      internalID: 270889720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_40
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 537
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1573bf29874fc348825ac77d0d899b7
+      internalID: 933188309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_41
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 537
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e43341388b3db4e9e730e80c51c33d
+      internalID: -342996523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_42
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 537
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0afd24838bdba34a8c36a63e622ab4e
+      internalID: -23654475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg_dungeon_set_assets_DB16_palette_43
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 537
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 13}
+        - {x: 8, y: 12}
+        - {x: -8, y: 12}
+        - {x: -8, y: 13}
+        - {x: -12, y: 13}
+        - {x: -12, y: -13}
+        - {x: 12, y: -13}
+        - {x: 12, y: 13}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef35e20415f17bb4280feeb9d521fcad
+      internalID: 1530226024
       vertices: []
       indices: 
       edges: []
@@ -588,28 +1122,50 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rpg_dungeon_set_assets_DB16_palette_9: -2127523092
-      rpg_dungeon_set_assets_DB16_palette_2: -1658999976
-      rpg_dungeon_set_assets_DB16_palette_7: -1027151686
+      rpg_dungeon_set_assets_DB16_palette_26: -1594035607
       rpg_dungeon_set_assets_DB16_palette_1: 692861691
-      rpg_dungeon_set_assets_DB16_palette_19: -255135301
       rpg_dungeon_set_assets_DB16_palette_6: -77988301
       rpg_dungeon_set_assets_DB16_palette_17: 381395901
       rpg_dungeon_set_assets_DB16_palette_12: -1157875759
+      rpg_dungeon_set_assets_DB16_palette_33: 1832210093
+      rpg_dungeon_set_assets_DB16_palette_42: -23654475
+      rpg_dungeon_set_assets_DB16_palette_10: 531087000
+      rpg_dungeon_set_assets_DB16_palette_11: 1811459665
+      rpg_dungeon_set_assets_DB16_palette_41: -342996523
+      rpg_dungeon_set_assets_DB16_palette_22: 988220238
+      rpg_dungeon_set_assets_DB16_palette_18: 178090323
+      rpg_dungeon_set_assets_DB16_palette_28: -430952334
+      rpg_dungeon_set_assets_DB16_palette_25: 1684146204
+      rpg_dungeon_set_assets_DB16_palette_8: 1177346214
+      rpg_dungeon_set_assets_DB16_palette_36: -723846653
+      rpg_dungeon_set_assets_DB16_palette_13: 536043638
+      rpg_dungeon_set_assets_DB16_palette_24: -2065895648
+      rpg_dungeon_set_assets_DB16_palette_34: 654125695
+      rpg_dungeon_set_assets_DB16_palette_14: 408085424
+      rpg_dungeon_set_assets_DB16_palette_30: -1277678670
+      rpg_dungeon_set_assets_DB16_palette_40: 933188309
+      rpg_dungeon_set_assets_DB16_palette_37: -830126901
+      rpg_dungeon_set_assets_DB16_palette_23: -88386382
+      rpg_dungeon_set_assets_DB16_palette_43: 1530226024
+      rpg_dungeon_set_assets_DB16_palette_9: -2127523092
+      rpg_dungeon_set_assets_DB16_palette_2: -1658999976
+      rpg_dungeon_set_assets_DB16_palette_7: -1027151686
+      rpg_dungeon_set_assets_DB16_palette_31: -493237519
+      rpg_dungeon_set_assets_DB16_palette_19: -255135301
       rpg_dungeon_set_assets_DB16_palette_0: -931383674
       rpg_dungeon_set_assets_DB16_palette_21: -704987118
-      rpg_dungeon_set_assets_DB16_palette_10: 531087000
       rpg_dungeon_set_assets_DB16_palette_3: -539758214
-      rpg_dungeon_set_assets_DB16_palette_11: 1811459665
       rpg_dungeon_set_assets_DB16_palette_15: -757648750
-      rpg_dungeon_set_assets_DB16_palette_18: 178090323
-      rpg_dungeon_set_assets_DB16_palette_8: 1177346214
-      rpg_dungeon_set_assets_DB16_palette_13: 536043638
-      rpg_dungeon_set_assets_DB16_palette_14: 408085424
+      rpg_dungeon_set_assets_DB16_palette_39: 270889720
+      rpg_dungeon_set_assets_DB16_palette_27: -652233888
+      rpg_dungeon_set_assets_DB16_palette_35: 1835677106
+      rpg_dungeon_set_assets_DB16_palette_29: 1705051474
+      rpg_dungeon_set_assets_DB16_palette_38: 237405688
       rpg_dungeon_set_assets_DB16_palette_4: 1794781233
       rpg_dungeon_set_assets_DB16_palette_16: -1468447970
       rpg_dungeon_set_assets_DB16_palette_20: 817701388
       rpg_dungeon_set_assets_DB16_palette_5: -236745729
+      rpg_dungeon_set_assets_DB16_palette_32: 438169725
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

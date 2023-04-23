@@ -6,7 +6,6 @@ public class PlayerAnimator : MonoBehaviour
 {
 
     private PlayerController _player;
-    // private Health playerHP;
     private Animator _anim;
     private SpriteRenderer _renderer;
 
@@ -31,6 +30,14 @@ public class PlayerAnimator : MonoBehaviour
         var state = GetState();
 
         _player._entering = false;
+        _player._appear = false;
+        _player._teleport = false;
+        _player._killed = false;
+        _player._hurtShield = false;
+        _player._hurt = false;
+        _player._hurtCrit = false;
+        _player._shield = false;
+        _player._healed = false;
 
         if (state == _currentState) return;
         _anim.CrossFade(state, 0, 0);
@@ -42,21 +49,32 @@ public class PlayerAnimator : MonoBehaviour
         if (Time.time < _lockedTill) return _currentState;
 
         // Priorities
-        if (_player._killed) return Explode;
 
-        if (_player._entering) return LockState(Enter, 1.5f);
+        if (_player._dead) return Dead;
 
-        if (_player._hurt)
+        if (_player._killed)
         {
-            // Add method to read attack dmg type to use normal hurt, crit hurt, or shield hurt.
-            return Hurt;
+            _player._dead = true;
+            return LockState(Explode, 0.8f);
         }
 
-        if (_player._shield) return ShieldUp;
+        if (_player._entering) return LockState(Enter, 1.1f);
 
-        if (_player._healed) return Heal;
+        if (_player._appear) return LockState(Appear, 0.5f);
+        
+        if (_player._teleport) return LockState(Teleport, 0.5f);
 
-        if (_player.lowHP) return LowHP;
+        if (_player._hurtShield) return LockState(HurtShield, 0.5f);
+
+        if (_player._hurt) return LockState(Hurt, 0.5f);
+
+        if (_player._hurtCrit) return LockState(HurtCrit, 0.9f);
+
+        if (_player._shield) return LockState(ShieldUp, 0.8f);
+
+        if (_player._healed) return LockState(Heal, 0.8f);
+
+        if (_player._lowHP) return LowHP;
 
         if (_player.playerActive) return IdleMotion; 
         else return IdleStop;
@@ -72,11 +90,11 @@ public class PlayerAnimator : MonoBehaviour
 
     private int _currentState;
 
-    private static readonly int IdleStop = Animator.StringToHash("Player_Stop");
+    private static readonly int IdleStop = Animator.StringToHash("Player_IdleStop");
     private static readonly int IdleMotion = Animator.StringToHash("Player_Idle");
     private static readonly int Hurt = Animator.StringToHash("Player_Hurt");
-    private static readonly int CritHurt = Animator.StringToHash("Player_CritHurt");
-    private static readonly int HurtShield = Animator.StringToHash("Player_ShieldHurt");
+    private static readonly int HurtCrit = Animator.StringToHash("Player_HurtCrit");
+    private static readonly int HurtShield = Animator.StringToHash("Player_HurtShield");
     private static readonly int Heal = Animator.StringToHash("Player_Heal");
     private static readonly int Explode = Animator.StringToHash("Player_Explode");
     private static readonly int Enter = Animator.StringToHash("Player_Enter");
@@ -84,6 +102,7 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int LowHP = Animator.StringToHash("Player_LowHP");
     private static readonly int ShieldUp = Animator.StringToHash("Player_ShieldUp");
     private static readonly int Teleport = Animator.StringToHash("Player_Teleport");
+    private static readonly int Dead = Animator.StringToHash("Player_Dead");
 
     #endregion
 

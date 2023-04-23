@@ -46,9 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _colCount: 5
   _rowCount: 5
-  _widthSpacing: 1.25
-  _heightSpacing: 1.25
+  _widthSpacing: 1.5
+  _heightSpacing: 1.5
   _tilePrafab: {fileID: 1070388423398743686, guid: 3d6b8b80748463746b45137554a83cfc, type: 3}
   playerController: {fileID: 0}
-  _cards:
-  - {fileID: 0}
+  camController: {fileID: 0}
+  _emptyCardPrefab: {fileID: 5536843888676496263, guid: dc71f8c693c7c2647862966dd8ba3ecd, type: 3}
+  _cards: []

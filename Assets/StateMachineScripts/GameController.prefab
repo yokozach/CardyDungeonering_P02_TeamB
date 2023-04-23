@@ -45,8 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f8d4c761d53fc4da9f857a63da4064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: 5239304313178141967, guid: ea78d64b63d194d48878ec26f164e330, type: 3}
-  _playerHP: {fileID: 9063207721097772109, guid: ea78d64b63d194d48878ec26f164e330, type: 3}
+  _playerController: {fileID: 0}
+  _playerHP: {fileID: 0}
+  _inBattle: 0
+  _checkTouched: {fileID: 0}
+  _whatEvent1: {fileID: 0}
+  _whatEvent2: {fileID: 0}
+  _whatEvent3: {fileID: 0}
+  _whatEvent4: {fileID: 0}
+  _goblin1: {fileID: 0}
+  _goblin2: {fileID: 0}
+  _goblin3: {fileID: 0}
+  _youWin: {fileID: 0}
+  _youLose: {fileID: 0}
 --- !u!114 &8558650172995283180
 MonoBehaviour:
   m_ObjectHideFlags: 0

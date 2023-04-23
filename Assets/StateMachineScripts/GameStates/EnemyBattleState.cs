@@ -34,7 +34,7 @@ public class EnemyBattleState : State
     {
         base.Tick();
         //Check if player health <= 0 and if true switch state to lose state
-        if(_controller._playerHP._currentHealth <= 0)
+        if(_controller._playerHP._curHP <= 0)
         {
             _stateMachine.ChangeState(_stateMachine.LoseState);
         }

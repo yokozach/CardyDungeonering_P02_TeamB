@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Background : MonoBehaviour
 {
 
     public List<Sprite> backgroundImages = new List<Sprite>();
 
-    private SpriteRenderer spriteRenderer;
+    private Image image;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
         SetRandomBackgroundImage();
     }
 
@@ -20,7 +21,7 @@ public class Background : MonoBehaviour
         if (backgroundImages.Count > 0)
         {
             int randomIndex = Random.Range(0, backgroundImages.Count);
-            spriteRenderer.sprite = backgroundImages[randomIndex];
+            image.sprite = backgroundImages[randomIndex];
         }
     }
 
