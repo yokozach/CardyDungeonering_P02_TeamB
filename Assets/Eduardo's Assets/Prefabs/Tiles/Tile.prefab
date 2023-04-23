@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4425981703531133148}
   - component: {fileID: 7855824145905166172}
   - component: {fileID: 1070388423398743686}
+  - component: {fileID: 5986060224844712510}
+  - component: {fileID: 8080218838180625681}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2333710129271675887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8792173938472807618}
@@ -72,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -731648973
-  m_SortingLayer: 2
+  m_SortingLayerID: -917729005
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1027151686, guid: ff35ba7083ee9544683cb71fa6d06e0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,11 +101,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseColor: {r: 1, g: 1, b: 1, a: 1}
-  _offsetColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
+  _offsetColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   _renderer: {fileID: 7855824145905166172}
   _highlight: {fileID: 6261580193719004255}
   _currentCard: {fileID: 0}
   _revealed: 0
+--- !u!61 &5986060224844712510
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333710129271675887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8080218838180625681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333710129271675887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6261580193719004255
 GameObject:
   m_ObjectHideFlags: 0

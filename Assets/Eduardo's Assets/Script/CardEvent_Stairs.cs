@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class CardEvent_Stairs : IEvent
 {
+    [SerializeField] SpriteRenderer _renderer;
+    [SerializeField] Sprite _litStairs;
     public bool _revealed;
     public bool _active;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,6 +26,14 @@ public class CardEvent_Stairs : IEvent
     public override void PlayEvent()
     {
         _revealed = true;
+    }
+
+    // Visually activates stairs & indicate it's now accessible by players
+    public void ActivateStairs()
+    {
+        _active = true;
+        _renderer.sprite = _litStairs;
+
     }
 
     // Check if mission is fulfilled; Next floor if done
