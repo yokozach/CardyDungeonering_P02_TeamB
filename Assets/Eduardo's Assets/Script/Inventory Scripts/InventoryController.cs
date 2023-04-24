@@ -41,12 +41,10 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    public void DisplayCards(bool state)
+    public void DisplayCards()
     {
-        for (int i = 0; i < inventoryCards.Count; i++)
-        {
-            inventoryCards[i].SetActive(state);
-        }
+        if (cardCanvas.gameObject.activeSelf) cardCanvas.gameObject.SetActive(false);
+        else cardCanvas.gameObject.SetActive(true);
     }
 
 }

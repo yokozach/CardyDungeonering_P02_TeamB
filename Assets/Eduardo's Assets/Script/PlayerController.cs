@@ -80,7 +80,10 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(1.35f);
         playerActive = true;
-
+        CameraController CC = FindObjectOfType<CameraController>();
+        CC.ToggleFocus();
+        CC.SetTarget1(this.gameObject);
+        CC.SetTarget2(null);
     }
 
     bool CheckTile(Vector2 direction)
@@ -165,6 +168,12 @@ public class PlayerController : MonoBehaviour
     public void SetPlayerActiveState(bool state)
     {
         playerActive = state;
+    }
+
+    public void TogglePlayerActiveState()
+    {
+        if (playerActive) playerActive = false;
+        else playerActive = true;
     }
 
     public void SetGridPos(int row, int col)

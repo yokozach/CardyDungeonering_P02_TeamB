@@ -22,8 +22,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] float shakeIntensity = 0.1f;
 
     [Header("Cam Targets")]
-    [SerializeField] GameObject _player;
-    [SerializeField] GameObject _target;
+    [SerializeField] GameObject _target1;
+    [SerializeField] GameObject _target2;
 
     private Camera _camera;
     private Vector3 _targetPos;
@@ -32,6 +32,15 @@ public class CameraController : MonoBehaviour
 
     private float _shakeTime;
     private Vector3 _shakeOffset = Vector3.zero;
+
+    private PlayerController PC;
+    private GridManager GM;
+
+    private void Awake()
+    {
+        PC = FindObjectOfType<PlayerController>();
+        GM = FindObjectOfType<GridManager>();
+    }
 
     void Start()
     {
@@ -43,9 +52,9 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        if (focusEnabled && _player != null && _target != null)
+        if (focusEnabled && _target1 != null && _target2 != null)
         {
-            CameraFocus(_player.transform.position, _target.transform.position, _camZoom);
+            CameraFocus(_target1.transform.position, _target2.transform.position, _camZoom);
         }
         else
         {
@@ -123,9 +132,21 @@ public class CameraController : MonoBehaviour
         _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, _targetSize, Time.deltaTime * _animationSpeed);
     }
 
-    public void SetTarget(GameObject target)
+    public void StartFloor()
     {
-        _target = target;
+        _target1 = GM.ReturnTileDictionary()[PC.ReturnCurGridPos()].gameObject;
+        _target2 = GM.ReturnTileDictionary()[PC.ReturnCurGridPos()].gameObject;
+        focusEnabled = true;
+    }
+
+    public void SetTarget1(GameObject target)
+    {
+        _target1 = target;
+    }
+
+    public void SetTarget2(GameObject target)
+    {
+        _target2 = target;
     }
 
     public void CameraShake(float shakeAmount)
@@ -134,5 +155,10 @@ public class CameraController : MonoBehaviour
         shakeIntensity = shakeAmount;
     }
 
+    public void ToggleFocus()
+    {
+        if (focusEnabled) focusEnabled = false;
+        else focusEnabled = true;
+    }
 
 }

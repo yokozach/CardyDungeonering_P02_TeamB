@@ -80,6 +80,7 @@ public class GridManager : MonoBehaviour
         }
 
         //_cam.transform.position = new Vector3((float)_currentHS / 2 - 0.5f, (float)_currentWS / 2 - 0.5f, -10);
+        FindObjectOfType<CameraController>().StartFloor();
         SetUpCards();
 
     }
