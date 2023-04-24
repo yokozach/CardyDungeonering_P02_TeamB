@@ -15,6 +15,14 @@ public class Player_Hud : MonoBehaviour
     public Health playerHP;
     public PlayerStats playerAttack;
 
+    private void Start()
+    {
+        defenseNum.text = playerHP._curDef.ToString();
+        healthNum.text = playerHP._curHP.ToString();
+        attackNum.text = playerAttack._playerAttack.ToString();
+    }
+
+
     public void shieldcalc()
     {
         ShielhBar.fillAmount = playerHP._curDef / playerHP._maxDef;
