@@ -9,11 +9,7 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] public int _curHP = 10;
     [SerializeField] public int _maxDef = 10;
     [SerializeField] public int _curDef = 0;
-
-    public Image HealhBar;
-    public Image ShielhBar;
-    public TMP_Text healthNum;
-    public TMP_Text defenseNum;
+    public Player_Hud hudCalcs;
  
 
     private PlayerController playerController;
@@ -40,8 +36,7 @@ public class Health : MonoBehaviour, IDamageable
         {
 
             _curDef -= dmg;
-            ShielhBar.fillAmount = _curDef / _maxDef;
-            defenseNum.text = _curDef.ToString();
+            hudCalcs.shieldcalc();
             if (_curDef < 0)
             {
                 _curHP += _curDef;
@@ -65,8 +60,7 @@ public class Health : MonoBehaviour, IDamageable
         else
         {
             _curHP -= dmg;
-            HealhBar.fillAmount = _curHP / _maxHP;
-            healthNum.text = _curHP.ToString();
+            hudCalcs.healthCalc();
             if (_curHP <= 0) Kill();
         }
         Debug.Log("Took: " + dmg);
