@@ -6,6 +6,7 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] public int _maxHP = 10;
     [SerializeField] public int _curHP = 10;
+    [SerializeField] public int _maxDef = 10;
     [SerializeField] public int _curDef = 0;
 
     private PlayerController playerController;
