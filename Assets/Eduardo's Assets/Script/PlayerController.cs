@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Data")]
     [SerializeField] public bool playerActive = false; // is player actionable?
+    [SerializeField] public bool invOpen = false; // is player in inventory?
     [SerializeField] private Vector2Int startGridPos = new Vector2Int(2, 2); // Where on the grid the player starts
     [SerializeField] private float moveCooldown = 0.2f; // Cooldown for movement
 
@@ -24,8 +25,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputManager inputManager; // InputManager script
     [SerializeField] private GridManager gridManager; // GridManager script
     [SerializeField] private PlayerAnimator playerAnim; // PlayerAnimator script
+    [SerializeField] private InventoryController _IC; // Player Inventory
 
     private AudioClipPlayer_Floors _sfxPlayer;
+    private CameraController _CC;
 
     // Bools for player animator; All auto disable when turned true except for _lowHP & _dead
     // Don't change _dead bool directly; use _killed instead
@@ -58,9 +61,11 @@ public class PlayerController : MonoBehaviour
         if (gridManager == null) gridManager = FindObjectOfType<GridManager>();
         if (playerAnim == null) playerAnim = GetComponentInChildren<PlayerAnimator>();
 
+        // _IC = FindObjectOfType<InventoryController>();
         _sfxPlayer = FindObjectOfType<AudioClipPlayer_Floors>();
+        _CC = FindObjectOfType<CameraController>();
 
-        moveDis = gridManager.ReturnSpacing() / 30;
+    moveDis = gridManager.ReturnSpacing() / 30;
 
     }
 
@@ -80,10 +85,10 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(1.35f);
         playerActive = true;
-        CameraController CC = FindObjectOfType<CameraController>();
-        CC.ToggleFocus();
-        CC.SetTarget1(this.gameObject);
-        CC.SetTarget2(null);
+        _CC.ToggleFocus();
+        _CC.SetTarget1(gameObject);
+        _CC.SetTarget2(null);
+        _IC.ToggleButtonActive();
     }
 
     bool CheckTile(Vector2 direction)
@@ -127,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator MovePlayer(Vector2 direction)
     {        
-        if (isMoving || curCooldown > 0 || !playerActive)
+        if (isMoving || curCooldown > 0 || !playerActive || invOpen)
             yield break;
 
         // Checks if the tile attempted to move onto is empty, occupied, invalid, etc.

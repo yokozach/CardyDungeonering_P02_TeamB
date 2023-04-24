@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
+    [Header("Inventory Info")]
     [SerializeField] private Canvas cardCanvas;
     [SerializeField] public GameObject inventoryHolder;
+    [SerializeField] private Button invBtn;
     [SerializeField] private List<GameObject> inventoryCards = new List<GameObject>();
     [SerializeField] private List<Vector2> cardPositions = new List<Vector2>();
     [SerializeField] private int maxCapacity = 10;
+
+    [Header("Other Components")]
+    [SerializeField] PlayerController PC;
 
     private void Start()
     {
@@ -43,8 +49,22 @@ public class InventoryController : MonoBehaviour
 
     public void DisplayCards()
     {
-        if (cardCanvas.gameObject.activeSelf) cardCanvas.gameObject.SetActive(false);
-        else cardCanvas.gameObject.SetActive(true);
+        if (cardCanvas.gameObject.activeSelf)
+        {
+            cardCanvas.gameObject.SetActive(false);
+            PC.invOpen = false;
+        }
+        else
+        {
+            cardCanvas.gameObject.SetActive(true);
+            PC.invOpen = true;
+        }
+    }
+
+    public void ToggleButtonActive()
+    {
+        if (invBtn.IsInteractable()) invBtn.interactable = false;
+        else invBtn.interactable = true;
     }
 
 }

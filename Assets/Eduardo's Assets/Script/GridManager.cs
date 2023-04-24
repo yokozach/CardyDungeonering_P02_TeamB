@@ -19,7 +19,9 @@ public class GridManager : MonoBehaviour
     [Header("Set-up")]
 
     [SerializeField] private GameObject _emptyCardPrefab;
-    [SerializeField] private List<MainCard> _cards;
+    [SerializeField] private List<MainCard> _fixedCards;
+    [SerializeField] private List<Vector2Int> gridPositions;
+
     private MainCard _currentCard;
 
     private Dictionary<Vector2, Tile> _tiles;
@@ -87,10 +89,13 @@ public class GridManager : MonoBehaviour
 
     void SetUpCards()
     {
-        for (int i=0; i < _cards.Count; i++)
+        for (int i=0; i < _fixedCards.Count; i++)
         {
-            _currentCard = _cards[i];
-            Tile retrievedTile = _tiles[new Vector2(_currentCard.ReturnCardCol(), _currentCard.ReturnCardRow())];
+            _currentCard = _fixedCards[i];
+
+            // Tile retrievedTile = _tiles[new Vector2(_currentCard.ReturnCardCol(), _currentCard.ReturnCardRow())];
+
+            Tile retrievedTile = _tiles[gridPositions[i]];
 
             // Sets current card to the tile & moves it if unoccupied
             if (retrievedTile.ReturnCurrentCard() == null)
@@ -100,7 +105,7 @@ public class GridManager : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Tile {_currentCard.ReturnCardCol()} {_currentCard.ReturnCardRow()} is already occupied.");
+                Debug.Log($"Tile {gridPositions[i]} is already occupied, so {_currentCard} cannot be placed.");
             }   
         }
 

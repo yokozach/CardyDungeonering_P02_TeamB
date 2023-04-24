@@ -349,7 +349,7 @@ PrefabInstance:
     - target: {fileID: 7893820471877759958, guid: 7328947250a5a24498113e45cd4be1e7, type: 3}
       propertyPath: inventoryController
       value: 
-      objectReference: {fileID: 1271250009}
+      objectReference: {fileID: 5645301749972468949}
     - target: {fileID: 7893820471877759959, guid: 7328947250a5a24498113e45cd4be1e7, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -728,17 +728,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91ef41f3ca313754c8f1544623e7e01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1271250009 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5645301751210162317, guid: 787e6021fae13c4429865466d44467a1, type: 3}
-  m_PrefabInstance: {fileID: 5645301749972468948}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af9e4870fae07e44ea66e0c46206c31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1315170757
@@ -1182,6 +1171,82 @@ PrefabInstance:
       propertyPath: _cards.Array.data[6]
       value: 
       objectReference: {fileID: 1106561356}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[0]
+      value: 
+      objectReference: {fileID: 731220034}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[1]
+      value: 
+      objectReference: {fileID: 1429232245}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[2]
+      value: 
+      objectReference: {fileID: 845774601}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[3]
+      value: 
+      objectReference: {fileID: 1315170758}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[4]
+      value: 
+      objectReference: {fileID: 1236514611}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[5]
+      value: 
+      objectReference: {fileID: 383631241}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[6]
+      value: 
+      objectReference: {fileID: 1106561356}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[0].x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[0].y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[1].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[2].x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[2].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[3].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[3].y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[4].x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[4].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: gridPositions.Array.data[6].x
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
 --- !u!114 &1848003151 stripped
@@ -1366,6 +1431,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094458533}
   m_CullTransparentMesh: 1
+--- !u!114 &295512599353121499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5489649658454431753, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+  m_PrefabInstance: {fileID: 5203619527293469394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2720596615335749121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1614,11 +1690,7 @@ PrefabInstance:
     - target: {fileID: 5489649658454431753, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1271250009}
-    - target: {fileID: 5489649658454431753, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 5239304314239634612}
+      objectReference: {fileID: 5645301749972468949}
     - target: {fileID: 8024271391184090936, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: m_Name
       value: PlayerHUD_Canvas
@@ -1654,6 +1726,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 629753733784735030, guid: 787e6021fae13c4429865466d44467a1, type: 3}
+      propertyPath: PC
+      value: 
+      objectReference: {fileID: 5239304314239634612}
+    - target: {fileID: 629753733784735030, guid: 787e6021fae13c4429865466d44467a1, type: 3}
+      propertyPath: invBtn
+      value: 
+      objectReference: {fileID: 295512599353121499}
     - target: {fileID: 5645301749776997863, guid: 787e6021fae13c4429865466d44467a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1744,6 +1824,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787e6021fae13c4429865466d44467a1, type: 3}
+--- !u!114 &5645301749972468949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 629753733784735030, guid: 787e6021fae13c4429865466d44467a1, type: 3}
+  m_PrefabInstance: {fileID: 5645301749972468948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9e4870fae07e44ea66e0c46206c31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8045670052031803867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1799,6 +1890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2815393853810834799, guid: dacc1431d21a51043a2b954cf0f9a2bc, type: 3}
+      propertyPath: _IC
+      value: 
+      objectReference: {fileID: 5645301749972468949}
     - target: {fileID: 2815393853810834799, guid: dacc1431d21a51043a2b954cf0f9a2bc, type: 3}
       propertyPath: gridManager
       value: 

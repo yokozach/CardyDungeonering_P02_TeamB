@@ -12,9 +12,6 @@ public class MainCard : MonoBehaviour
     [SerializeField] private string _cardName = "CardName";
     [SerializeField] private IEvent _event;
 
-    [SerializeField] private int _cardCol = 0;
-    [SerializeField] private int _cardRow = 0;
-
     [Header("Card Visuals")]
     [SerializeField] private GameObject _cover;
     [SerializeField] private GameObject _face;
@@ -42,16 +39,6 @@ public class MainCard : MonoBehaviour
     public void SetCardActive(bool state)
     {
         _cardObject.SetActive(state);
-    }
-
-    public int ReturnCardCol()
-    {
-        return _cardCol;
-    }
-
-    public int ReturnCardRow()
-    {
-        return _cardRow;
     }
 
     public void Reveal()
