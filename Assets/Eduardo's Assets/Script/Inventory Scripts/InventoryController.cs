@@ -5,9 +5,15 @@ using UnityEngine;
 public class InventoryController : MonoBehaviour
 {
     [SerializeField] private Canvas cardCanvas;
+    [SerializeField] public GameObject inventoryHolder;
     [SerializeField] private List<GameObject> inventoryCards = new List<GameObject>();
     [SerializeField] private List<Vector2> cardPositions = new List<Vector2>();
     [SerializeField] private int maxCapacity = 10;
+
+    private void Start()
+    {
+        SortCardsByPosition();
+    }
 
     public void AddCard(GameObject card)
     {
