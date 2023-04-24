@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class Background : MonoBehaviour
 {
+    [SerializeField] bool fixedBackgroundSize = true;
 
-    public List<Sprite> backgroundImages = new List<Sprite>();
+    [SerializeField] List<Sprite> backgroundImages = new List<Sprite>();
 
     private Image image;
 
-    void Start()
+    private Canvas canvas;
+
+    void Awake()
     {
         image = GetComponent<Image>();
+        canvas = GetComponentInParent<Canvas>();
         SetRandomBackgroundImage();
+        if(fixedBackgroundSize) canvas.renderMode = RenderMode.WorldSpace;
     }
 
     public void SetRandomBackgroundImage()

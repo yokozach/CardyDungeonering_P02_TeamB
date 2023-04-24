@@ -275,6 +275,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ef41f3ca313754c8f1544623e7e01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &129247882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4270271804944619339, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: _cardCol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270271804944619339, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: _cardRow
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241362384061687089, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617039454236701898, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+      propertyPath: m_Name
+      value: Card - Slime
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+--- !u!114 &129247883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4270271804944619339, guid: 2c2a44b9a2c10b947bbcf952e45effae, type: 3}
+  m_PrefabInstance: {fileID: 129247882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ef41f3ca313754c8f1544623e7e01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &175259781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,14 +813,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startPos: {x: 0, y: 0, z: -10}
-  _startSize: 0
+  _startSize: 8
   bobbingEnabled: 0
   bobbingSpeed: 2.5
   bobbingAmount: 0.00025
   _animationSpeed: 5
   _camZoom: 1
   _minSize: 4.5
-  combatFocus: 0
+  focusEnabled: 0
   shakeDuration: 0.2
   shakeIntensity: 0.1
   _player: {fileID: 1945445524}
@@ -923,7 +999,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1006556665
   m_SortingOrder: -100
   m_TargetDisplay: 0
 --- !u!224 &1677484043
@@ -1012,7 +1088,7 @@ PrefabInstance:
       objectReference: {fileID: 5239304314239634612}
     - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
       propertyPath: _cards.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
       propertyPath: _cards.Array.data[0]
@@ -1038,6 +1114,10 @@ PrefabInstance:
       propertyPath: _cards.Array.data[5]
       value: 
       objectReference: {fileID: 175259782}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _cards.Array.data[6]
+      value: 
+      objectReference: {fileID: 129247883}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
 --- !u!114 &1848003151 stripped
@@ -1183,6 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6746fb27121546a4faa7a95c2e678ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fixedBackgroundSize: 1
   backgroundImages:
   - {fileID: 21300000, guid: c80e5b848a73f0c439b8d8f60be48c71, type: 3}
   - {fileID: 21300000, guid: 24023ac29aaceb345b1386358da32225, type: 3}

@@ -15,13 +15,13 @@ public class CameraController : MonoBehaviour
     [SerializeField] float _animationSpeed = 5f;
     [SerializeField] float _camZoom = 1f;
     [SerializeField] float _minSize = 5.0f;
-    [SerializeField] bool combatFocus;
+    [SerializeField] bool focusEnabled;
 
     [Header("Camera Shake Settings")]
     [SerializeField] float shakeDuration = 0.2f;
     [SerializeField] float shakeIntensity = 0.1f;
 
-    [Header("Combat Targets")]
+    [Header("Cam Targets")]
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _target;
 
@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        if (combatFocus && _player != null && _target != null)
+        if (focusEnabled && _player != null && _target != null)
         {
             CameraFocus(_player.transform.position, _target.transform.position, _camZoom);
         }
