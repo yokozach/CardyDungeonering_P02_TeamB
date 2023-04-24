@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 769497205
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1337507992, guid: c1a6232ce17619348b299aa994fc9f63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,8 +172,21 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+  health: {fileID: 0}
   inputManager: {fileID: 0}
   gridManager: {fileID: 0}
+  playerAnim: {fileID: 0}
+  _entering: 0
+  _appear: 0
+  _teleport: 0
+  _killed: 0
+  _hurt: 0
+  _hurtCrit: 0
+  _hurtShield: 0
+  _shield: 0
+  _healed: 0
+  _lowHP: 0
+  _dead: 0
 --- !u!114 &9063207721097772109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,8 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98d1d45eada249479563936935a6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
-  _currentHealth: 10
+  _maxHP: 10
+  _curHP: 10
+  _curDef: 10
 --- !u!114 &-5206863508291066323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +215,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAttack: 5
-  _playerMaxHealth: 25
-  _playerCurrentHealth: 25
-  _playerDefense: 10
   PlayerInventory: []
