@@ -639,6 +639,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace985eb5d039ef40a7b827b42b01c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _touched: 0
+  position:
+    m_Name: Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 28f477c0-a5d1-4cc6-a7e6-8a8a3e1affbf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  press:
+    m_Name: Press
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ef16956c-7a01-4d46-9e50-3a0dea1da0c2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  swipeRes: 100
 --- !u!4 &1461142925
 Transform:
   m_ObjectHideFlags: 0
@@ -778,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

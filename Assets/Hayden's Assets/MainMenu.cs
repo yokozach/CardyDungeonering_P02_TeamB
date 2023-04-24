@@ -13,10 +13,10 @@ public class MainMenu : MonoBehaviour
     public delegate void EndTouchEvent(Vector2 position, float time);
     public event EndTouchEvent OnEndTouch;
 
-    private TouchControls touchControls;
+    private TouchManager touchControls;
     private void Awake()
     {
-        touchControls = new TouchControls();
+        touchControls = new TouchManager();
     }
     private void OnEnable()
     {
@@ -33,13 +33,13 @@ public class MainMenu : MonoBehaviour
     }
     private void StartTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("Touch Started" + touchControls.Touch.ToucPosition.ReadValue<Vector2>());
-        if (OnStartTouch != null) OnStartTouch(touchControls.Touch.ToucPosition.ReadValue<Vector2>(), (float)context.startTime);
+        //Debug.Log("Touch Started" + touchControls.Touch.TouchPosition.ReadValue<Vector2>());
+        if (OnStartTouch != null) OnStartTouch(touchControls.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.startTime);
     }
     private void EndTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("Touch Ended" + touchControls.Touch.ToucPosition.ReadValue<Vector2>());
-        if (OnEndTouch != null) OnEndTouch(touchControls.Touch.ToucPosition.ReadValue<Vector2>(), (float)context.time);
+        //Debug.Log("Touch Ended" + touchControls.Touch.TouchPosition.ReadValue<Vector2>());
+        if (OnEndTouch != null) OnEndTouch(touchControls.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.time);
     }
     public void PlayGame()
     {

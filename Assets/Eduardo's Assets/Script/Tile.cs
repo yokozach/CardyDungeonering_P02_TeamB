@@ -34,4 +34,9 @@ public class Tile : MonoBehaviour
         _currentCard = assignedCard;
     }
 
+    public GameObject ReturnCurrentCard()
+    {
+        return _currentCard;
+    }
+
 }
