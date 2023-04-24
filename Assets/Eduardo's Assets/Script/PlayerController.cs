@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Data")]
-    [SerializeField] public bool playerActive = true; // is player actionable?
+    [SerializeField] public bool playerActive = false; // is player actionable?
     [SerializeField] private Vector2Int startGridPos = new Vector2Int(2, 2); // Where on the grid the player starts
     [SerializeField] private float moveCooldown = 0.2f; // Cooldown for movement
 
@@ -20,31 +20,67 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false; // flag to check if the player is currently moving
 
     [Header("Components")]
+    [SerializeField] private Health health; // Health script
     [SerializeField] private InputManager inputManager; // InputManager script
     [SerializeField] private GridManager gridManager; // GridManager script
+    [SerializeField] private PlayerAnimator playerAnim; // PlayerAnimator script
+
+    private AudioClipPlayer_Floors _sfxPlayer;
+
+    // Bools for player animator; All auto disable when turned true except for _lowHP & _dead
+    // Don't change _dead bool directly; use _killed instead
+    public bool _entering;
+    public bool _appear;
+    public bool _teleport;
+    public bool _killed;
+    public bool _hurt;
+    public bool _hurtCrit;
+    public bool _hurtShield;
+    public bool _shield;
+    public bool _healed;
+    public bool _lowHP;
+    public bool _dead;
 
     private void Awake()
     {
         move.Enable();
         move.performed += context => { StartCoroutine(MovePlayer(context.ReadValue<Vector2>())); };
         InputManager.instance.swipePerformed += context => { StartCoroutine(MovePlayer(context)); };
+        curGridPos = startGridPos;
+
     }
 
     void Start()
     {
         // Find components in scene if not directly linked
+        if (health == null) health = GetComponent<Health>();
         if (inputManager == null) inputManager = FindObjectOfType<InputManager>();
         if (gridManager == null) gridManager = FindObjectOfType<GridManager>();
+        if (playerAnim == null) playerAnim = GetComponentInChildren<PlayerAnimator>();
 
-        curGridPos = startGridPos;
+        _sfxPlayer = FindObjectOfType<AudioClipPlayer_Floors>();
+
         moveDis = gridManager.ReturnSpacing() / 30;
-        
+
     }
 
     void Update()
     {
         if (curCooldown > 0)
             curCooldown -= Time.deltaTime;
+
+    }
+
+    public IEnumerator EnteringFloor(float wait, Vector2 startPos)
+    {
+        yield return new WaitForSeconds(wait);
+
+        _entering = true;
+        SetPlayerPos(startPos);
+
+        yield return new WaitForSeconds(1.35f);
+        playerActive = true;
+
     }
 
     bool CheckTile(Vector2 direction)
@@ -59,9 +95,27 @@ public class PlayerController : MonoBehaviour
         // Checks if next tile is occupied with a card
         if (gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard() != null)
         {
-            Debug.Log("Next Tile is Occupied!");
-            gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard().GetComponent<MainCard>().ReturnOpenTile().Open();
-            return true;
+            MainCard curMainCard = gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard().GetComponent<MainCard>();
+            if (curMainCard.ReturnEvent().ReturnType() == IEvent.TileType.Stairs && curMainCard.ReturnEvent())
+            {
+                if (curMainCard.ReturnStairs()._revealed == true)
+                {
+                    curMainCard.ReturnStairs().CheckMissionStatus();
+                }
+                else
+                {
+                    Debug.Log("Stairs Found");
+                    curMainCard.Reveal();
+                    return true;
+                }
+            }
+            else
+            {
+                Debug.Log("Next Tile is Occupied!");
+                curMainCard.Reveal();
+                return true;
+            }
+
         }
 
         return false;
@@ -83,6 +137,9 @@ public class PlayerController : MonoBehaviour
 
         // Adjust Grid Position
         curGridPos += new Vector2(direction.x, -direction.y);
+
+        // Plays Move Sfx
+        _sfxPlayer.Audio_Step();
 
         // Animates movement of player towards desired tile
         for (int i=0; i<30; i++)
@@ -123,6 +180,11 @@ public class PlayerController : MonoBehaviour
     public void SetPlayerPos(Vector2 pos)
     {
         transform.position = pos;
+    }
+
+    public bool ReturnPlayerActive()
+    {
+        return playerActive;
     }
 
 }

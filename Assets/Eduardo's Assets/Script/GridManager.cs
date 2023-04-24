@@ -14,6 +14,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile _tilePrafab; // Tile Prefab
 
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private CameraController camController;
 
     [Header("Set-up")]
 
@@ -29,8 +30,8 @@ public class GridManager : MonoBehaviour
 
     private void Start()
     {
-        if (playerController == null)
-            playerController = FindObjectOfType<PlayerController>();
+        if (playerController == null) playerController = FindObjectOfType<PlayerController>();
+        if (camController == null) camController = FindObjectOfType<CameraController>();
         GenerateGrid();
     }
 
@@ -88,7 +89,7 @@ public class GridManager : MonoBehaviour
         for (int i=0; i < _cards.Count; i++)
         {
             _currentCard = _cards[i];
-            Tile retrievedTile = _tiles[new Vector2(_currentCard.ReturnCardRow(), _currentCard.ReturnCardCol())];
+            Tile retrievedTile = _tiles[new Vector2(_currentCard.ReturnCardCol(), _currentCard.ReturnCardRow())];
 
             // Sets current card to the tile & moves it if unoccupied
             if (retrievedTile.ReturnCurrentCard() == null)
@@ -98,7 +99,7 @@ public class GridManager : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Tile {_currentCard.ReturnCardRow()} {_currentCard.ReturnCardCol()} is already occupied.");
+                Debug.Log($"Tile {_currentCard.ReturnCardCol()} {_currentCard.ReturnCardRow()} is already occupied.");
             }   
         }
 
@@ -127,7 +128,7 @@ public class GridManager : MonoBehaviour
     void SetUpPlayer()
     {
         Tile startTile = ReturnTileDictionary()[playerController.ReturnCurGridPos()];
-        playerController.SetPlayerPos(startTile.transform.position);
+        StartCoroutine(playerController.EnteringFloor(3, startTile.transform.position));
     }
 
     public Tile GetTileAtPosition(Vector2 pos)
