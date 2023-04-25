@@ -15,4 +15,10 @@ public class InvCard_Attack : InvCard
     {
         
     }
+
+    public override void ActivateCardEffects()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

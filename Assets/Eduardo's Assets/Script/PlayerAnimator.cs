@@ -30,6 +30,7 @@ public class PlayerAnimator : MonoBehaviour
         var state = GetState();
 
         _player._entering = false;
+        _player._exiting = false;
         _player._appear = false;
         _player._teleport = false;
         _player._killed = false;
@@ -58,7 +59,19 @@ public class PlayerAnimator : MonoBehaviour
             return LockState(Explode, 0.8f);
         }
 
-        if (_player._entering) return LockState(Enter, 1.1f);
+        if (_player._entering)
+        {
+            _player._exited = false;
+            return LockState(Enter, 1.1f);
+        }
+
+        if (_player._exited) return Exited;
+
+        if (_player._exiting) 
+        { 
+            _player._exited = true;
+            return LockState(Exit, 1f);
+        }
 
         if (_player._appear) return LockState(Appear, 0.5f);
         
@@ -98,6 +111,8 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int Heal = Animator.StringToHash("Player_Heal");
     private static readonly int Explode = Animator.StringToHash("Player_Explode");
     private static readonly int Enter = Animator.StringToHash("Player_Enter");
+    private static readonly int Exit = Animator.StringToHash("Player_Exit");
+    private static readonly int Exited = Animator.StringToHash("Player_Exited");
     private static readonly int Appear = Animator.StringToHash("Player_Appear");
     private static readonly int LowHP = Animator.StringToHash("Player_LowHP");
     private static readonly int ShieldUp = Animator.StringToHash("Player_ShieldUp");

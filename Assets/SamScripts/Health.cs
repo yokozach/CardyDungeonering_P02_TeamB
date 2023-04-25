@@ -74,4 +74,16 @@ public class Health : MonoBehaviour, IDamageable
 
     }
 
+    public void HealHP(int value)
+    {
+        _curHP += value;
+        if (_curHP > _maxHP) _curHP = _maxHP;
+    }
+
+    public void HealSH(int value)
+    {
+        _curDef += value;
+        if (_curDef > _maxDef) _curDef = _maxDef;
+    }
+
 }

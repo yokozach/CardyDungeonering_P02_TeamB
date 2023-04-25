@@ -11,10 +11,10 @@ public class PanelFader : MonoBehaviour
     private void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        StartCoroutine(FadePanel());
+        StartCoroutine(FadePanelOut());
     }
 
-    private IEnumerator FadePanel()
+    private IEnumerator FadePanelOut()
     {
         float timer = 0f;
 
@@ -27,4 +27,19 @@ public class PanelFader : MonoBehaviour
             yield return null;
         }
     }
+
+    public IEnumerator FadePanelIn()
+    {
+        float timer = 0f;
+
+        while (timer < fadeTime)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, timer / fadeTime);
+            canvasGroup.alpha = alpha;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
 }

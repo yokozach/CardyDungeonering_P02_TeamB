@@ -52,4 +52,5 @@ MonoBehaviour:
   playerController: {fileID: 0}
   camController: {fileID: 0}
   _emptyCardPrefab: {fileID: 5536843888676496263, guid: dc71f8c693c7c2647862966dd8ba3ecd, type: 3}
-  _cards: []
+  _fixedCards: []
+  gridPositions: []

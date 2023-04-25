@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5743920258923493676}
   - component: {fileID: 3360646017356362384}
   - component: {fileID: -9083049435737127212}
-  - component: {fileID: 7016244626102339036}
+  - component: {fileID: 4719750326590664800}
   m_Layer: 5
   m_Name: Card_Chestplate
   m_TagString: Untagged
@@ -122,8 +122,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3360646017356362384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &7016244626102339036
+      m_Calls:
+      - m_Target: {fileID: 4719750326590664800}
+        m_TargetAssemblyTypeName: InvCard, Assembly-CSharp
+        m_MethodName: ToggleSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4719750326590664800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,13 +144,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 443434881322344062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41ff830f2b6be449b50a8753af13058, type: 3}
+  m_Script: {fileID: 11500000, guid: a4e2f9be15b89ce4a87ede999ed7040a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Chestplate
-  cardType: 3
+  cardType: 1
   deckNumber: 0
   cardDescription: Repair 5 shield points
+  animationSpeed: 1.5
+  isMoving: 0
+  healType: 1
+  minHeal: 5
+  maxHeal: 5
 --- !u!1 &4147976628700359502
 GameObject:
   m_ObjectHideFlags: 0

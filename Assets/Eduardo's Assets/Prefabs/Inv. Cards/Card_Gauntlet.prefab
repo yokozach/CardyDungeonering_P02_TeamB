@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5743920258923493676}
   - component: {fileID: 3360646017356362384}
   - component: {fileID: -9083049435737127212}
-  - component: {fileID: 7016244626102339036}
+  - component: {fileID: 1068454160708095466}
   m_Layer: 5
   m_Name: Card_Gauntlet
   m_TagString: Untagged
@@ -122,8 +122,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3360646017356362384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &7016244626102339036
+      m_Calls:
+      - m_Target: {fileID: 1068454160708095466}
+        m_TargetAssemblyTypeName: InvCard, Assembly-CSharp
+        m_MethodName: ToggleSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1068454160708095466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,13 +144,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 443434881322344062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41ff830f2b6be449b50a8753af13058, type: 3}
+  m_Script: {fileID: 11500000, guid: de0c0a95b21d77044a6af1f5fbad97e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Gauntlet
   cardType: 0
-  deckNumber: 0
-  cardDescription: 'Deal 2 dmg '
+  deckNumber: 1
+  cardDescription: Deal 1-3 dmg 3 times
+  animationSpeed: 1.5
+  originalPosition: {x: 0, y: 0}
 --- !u!1 &4147976628700359502
 GameObject:
   m_ObjectHideFlags: 0

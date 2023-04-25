@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3360646017356362384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7016244626102339036}
+        m_TargetAssemblyTypeName: InvCard, Assembly-CSharp
+        m_MethodName: ToggleSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7016244626102339036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Attack Potion
   cardType: 3
-  deckNumber: 0
-  cardDescription: Increase attack power by 1 for the next 3 attacks
+  deckNumber: 2
+  cardDescription: +1 attack for 1 encounter
+  animationSpeed: 1.5
+  originalPosition: {x: 0, y: 0}
+  PlayerStats: {fileID: 0}
 --- !u!1 &4147976628700359502
 GameObject:
   m_ObjectHideFlags: 0

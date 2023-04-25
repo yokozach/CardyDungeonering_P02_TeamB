@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class InvCard_Buff : InvCard
 {
+    [Header("Buff Data")]
+    [SerializeField] PlayerStats PlayerStats;
+
+
     // Start is called before the first frame update
     void Start()
     {
         
+
+
     }
 
     // Update is called once per frame
@@ -15,4 +21,10 @@ public class InvCard_Buff : InvCard
     {
         
     }
+
+    public override void ActivateCardEffects()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

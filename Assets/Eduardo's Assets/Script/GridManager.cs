@@ -134,7 +134,7 @@ public class GridManager : MonoBehaviour
     void SetUpPlayer()
     {
         Tile startTile = ReturnTileDictionary()[playerController.ReturnCurGridPos()];
-        StartCoroutine(playerController.EnteringFloor(3, startTile.transform.position));
+        StartCoroutine(playerController.EnteringFloor(1.5f, startTile.transform.position));
     }
 
     public Tile GetTileAtPosition(Vector2 pos)

@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     // Bools for player animator; All auto disable when turned true except for _lowHP & _dead
     // Don't change _dead bool directly; use _killed instead
     public bool _entering;
+    public bool _exiting;
+    public bool _exited;
     public bool _appear;
     public bool _teleport;
     public bool _killed;

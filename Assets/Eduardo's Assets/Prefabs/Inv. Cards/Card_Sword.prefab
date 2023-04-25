@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3360646017356362384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757423117812588377}
+        m_TargetAssemblyTypeName: InvCard, Assembly-CSharp
+        m_MethodName: ToggleSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &757423117812588377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +149,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Sword
   cardType: 0
-  deckNumber: 0
+  deckNumber: 4
   cardDescription: Inflict 5 dmg
+  animationSpeed: 1.5
+  originalPosition: {x: 0, y: 0}
 --- !u!1 &7750002666091578991
 GameObject:
   m_ObjectHideFlags: 0
