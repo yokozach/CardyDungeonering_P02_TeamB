@@ -19,7 +19,7 @@ public class Player_Hud : MonoBehaviour
     {
         defenseNum.text = playerHP._curDef.ToString();
         healthNum.text = playerHP._curHP.ToString();
-        attackNum.text = playerAttack._playerAttack.ToString();
+        attackNum.text = playerAttack._playerBaseAttack.ToString();
     }
 
 
@@ -39,6 +39,6 @@ public class Player_Hud : MonoBehaviour
     public void AttackDisplay()
     {
 
-        attackNum.text = playerAttack._playerAttack.ToString();
+        attackNum.text = playerAttack._playerBaseAttack.ToString();
     }
 }

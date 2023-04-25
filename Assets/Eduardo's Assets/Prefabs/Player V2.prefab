@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2815393853810834793}
   - component: {fileID: 8196916071806066834}
   - component: {fileID: 2815393853810834799}
+  - component: {fileID: 4880794467101953411}
   m_Layer: 0
   m_Name: Player V2
   m_TagString: Untagged
@@ -63,7 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ec99a1bab142e439bee758c322580d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerActive: 1
+  playerActive: 0
+  invOpen: 0
   startGridPos: {x: 2, y: 4}
   moveCooldown: 0.2
   move:
@@ -119,7 +121,10 @@ MonoBehaviour:
   inputManager: {fileID: 0}
   gridManager: {fileID: 0}
   playerAnim: {fileID: 1783684818716578054}
+  _IC: {fileID: 0}
   _entering: 0
+  _exiting: 0
+  _exited: 0
   _appear: 0
   _teleport: 0
   _killed: 0
@@ -130,6 +135,28 @@ MonoBehaviour:
   _healed: 0
   _lowHP: 0
   _dead: 0
+--- !u!114 &4880794467101953411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2815393853810834798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e4c5f8f17317047a2c9a3069f61b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAttack: 5
+  _playerDefense: 0
+  NumberOfAttacks: 1
+  sharp: 0
+  sharpMultiplier: 0
+  heavy: 0
+  heavyMultiplier: 0
+  pierce: 0
+  _CritChance: 0.01
+  _CritMultiplier: 1.5
 --- !u!1 &5049954620238714238
 GameObject:
   m_ObjectHideFlags: 0

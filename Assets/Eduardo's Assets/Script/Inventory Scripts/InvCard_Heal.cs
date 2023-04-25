@@ -6,8 +6,12 @@ public class InvCard_Heal : InvCard
 {
     public enum HealType
     {
-        HP,
-        SH
+        HealHP,
+        RegenHP,
+        MaximizeHP,
+        RepairSH,
+        RegenSH,
+        MaximizeSH,
     }
     
     [Header("Heal Data")]
@@ -34,13 +38,13 @@ public class InvCard_Heal : InvCard
 
     public override void ActivateCardEffects()
     {
-        if (healType == HealType.HP) 
+        if (healType == HealType.HealHP) 
         {
             // Add health to the player between minHeal and maxHeal
             int amount = Random.Range(minHeal, maxHeal + 1);
             _playerHealth.HealHP(amount);
         }
-        else if (healType == HealType.SH)
+        else if (healType == HealType.RepairSH)
         {
             // Add shield to the player between minHeal and maxHeal
             int amount = Random.Range(minHeal, maxHeal + 1);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvCard_Explorative : InvCard
+public class InvCard_Exploration : InvCard
 {
     // Start is called before the first frame update
     void Start()

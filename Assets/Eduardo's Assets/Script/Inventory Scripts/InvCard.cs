@@ -69,6 +69,23 @@ public abstract class InvCard : MonoBehaviour
         }
     }
 
+    public void SelectCard()
+    {
+        if (invDeck == null) invDeck = transform.parent.gameObject; // Get inventory holder (parent)
+
+        if (isMoving) return;
+
+        if (!isSelected)
+        {
+            // if the card is not selected, select it
+            StartCoroutine(MoveCard(centerPosition, centerScale));
+            invDeck.transform.parent.GetComponent<InventoryController>().SetSelectedCard(gameObject);
+            invDeck.transform.parent.GetComponent<InventoryController>().ActivateSelectPanel();
+            ReorderCards();
+            isSelected = true;
+        }
+    }
+
     public void SetInventoryOff()
     {
         rectTransform.anchoredPosition = originalPosition;
