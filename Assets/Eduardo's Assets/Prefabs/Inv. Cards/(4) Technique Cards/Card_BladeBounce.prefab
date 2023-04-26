@@ -93,10 +93,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c43532fed7a4e46aec526d74ba5387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   cardName: Blade Bounce
   cardType: 2
-  deckNumber: 0
   cardDescription: 
+  countInDeck: 3
+  invNum: 0
   animationSpeed: 1.5
   isMoving: 0
 --- !u!1 &1241039326547322229

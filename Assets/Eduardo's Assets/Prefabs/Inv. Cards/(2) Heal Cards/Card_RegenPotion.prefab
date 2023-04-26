@@ -93,15 +93,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e2f9be15b89ce4a87ede999ed7040a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
+  selectBtn: {fileID: 8875752264734579955}
   cardName: Regen Potion
   cardType: 1
-  deckNumber: 0
-  cardDescription: Regen 2 HP per turn for 5 turns
+  cardDescription: Regen 2 HP per turn for 3 turns
+  countInDeck: 2
+  invNum: 0
   animationSpeed: 1.5
   isMoving: 0
   healType: 1
   minHeal: 2
   maxHeal: 2
+  turnDuration: 3
 --- !u!1 &4147976628700359502
 GameObject:
   m_ObjectHideFlags: 0

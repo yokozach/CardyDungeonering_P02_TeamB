@@ -226,10 +226,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0c0a95b21d77044a6af1f5fbad97e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
+  selectBtn: {fileID: 8383673517530330934}
   cardName: Boomerang
   cardType: 0
-  invNum: 0
   cardDescription: 'Inflict 2 dmg (2x) '
+  countInDeck: 3
+  invNum: 0
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}

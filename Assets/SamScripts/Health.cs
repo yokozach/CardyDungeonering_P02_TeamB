@@ -55,6 +55,36 @@ public class Health : MonoBehaviour, IDamageable
         // Reduces dmg by player defense
         if (playerController != null) dmg -= playerStats._totalPlayerDefense;
 
+        if (_curDef >= 1)
+        {
+            centralManager._sfxPlayer.Audio_DmgShield();
+            _curDef -= dmg;
+            centralManager._playerHUD.ShieldCalc();
+            playerController._hurtShield = true;
+        }
+        else
+        {
+            _curHP -= dmg;
+            centralManager._playerHUD.HealthCalc();
+
+            if (_curHP <= 0)
+            {
+                Kill();
+                return;
+            }
+
+            if (_critOccured)
+            {
+                _critOccured = false;
+                centralManager._sfxPlayer.Audio_DmgCrit();
+                enemy._hurtCrit = true;
+            }
+            else
+            {
+                centralManager._sfxPlayer.Audio_DmgHealth();
+                enemy._hurt = true;
+            }
+        }
 
     }
 
@@ -64,14 +94,11 @@ public class Health : MonoBehaviour, IDamageable
         for (int i = 0; i > playerStats._totalNumberOfAttacks; i++)
         {
             // Calculate if dmg inflicted was a critical hit
-            if (playerController != null)
+            float randomValue = Random.Range(0f, 1f);
+            if (playerStats._totalCritChance > randomValue)
             {
-                float randomValue = Random.Range(0f, 1f);
-                if (playerStats._totalCritChance > randomValue)
-                {
-                    dmg = Mathf.RoundToInt(dmg * playerStats._CritMultiplier);
-                    _critOccured = true;
-                }
+                dmg = Mathf.RoundToInt(dmg * playerStats._CritMultiplier);
+                _critOccured = true;
             }
 
             // Deal dmg to shield if any; deal dmg to HP if pierce enabled or no shield remaining
@@ -81,7 +108,7 @@ public class Health : MonoBehaviour, IDamageable
 
                 centralManager._sfxPlayer.Audio_DmgShield();
                 _curDef -= dmg;
-                // centralManager._enemyHUD.shieldcalc();
+                // centralManager._enemyHUD.Shieldcalc();
                 enemy._hurtShield = true;
             }
             else
@@ -89,7 +116,7 @@ public class Health : MonoBehaviour, IDamageable
                 if (playerStats._sharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
 
                 _curHP -= dmg;
-                // centralManager._enemyHUD.healthCalc();
+                // centralManager._enemyHUD.HealthCalc();
 
                 if (_curHP <= 0)
                 {
@@ -99,6 +126,7 @@ public class Health : MonoBehaviour, IDamageable
 
                 if (_critOccured)
                 {
+                    _critOccured = false;
                     centralManager._sfxPlayer.Audio_DmgCrit();
                     enemy._hurtCrit = true;
                 }
@@ -118,9 +146,16 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Kill()
     {
-        if (unitType == UnitType.Player) playerController._killed = true;
-        else if (unitType == UnitType.Enemy) enemy._killed = true;
-
+        if (unitType == UnitType.Player)
+        {
+            playerController._killed = true;
+            // centralManager._enemyHUD.HealthCalc();
+        }
+        else if (unitType == UnitType.Enemy) 
+        {
+            enemy._killed = true;
+            centralManager._playerHUD.HealthCalc();
+        }
         centralManager._sfxPlayer.Audio_Death();
 
     }
@@ -131,8 +166,8 @@ public class Health : MonoBehaviour, IDamageable
 
         if (_curHP > _maxHP) _curHP = _maxHP;
 
-        if (unitType == UnitType.Player) centralManager._playerHUD.HealthCalc(); 
-        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.healthCalc();
+        if (unitType == UnitType.Player) centralManager._playerHUD.HealthCalc();
+        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.HealthCalc();
 
         centralManager._sfxPlayer.Audio_Heal();
     }
@@ -144,7 +179,7 @@ public class Health : MonoBehaviour, IDamageable
         if (_curDef > _maxDef) _curDef = _maxDef;
 
         if (unitType == UnitType.Player) centralManager._playerHUD.ShieldCalc();
-        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.healthCalc();
+        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.ShieldCalc();
 
         centralManager._sfxPlayer.Audio_ShieldUp();
     }
@@ -156,7 +191,7 @@ public class Health : MonoBehaviour, IDamageable
         if (_curHP > _maxHP) _curHP = _maxHP;
 
         if (unitType == UnitType.Player) centralManager._playerHUD.HealthCalc();
-        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.healthCalc();
+        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.HealthCalc();
 
         centralManager._sfxPlayer.Audio_Heal();
     }
@@ -168,7 +203,7 @@ public class Health : MonoBehaviour, IDamageable
         if (_curDef > _maxDef) _curDef = _maxDef;
 
         if (unitType == UnitType.Player) centralManager._playerHUD.ShieldCalc();
-        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.healthCalc();
+        else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.ShieldCalc();
 
         centralManager._sfxPlayer.Audio_ShieldUp();
     }
@@ -180,6 +215,8 @@ public class Health : MonoBehaviour, IDamageable
         // Create a new regen object and add it to the list of regen effects
         Regen newRegen = new Regen(regenValue, regenTurns);
         regenList.Add(newRegen);
+
+        centralManager._sfxPlayer.Audio_Heal();
     }
 
     public void RunRegenTurns()

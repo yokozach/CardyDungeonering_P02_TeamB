@@ -227,14 +227,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
+  selectBtn: {fileID: 8383673517530330934}
   cardName: Scythe
   cardType: 0
+  cardDescription: (Sharp) Inflict 3 dmg with 50% crit rate
+  countInDeck: 2
   invNum: 0
-  cardDescription: (Sharp) Inflict 2 dmg with 50% crit rate
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
-  attDmg: 2
+  attDmg: 3
   hits: 1
   pierce: 0
   sharp: 1

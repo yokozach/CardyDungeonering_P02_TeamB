@@ -227,16 +227,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
+  selectBtn: {fileID: 8383673517530330934}
   cardName: Sword
   cardType: 0
+  cardDescription: (Sharp) Inflict 4 dmg
+  countInDeck: 3
   invNum: 0
-  cardDescription: Inflict 4 dmg
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
   attDmg: 4
   hits: 1
-  pierce: 0
+  pierce: 1
   sharp: 0
   heavy: 0
   Crit: 0.01

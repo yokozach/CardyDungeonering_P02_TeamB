@@ -93,13 +93,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41ff830f2b6be449b50a8753af13058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
+  selectBtn: {fileID: 4924147351935745368}
   cardName: Iron Skin Potion
   cardType: 3
-  deckNumber: 0
   cardDescription: +1 defense for 3 turns
+  countInDeck: 2
+  invNum: 0
   animationSpeed: 1.5
   isMoving: 0
-  _playerStats: {fileID: 0}
   _buffType: 1
   _buffValue: 1
   _turnsItLasts: 3

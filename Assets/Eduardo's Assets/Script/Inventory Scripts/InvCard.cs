@@ -14,14 +14,16 @@ public abstract class InvCard : MonoBehaviour
         Explorative
     }
 
-    [Header("Central Manager")]
+    [Header("Components")]
     [SerializeField] public CentralManager centralManager;
+    [SerializeField] public GameObject selectBtn;
 
     [Header("Card Data")]
     public string cardName;
     public CardType cardType;
-    public int invNum;
     public string cardDescription;
+    public int countInDeck = 1;
+    public int invNum;
 
     [Header("Animation")]
     public float animationSpeed = 1.5f; // speed multiplier for the animation
@@ -39,7 +41,7 @@ public abstract class InvCard : MonoBehaviour
     {
         centralManager = FindObjectOfType<CentralManager>();
         rectTransform = GetComponent<RectTransform>(); // get the RectTransform component of the card
-        
+        selectBtn.SetActive(false);
     }
 
     private void Start()
@@ -54,18 +56,20 @@ public abstract class InvCard : MonoBehaviour
         if (isSelected)
         {
             // if the card is already selected, deselect it
-            StartCoroutine(MoveCard(originalPosition, originalScale));
+            StartCoroutine(MoveCard(originalPosition, originalScale, false));
             centralManager._inventoryController.SetSelectedCard(null);
             centralManager._inventoryController.DeactivateSelectPanel();
+            selectBtn.SetActive(false);
             isSelected = false;
         }
         else
         {
             // if the card is not selected, select it
-            StartCoroutine(MoveCard(centerPosition, centerScale));
+            StartCoroutine(MoveCard(centerPosition, centerScale, true));
             centralManager._inventoryController.SetSelectedCard(gameObject);
             centralManager._inventoryController.ActivateSelectPanel();
             ReorderCards();
+            selectBtn.SetActive(true);
             isSelected = true;
         }
     }
@@ -77,10 +81,11 @@ public abstract class InvCard : MonoBehaviour
         if (!isSelected)
         {
             // if the card is not selected, select it
-            StartCoroutine(MoveCard(centerPosition, centerScale));
+            StartCoroutine(MoveCard(centerPosition, centerScale, true));
             centralManager._inventoryController.SetSelectedCard(gameObject);
             centralManager._inventoryController.ActivateSelectPanel();
             ReorderCards();
+            selectBtn.SetActive(true);
             isSelected = true;
         }
     }
@@ -89,6 +94,7 @@ public abstract class InvCard : MonoBehaviour
     {
         rectTransform.anchoredPosition = originalPosition;
         transform.localScale = originalScale;
+        selectBtn.SetActive(false);
         isSelected = false;
     }
 
@@ -106,7 +112,7 @@ public abstract class InvCard : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator MoveCard(Vector2 targetPosition, Vector3 targetScale)
+    private IEnumerator MoveCard(Vector2 targetPosition, Vector3 targetScale, bool state)
     {
         isMoving = true;
 
@@ -139,6 +145,8 @@ public abstract class InvCard : MonoBehaviour
         }
 
         isMoving = false;
+        selectBtn.GetComponent<Button>().interactable = state;
+
     }
 
     private void ReorderCards()
