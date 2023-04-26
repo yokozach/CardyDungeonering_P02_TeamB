@@ -38,8 +38,13 @@ public class CardEvent_Enemy : IEvent
     // Initiate Combat State
     public override void PlayEvent()
     {
-
+        GameFSM _gameController = (GameFSM)FindObjectOfType(typeof(GameFSM));
+        GameController _controller = (GameController)FindObjectOfType(typeof(GameController));
+        _controller._enemyHealth = health;
+        _gameController.ChangeToBattle();
     }
+
+
 
     public Vector2Int AttackRange
     {

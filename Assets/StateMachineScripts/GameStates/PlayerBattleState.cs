@@ -6,10 +6,8 @@ public class PlayerBattleState : State
 {
     private GameFSM _stateMachine;
     private GameController _controller;
-    public int _enemyHealth = 100;
+    public Health _enemyHealth;
     public PlayerStats _player;
-    private int _battleTurn = 0;
-    public GoblinEvent _currentEnemy;
     
     public PlayerBattleState(GameFSM stateMachine, GameController controller)
     {
@@ -22,28 +20,18 @@ public class PlayerBattleState : State
     {
         base.Enter();
         Debug.Log("Entering Player Battle State");
-        if (_battleTurn == 0)
+        _controller._playerAttackButton.SetActive(true);
+        if (_controller._battleTurn == 0)
         {
             //Find Current Enemy
-            if(_controller._whatEvent1._battleStart)
-            {
-                _currentEnemy = _controller._goblin1;
-            }
-            else if(_controller._whatEvent2._battleStart)
-            {
-                _currentEnemy = _controller._goblin2;
-            }
-            else if (_controller._whatEvent3._battleStart)
-            {
-                _currentEnemy = _controller._goblin3;
-            }
-
+            _enemyHealth = _controller._enemyHealth;
         }
     }
 
     public override void Exit()
     {
         base.Exit();
+        _controller._playerAttackButton.SetActive(false);
     }
 
     public override void FixedTick()
@@ -55,25 +43,28 @@ public class PlayerBattleState : State
     {
         base.Tick();
         //Check if Enemy health is <= 0 then switch states if true
-        if(_currentEnemy.enemyHP <= 0)
+        if(_enemyHealth._curHP <= 0)
         {
-            _battleTurn = 0;
-            _controller._whatEvent4._enemiesDefeated++;
+            _controller._battleTurn = 0;
+            _controller._enemiesDefeated++;
+            Debug.Log("enemyDefeated in playerState");
             _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
         }
-        
-        //Check if Player Tapped then put Player Attack here 
-        if(_controller._checkTouched._touched == true)
+        if(_controller._playerHP._curHP <= 0)
         {
-            PlayerAttack();
+            Debug.Log("Player Died");
+            _stateMachine.ChangeState(_stateMachine.LoseState);
         }
     }
 
     public void PlayerAttack()
     {
         Debug.Log("Attacked");
-        _currentEnemy.damage();
-        _battleTurn++;
-        _stateMachine.ChangeState(_stateMachine.EnemyBattleState);
+        _enemyHealth.TakeDamage(2);
+        _controller._battleTurn++;
+        if (_enemyHealth._curHP > 0)
+        {
+            _stateMachine.ChangeState(_stateMachine.EnemyBattleState);
+        }
     } 
 }

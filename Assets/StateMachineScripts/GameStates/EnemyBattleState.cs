@@ -38,8 +38,19 @@ public class EnemyBattleState : State
         {
             _stateMachine.ChangeState(_stateMachine.LoseState);
         }
+        if(_controller._enemyHealth._curHP <= 0)
+        {
+            Debug.Log("enemyDefeated in enemyState");
+            _controller._battleTurn = 0;
+            _controller._enemiesDefeated++;
+            if(_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
+            {
+                _controller._stairs._active = true;
+            }
+            _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
+        }
         //Enemy Attack After thinking 
-        if (StateDuration >= 2.5f)
+        else if (StateDuration >= 2.5f)
         {
             EnemyBasicAttack();
         }

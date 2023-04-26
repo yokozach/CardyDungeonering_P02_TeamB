@@ -22,6 +22,10 @@ public class Health : MonoBehaviour, IDamageable
     {
         playerController = GetComponent<PlayerController>();
         enemy = GetComponent<CardEvent_Enemy>();
+        if(playerController != null)
+        {
+            DontDestroyOnLoad(this);
+        }
 
     }
 
@@ -62,9 +66,23 @@ public class Health : MonoBehaviour, IDamageable
     public void Kill()
     {
         Debug.Log("Dead");
-        if (playerController != null) playerController._killed = true;
-        if (enemy != null) enemy._killed = true;
-
+        if (playerController != null)
+        {
+            Debug.Log("YOU LOSE!");
+            playerController._killed = true;
+        }
+        if (enemy != null) 
+        {
+            Debug.Log("Player Wins!");
+            StartCoroutine(EnemyDeathWaitTimer(1));
+            enemy._killed = true;
+            enemy.EndEvent(this.gameObject);
+        }
     }
 
+    IEnumerator EnemyDeathWaitTimer(float pauseDuration)
+    {
+        yield return new WaitForSeconds(pauseDuration);
+        //play death animation
+    }
 }
