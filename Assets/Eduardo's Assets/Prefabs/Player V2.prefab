@@ -47,11 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98d1d45eada249479563936935a6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
+  unitType: 0
   _maxHP: 10
   _curHP: 10
   _maxDef: 10
-  _curDef: 0
-  hudCalcs: {fileID: 0}
+  _curDef: 3
 --- !u!114 &2815393853810834799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,11 +118,8 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
-  health: {fileID: 8196916071806066834}
+  centralManager: {fileID: 0}
   inputManager: {fileID: 0}
-  gridManager: {fileID: 0}
-  playerAnim: {fileID: 1783684818716578054}
-  _IC: {fileID: 0}
   _entering: 0
   _exiting: 0
   _exited: 0
@@ -147,16 +145,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e4c5f8f17317047a2c9a3069f61b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAttack: 5
-  _playerDefense: 0
-  NumberOfAttacks: 1
-  sharp: 0
-  sharpMultiplier: 0
-  heavy: 0
-  heavyMultiplier: 0
-  pierce: 0
-  _CritChance: 0.01
+  centralManager: {fileID: 0}
+  _playerBaseAttack: 3
+  _playerBaseDefense: 0
+  _totalPlayerAttack: 0
+  _totalPlayerDefense: 0
+  _attackValueDisplay: 0
+  _defenseValueDisplay: 0
+  _numberOfAttacks: 1
+  _pierce: 0
+  _sharp: 0
+  _sharpMultiplier: 1.5
+  _heavy: 0
+  _heavyMultiplier: 1.5
+  _totalNumberOfAttacks: 0
+  _baseCritChance: 0.01
   _CritMultiplier: 1.5
+  _totalCritChance: 0
 --- !u!1 &5049954620238714238
 GameObject:
   m_ObjectHideFlags: 0

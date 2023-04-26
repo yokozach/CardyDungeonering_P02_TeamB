@@ -18,7 +18,12 @@ public class InvCard_Technique : InvCard
 
     public override void ActivateCardEffects()
     {
-        throw new System.NotImplementedException();
+
+        
+        
+        RemoveCardFromInv();
+
+
     }
 
 }

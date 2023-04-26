@@ -22,6 +22,9 @@ public class PlayerBattleState : State
     {
         base.Enter();
         Debug.Log("Entering Player Battle State");
+
+        _player.transform.gameObject.GetComponent<Health>().RunRegenTurns();
+
         if (_battleTurn == 0)
         {
             //Find Current Enemy

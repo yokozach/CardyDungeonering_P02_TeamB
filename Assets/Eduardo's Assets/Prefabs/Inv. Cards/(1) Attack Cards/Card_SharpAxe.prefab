@@ -228,11 +228,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Sharp Axe
   cardType: 0
-  deckNumber: 0
-  cardDescription: (Sharp) Inflict 7 dmg
+  invNum: 0
+  cardDescription: (Sharp) Inflict 6 dmg
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
+  attDmg: 6
+  hits: 1
+  pierce: 0
+  sharp: 1
+  heavy: 0
+  Crit: 0.01
 --- !u!1 &3106591490731462499
 GameObject:
   m_ObjectHideFlags: 0

@@ -228,11 +228,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Broadsword
   cardType: 0
-  deckNumber: 0
-  cardDescription: Inflict 7 dmg
+  invNum: 0
+  cardDescription: Inflict 5 dmg
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
+  attDmg: 5
+  hits: 1
+  pierce: 0
+  sharp: 0
+  heavy: 0
+  Crit: 0.01
 --- !u!1 &3106591490731462499
 GameObject:
   m_ObjectHideFlags: 0

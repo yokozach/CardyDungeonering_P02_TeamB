@@ -21,14 +21,11 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false; // flag to check if the player is currently moving
 
     [Header("Components")]
-    [SerializeField] private Health health; // Health script
+    [SerializeField] private CentralManager centralManager; // Central Hub for significant components
     [SerializeField] private InputManager inputManager; // InputManager script
-    [SerializeField] private GridManager gridManager; // GridManager script
-    [SerializeField] private PlayerAnimator playerAnim; // PlayerAnimator script
-    [SerializeField] private InventoryController _IC; // Player Inventory
 
-    private AudioClipPlayer_Floors _sfxPlayer;
-    private CameraController _CC;
+    private Health health;
+    private PlayerAnimator playerAnim;
 
     // Bools for player animator; All auto disable when turned true except for _lowHP & _dead
     // Don't change _dead bool directly; use _killed instead
@@ -59,15 +56,10 @@ public class PlayerController : MonoBehaviour
     {
         // Find components in scene if not directly linked
         if (health == null) health = GetComponent<Health>();
-        if (inputManager == null) inputManager = FindObjectOfType<InputManager>();
-        if (gridManager == null) gridManager = FindObjectOfType<GridManager>();
         if (playerAnim == null) playerAnim = GetComponentInChildren<PlayerAnimator>();
+        if (inputManager == null) inputManager = FindObjectOfType<InputManager>();
 
-        // _IC = FindObjectOfType<InventoryController>();
-        _sfxPlayer = FindObjectOfType<AudioClipPlayer_Floors>();
-        _CC = FindObjectOfType<CameraController>();
-
-    moveDis = gridManager.ReturnSpacing() / 30;
+        moveDis = centralManager._gridManager.ReturnSpacing() / 30;
 
     }
 
@@ -87,25 +79,26 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(1.35f);
         playerActive = true;
-        _CC.ToggleFocus();
-        _CC.SetTarget1(gameObject);
-        _CC.SetTarget2(null);
-        _IC.ToggleButtonActive();
+        centralManager._camController.ToggleFocus();
+        centralManager._camController.SetTarget1(gameObject);
+        centralManager._camController.SetTarget2(null);
+        centralManager._inventoryController.ToggleButtonActive();
+
     }
 
     bool CheckTile(Vector2 direction)
     {
         // Checks if the next tile exists within grid bounderies
-        if (curGridPos.x + direction.x < 0 || curGridPos.x + direction.x > gridManager.ReturnColCount() - 1 || curGridPos.y - direction.y < 0 || curGridPos.y - direction.y > gridManager.ReturnRowCount() - 1)
+        if (curGridPos.x + direction.x < 0 || curGridPos.x + direction.x > centralManager._gridManager.ReturnColCount() - 1 || curGridPos.y - direction.y < 0 || curGridPos.y - direction.y > centralManager._gridManager.ReturnRowCount() - 1)
         {
             Debug.Log("Next Tile Doesn't exist!");
             return true;
         }
 
         // Checks if next tile is occupied with a card
-        if (gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard() != null)
+        if (centralManager._gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard() != null)
         {
-            MainCard curMainCard = gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard().GetComponent<MainCard>();
+            MainCard curMainCard = centralManager._gridManager.ReturnTileDictionary()[curGridPos + new Vector2(direction.x, -direction.y)].ReturnCurrentCard().GetComponent<MainCard>();
             if (curMainCard.ReturnEvent().ReturnType() == IEvent.TileType.Stairs && curMainCard.ReturnEvent())
             {
                 if (curMainCard.ReturnStairs()._revealed == true)
@@ -149,7 +142,7 @@ public class PlayerController : MonoBehaviour
         curGridPos += new Vector2(direction.x, -direction.y);
 
         // Plays Move Sfx
-        _sfxPlayer.Audio_Step();
+        centralManager._sfxPlayer.Audio_Step();
 
         // Animates movement of player towards desired tile
         for (int i=0; i<30; i++)
@@ -159,7 +152,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Fixes player onto the tile they are supposed to be on
-        Tile newTile = gridManager.ReturnTileDictionary()[curGridPos];
+        Tile newTile = centralManager._gridManager.ReturnTileDictionary()[curGridPos];
         transform.position = newTile.transform.position;
 
         // Reset movement flag

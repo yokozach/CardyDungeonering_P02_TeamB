@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] private CentralManager centralManager;
+
     [Header("ATT & DEF")]
-    [SerializeField] public int _playerBaseAttack = 5; // Base attack power
+    [SerializeField] public int _playerBaseAttack = 3; // Base attack power
     [SerializeField] public int _playerBaseDefense = 0; // Base defense power
 
     [HideInInspector] public int _totalPlayerAttack; // Includes base & other variables
     [HideInInspector] public int _totalPlayerDefense; // Includes base & other variables
+
+    [HideInInspector] public int _attackValueDisplay; // Use to display visuals indicators
+    [HideInInspector] public int _defenseValueDisplay; // Use to display visuals indicators
 
     [Header("Attack Styles")]
     [Range(0, 10)] [SerializeField] public int _numberOfAttacks = 1; // Number of times to inflict dmg in one turn
@@ -26,6 +32,27 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float _CritMultiplier = 1.5f; // Percentage of extra dmg dealt if a crit lands
 
     [Range(0, 1)] [HideInInspector] public float _totalCritChance;
+
+    private void Awake()
+    {
+        _totalPlayerAttack = _playerBaseAttack;
+        _totalPlayerDefense = _playerBaseDefense;
+
+        _attackValueDisplay = _totalPlayerAttack;
+        _defenseValueDisplay = _totalPlayerDefense;
+    }
+
+    public void ChangeBaseStats(int att = 3, int def = 0, int numOfAtt = 1, bool pierce = false, bool sharp = false, bool heavy = false, float crit = 0.01f)
+    {
+        _playerBaseAttack = att;
+        _playerBaseDefense = def;
+        _numberOfAttacks = numOfAtt;
+        _pierce = pierce;
+        _sharp = sharp;
+        _heavy = heavy;
+        _baseCritChance = crit;
+        UpdateAttackValueDisplay();
+    }
 
     #region Buff Lists
 
@@ -46,12 +73,14 @@ public class PlayerStats : MonoBehaviour
         // Create a new attack buff object and add it to the list of attack buffs
         AttackBuff newBuff = new AttackBuff(buffValue, buffTurns);
         attackBuffs.Add(newBuff);
+        UpdateAttackValueDisplay();
     }
     public void AddDefBuff(int buffValue, int buffTurns)
     {
         // Create a new attack buff object and add it to the list of attack buffs
         DefenseBuff newBuff = new DefenseBuff(buffValue, buffTurns);
         defenseBuffs.Add(newBuff);
+        UpdateDefenseValueDisplay();
     }
     public void AddMultiHitBuff(int buffValue, int buffTurns)
     {
@@ -109,6 +138,34 @@ public class PlayerStats : MonoBehaviour
         _heavy = false;
         _baseCritChance = _totalCritChance;
     }
+
+    #region Display Calculator Methods
+
+    public void UpdateAttackValueDisplay()
+    {
+        _attackValueDisplay = _playerBaseAttack;
+        // Loop through all attack buffs and calculate total attack value
+        for (int i = 0; i < attackBuffs.Count; i++)
+        {
+            AttackBuff buff = attackBuffs[i];
+            _attackValueDisplay += buff.value;
+        }
+        centralManager._playerHUD.AttackDisplay();
+    }
+
+    public void UpdateDefenseValueDisplay()
+    {
+        _attackValueDisplay = _playerBaseAttack;
+        // Loop through all defense buffs and calculate total defense value
+        for (int i = 0; i < defenseBuffs.Count; i++)
+        {
+            DefenseBuff buff = defenseBuffs[i];
+            _attackValueDisplay += buff.value;
+        }
+        // FindObjectOfType<Player_Hud>().AttackDefense();
+    }
+
+    #endregion
 
     #region Buff Counters
 

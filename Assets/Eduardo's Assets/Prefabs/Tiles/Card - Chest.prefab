@@ -226,8 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Chest
   _event: {fileID: 6775267732174694535}
-  _cardCol: 0
-  _cardRow: 0
   _cover: {fileID: 6812480159421019060}
   _face: {fileID: 8968638246908826889}
 --- !u!114 &6775267732174694535
@@ -242,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2427cd46039fe4a872dcfac581df73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   tileType: 1
 --- !u!1 &8968638246908826889
 GameObject:

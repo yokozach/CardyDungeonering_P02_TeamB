@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] private CentralManager centralManager;
+
     [Header("Original Cam Settings")]
     [SerializeField] private Vector3 _startPos = new Vector3(0, 0, -10);
     [SerializeField] private float _startSize = 8;
@@ -33,13 +36,9 @@ public class CameraController : MonoBehaviour
     private float _shakeTime;
     private Vector3 _shakeOffset = Vector3.zero;
 
-    private PlayerController PC;
-    private GridManager GM;
-
     private void Awake()
     {
-        PC = FindObjectOfType<PlayerController>();
-        GM = FindObjectOfType<GridManager>();
+
     }
 
     void Start()
@@ -134,8 +133,8 @@ public class CameraController : MonoBehaviour
 
     public void StartFloor()
     {
-        _target1 = GM.ReturnTileDictionary()[PC.ReturnCurGridPos()].gameObject;
-        _target2 = GM.ReturnTileDictionary()[PC.ReturnCurGridPos()].gameObject;
+        _target1 = centralManager._gridManager.ReturnTileDictionary()[centralManager._playerController.ReturnCurGridPos()].gameObject;
+        _target2 = centralManager._gridManager.ReturnTileDictionary()[centralManager._playerController.ReturnCurGridPos()].gameObject;
         focusEnabled = true;
     }
 

@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    [Header("Parameters")]
+    [Header("Components")]
+    [SerializeField] private CentralManager centralManager;
 
+    [Header("Parameters")]
     [SerializeField] private int _colCount = 5; // Number of columns
     [SerializeField] private int _rowCount = 5; // Number of rows
-    
     [SerializeField] private float _widthSpacing = 1, _heightSpacing = 1; // Spacing between each tile
-
     [SerializeField] private Tile _tilePrafab; // Tile Prefab
 
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private CameraController camController;
-
     [Header("Set-up")]
-
     [SerializeField] private GameObject _emptyCardPrefab;
     [SerializeField] private List<MainCard> _fixedCards;
     [SerializeField] private List<Vector2Int> gridPositions;
 
     private MainCard _currentCard;
-
     private Dictionary<Vector2, Tile> _tiles;
 
     private float _currentWS;
@@ -32,8 +27,6 @@ public class GridManager : MonoBehaviour
 
     private void Start()
     {
-        if (playerController == null) playerController = FindObjectOfType<PlayerController>();
-        if (camController == null) camController = FindObjectOfType<CameraController>();
         GenerateGrid();
     }
 
@@ -113,7 +106,7 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _rowCount; y++)
             {
-                if (playerController.ReturnCurGridPos() != new Vector2(x, y))
+                if (centralManager._playerController.ReturnCurGridPos() != new Vector2(x, y))
                 {
                     Tile retrievedTile = _tiles[new Vector2(x, y)];
 
@@ -133,8 +126,8 @@ public class GridManager : MonoBehaviour
 
     void SetUpPlayer()
     {
-        Tile startTile = ReturnTileDictionary()[playerController.ReturnCurGridPos()];
-        StartCoroutine(playerController.EnteringFloor(1.5f, startTile.transform.position));
+        Tile startTile = ReturnTileDictionary()[centralManager._playerController.ReturnCurGridPos()];
+        StartCoroutine(centralManager._playerController.EnteringFloor(1.5f, startTile.transform.position));
     }
 
     public Tile GetTileAtPosition(Vector2 pos)

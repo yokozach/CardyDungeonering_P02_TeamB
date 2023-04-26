@@ -262,8 +262,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Slime
   _event: {fileID: 3350995307457116367}
-  _cardCol: 0
-  _cardRow: 0
   _cover: {fileID: 6812480159421019060}
   _face: {fileID: 8968638246908826889}
 --- !u!114 &3445632939812759407
@@ -278,11 +276,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98d1d45eada249479563936935a6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 10
-  _curHP: 10
-  _maxDef: 10
+  centralManager: {fileID: 0}
+  unitType: 1
+  _maxHP: 5
+  _curHP: 5
+  _maxDef: 0
   _curDef: 0
-  hudCalcs: {fileID: 0}
 --- !u!114 &3350995307457116367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,10 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb808324978df6498d4f0302c0091d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   tileType: 0
   active: 1
-  _minAttackRange: 2
-  _maxAttackRange: 3
+  _minAttackRange: 1
+  _maxAttackRange: 2
   _killed: 0
   _hurt: 0
   _hurtCrit: 0

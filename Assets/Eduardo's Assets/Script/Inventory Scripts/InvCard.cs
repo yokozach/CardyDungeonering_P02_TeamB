@@ -14,10 +14,13 @@ public abstract class InvCard : MonoBehaviour
         Explorative
     }
 
+    [Header("Central Manager")]
+    [SerializeField] public CentralManager centralManager;
+
     [Header("Card Data")]
     public string cardName;
     public CardType cardType;
-    public int deckNumber;
+    public int invNum;
     public string cardDescription;
 
     [Header("Animation")]
@@ -30,11 +33,11 @@ public abstract class InvCard : MonoBehaviour
     private Vector2 centerPosition; // position to move the card to when selected
     private Vector3 centerScale = new Vector3(3, 3, 3); // scale to use when the card is selected
 
-    private GameObject invDeck;
     private bool isSelected = false; // flag to track if the card is currently selected
 
     private void Awake()
     {
+        centralManager = FindObjectOfType<CentralManager>();
         rectTransform = GetComponent<RectTransform>(); // get the RectTransform component of the card
         
     }
@@ -46,24 +49,22 @@ public abstract class InvCard : MonoBehaviour
 
     public void ToggleSelect()
     {
-        if (invDeck == null) invDeck = transform.parent.gameObject; // Get inventory holder (parent)
-
         if (isMoving) return;
 
         if (isSelected)
         {
             // if the card is already selected, deselect it
             StartCoroutine(MoveCard(originalPosition, originalScale));
-            invDeck.transform.parent.GetComponent<InventoryController>().SetSelectedCard(null);
-            invDeck.transform.parent.GetComponent<InventoryController>().DeactivateSelectPanel();
+            centralManager._inventoryController.SetSelectedCard(null);
+            centralManager._inventoryController.DeactivateSelectPanel();
             isSelected = false;
         }
         else
         {
             // if the card is not selected, select it
             StartCoroutine(MoveCard(centerPosition, centerScale));
-            invDeck.transform.parent.GetComponent<InventoryController>().SetSelectedCard(gameObject);
-            invDeck.transform.parent.GetComponent<InventoryController>().ActivateSelectPanel();
+            centralManager._inventoryController.SetSelectedCard(gameObject);
+            centralManager._inventoryController.ActivateSelectPanel();
             ReorderCards();
             isSelected = true;
         }
@@ -71,16 +72,14 @@ public abstract class InvCard : MonoBehaviour
 
     public void SelectCard()
     {
-        if (invDeck == null) invDeck = transform.parent.gameObject; // Get inventory holder (parent)
-
         if (isMoving) return;
 
         if (!isSelected)
         {
             // if the card is not selected, select it
             StartCoroutine(MoveCard(centerPosition, centerScale));
-            invDeck.transform.parent.GetComponent<InventoryController>().SetSelectedCard(gameObject);
-            invDeck.transform.parent.GetComponent<InventoryController>().ActivateSelectPanel();
+            centralManager._inventoryController.SetSelectedCard(gameObject);
+            centralManager._inventoryController.ActivateSelectPanel();
             ReorderCards();
             isSelected = true;
         }
@@ -99,6 +98,13 @@ public abstract class InvCard : MonoBehaviour
     }
 
     public abstract void ActivateCardEffects();
+
+    public virtual void RemoveCardFromInv()
+    {
+        centralManager._inventoryController.RemoveCard(invNum);
+        centralManager._inventoryController.DisplayCards();
+        Destroy(gameObject);
+    }
 
     private IEnumerator MoveCard(Vector2 targetPosition, Vector3 targetScale)
     {

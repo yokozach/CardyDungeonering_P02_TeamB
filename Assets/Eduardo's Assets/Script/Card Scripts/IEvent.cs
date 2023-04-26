@@ -14,7 +14,13 @@ public abstract class IEvent : MonoBehaviour
         Stairs
     }
 
+    public CentralManager centralManager;
     public TileType tileType;
+
+    private void Start()
+    {
+        centralManager = FindObjectOfType<CentralManager>();
+    }
 
     public virtual void PrepEvent(GameObject _face, GameObject _cover)
     {

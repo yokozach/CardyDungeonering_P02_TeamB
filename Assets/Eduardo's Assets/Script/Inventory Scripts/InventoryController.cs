@@ -9,14 +9,15 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private Canvas cardCanvas;
     [SerializeField] public GameObject inventoryHolder;
     [SerializeField] private Button invBtn;
-    [SerializeField] private GameObject currentSelectedCard;
     [SerializeField] public List<GameObject> inventoryCards = new List<GameObject>();
     [SerializeField] private List<Vector2> cardPositions = new List<Vector2>();
     [SerializeField] private int maxCapacity = 10;
 
-    [Header("Other Components")]
-    [SerializeField] PlayerController PC;
-    public GameObject selectPanel;
+    [Header("Components")]
+    [SerializeField] private CentralManager centralManager;
+    [SerializeField] private GameObject selectPanel;
+
+    private GameObject currentSelectedCard;
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class InventoryController : MonoBehaviour
             inventoryCards.RemoveAt(index);
             Destroy(card);
         }
+        SortCardsByPosition();
     }
 
     public void SortCardsByPosition()
@@ -47,6 +49,20 @@ public class InventoryController : MonoBehaviour
         {
             inventoryCards[i].GetComponent<InvCard>().SetNewOriginalPosition(cardPositions[i]);
             inventoryCards[i].transform.position = cardCanvas.transform.TransformPoint(cardPositions[i]);
+        }
+        InitializeDeck();
+    }
+
+    // Get the InvCard script and set its invNumber to the corresponding index in the inventory
+    void InitializeDeck()
+    {
+        for (int i = 0; i < inventoryCards.Count; i++)
+        {
+            InvCard invCard = inventoryCards[i].GetComponent<InvCard>();
+            if (invCard != null)
+            {
+                invCard.invNum = i;
+            }
         }
     }
 
@@ -59,7 +75,7 @@ public class InventoryController : MonoBehaviour
         {
             cardCanvas.gameObject.SetActive(false);
             selectPanel.SetActive(false);
-            PC.invOpen = false;
+            centralManager._playerController.invOpen = false;
 
             if (currentSelectedCard != null)
             {
@@ -71,7 +87,7 @@ public class InventoryController : MonoBehaviour
         else
         {
             cardCanvas.gameObject.SetActive(true);
-            PC.invOpen = true;
+            centralManager._playerController.invOpen = true;
         }
     }
 

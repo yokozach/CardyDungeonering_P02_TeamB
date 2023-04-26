@@ -45,9 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _step: {fileID: 8300000, guid: b4933851bcaf0154d8254688065bcbd6, type: 3}
-  _dmgHealth: {fileID: 8300000, guid: e6172356a84589f419c6a4bf8ceb11d9, type: 3}
-  _dmgShield: {fileID: 8300000, guid: 48af10604328cd544ad0246a3e3b048b, type: 3}
-  _death: {fileID: 0}
-  _enemyEncounter: {fileID: 0}
-  _itemCollected: {fileID: 0}
+  _heal: {fileID: 8300000, guid: e95982abcdba4984d9c2fad2f7130ae6, type: 3}
+  _shieldUp: {fileID: 8300000, guid: df719731fd3c35046a645b7fe81c64f9, type: 3}
+  _buff: {fileID: 8300000, guid: b576df9343e959846be395770cc19dbd, type: 3}
+  _dmgHealth: {fileID: 8300000, guid: bd302032805f38f48b5577b1f6ffd944, type: 3}
+  _dmgShield: {fileID: 8300000, guid: 2c7f4a4b3b3e1e3438cf3e80d31186f0, type: 3}
+  _dmgCrit: {fileID: 8300000, guid: f4f14db68aaf36c45b3b1d4c34f7881a, type: 3}
+  _death: {fileID: 8300000, guid: bc749fc76e449ca4b85bd46c20327732, type: 3}
+  _enemyEncounter: {fileID: 8300000, guid: 053a218c1b135f146b2a14ff29fe432c, type: 3}
+  _equipWeapon: {fileID: 8300000, guid: f98c31c96bf9c4748945b141f56e58d1, type: 3}
+  _cardCollected: {fileID: 8300000, guid: b77743ba7ca8e7f41bb54ded103016f1, type: 3}
   _event: {fileID: 0}

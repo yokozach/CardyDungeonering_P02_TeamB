@@ -26,6 +26,7 @@ public class CardEvent_Enemy : IEvent
     // Start is called before the first frame update
     void Start()
     {
+        centralManager = FindObjectOfType<CentralManager>();
         health = GetComponent<Health>();
     }
 
@@ -38,7 +39,7 @@ public class CardEvent_Enemy : IEvent
     // Initiate Combat State
     public override void PlayEvent()
     {
-
+        centralManager._sfxPlayer.Audio_EnemyEncounter();
     }
 
     public Vector2Int AttackRange

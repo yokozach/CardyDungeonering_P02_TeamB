@@ -226,13 +226,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0c0a95b21d77044a6af1f5fbad97e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   cardName: Sword
   cardType: 0
-  deckNumber: 0
-  cardDescription: Inflict 5 dmg
+  invNum: 0
+  cardDescription: Inflict 4 dmg
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
+  attDmg: 4
+  hits: 1
+  pierce: 0
+  sharp: 0
+  heavy: 0
+  Crit: 0.01
 --- !u!1 &3106591490731462499
 GameObject:
   m_ObjectHideFlags: 0

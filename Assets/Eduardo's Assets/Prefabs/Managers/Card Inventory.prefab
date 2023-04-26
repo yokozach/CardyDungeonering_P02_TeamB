@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5645301749776997863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -708,7 +708,6 @@ MonoBehaviour:
   cardCanvas: {fileID: 5645301749776997862}
   inventoryHolder: {fileID: 7465203756040307644}
   invBtn: {fileID: 0}
-  currentSelectedCard: {fileID: 0}
   inventoryCards: []
   cardPositions:
   - {x: -260, y: 1020}
@@ -722,7 +721,7 @@ MonoBehaviour:
   - {x: -260, y: -1020}
   - {x: 260, y: -1020}
   maxCapacity: 10
-  PC: {fileID: 0}
+  centralManager: {fileID: 0}
   selectPanel: {fileID: 5382891160983019621}
 --- !u!1 &5645301751261259150
 GameObject:

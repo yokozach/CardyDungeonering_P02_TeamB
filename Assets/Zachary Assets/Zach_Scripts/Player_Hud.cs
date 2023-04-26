@@ -6,39 +6,47 @@ using UnityEngine.UI;
 public class Player_Hud : MonoBehaviour
 {
 
+    [SerializeField] CentralManager centralManager;
+    [SerializeField] Image healthBar;
+    [SerializeField] Image shieldBar;
+    [SerializeField] TMP_Text healthNum;
+    [SerializeField] TMP_Text defenseNum;
+    [SerializeField] TMP_Text attackNum;
+    
+    private Health playerHP;
 
-    public Image HealhBar;
-    public Image ShielhBar;
-    public TMP_Text healthNum;
-    public TMP_Text defenseNum;
-    public TMP_Text attackNum;
-    public Health playerHP;
-    public PlayerStats playerAttack;
+    private void Awake()
+    {
+        playerHP = centralManager._playerController.GetComponent<Health>();
+    }
 
     private void Start()
     {
-        defenseNum.text = playerHP._curDef.ToString();
-        healthNum.text = playerHP._curHP.ToString();
-        attackNum.text = playerAttack._playerBaseAttack.ToString();
+        HealthCalc();
+        ShieldCalc();
+        AttackDisplay();
     }
 
 
-    public void shieldcalc()
+    public void ShieldCalc()
     {
-        ShielhBar.fillAmount = playerHP._curDef / playerHP._maxDef;
+        float shieldPercentage = Mathf.Clamp01((float)playerHP._curDef / (float)playerHP._maxDef);
+        Debug.Log(shieldPercentage);
+        shieldBar.fillAmount = shieldPercentage; 
         defenseNum.text = playerHP._curDef.ToString();
 
     }
-    public void healthCalc()
+    public void HealthCalc()
     {
-        HealhBar.fillAmount = playerHP._curHP / playerHP._maxHP;
+        float healthPercentage = Mathf.Clamp01((float)playerHP._curHP / (float)playerHP._maxHP);
+        Debug.Log(healthPercentage);
+        healthBar.fillAmount = healthPercentage;
         healthNum.text = playerHP._curHP.ToString();
     }
 
 
     public void AttackDisplay()
     {
-
-        attackNum.text = playerAttack._playerBaseAttack.ToString();
+        attackNum.text = centralManager._playerStats._attackValueDisplay.ToString();
     }
 }
