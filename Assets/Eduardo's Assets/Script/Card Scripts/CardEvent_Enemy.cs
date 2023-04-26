@@ -39,8 +39,17 @@ public class CardEvent_Enemy : IEvent
     // Initiate Combat State
     public override void PlayEvent()
     {
+<<<<<<< HEAD:Assets/Eduardo's Assets/Script/Card Scripts/CardEvent_Enemy.cs
         centralManager._sfxPlayer.Audio_EnemyEncounter();
+=======
+        GameFSM _gameController = (GameFSM)FindObjectOfType(typeof(GameFSM));
+        GameController _controller = (GameController)FindObjectOfType(typeof(GameController));
+        _controller._enemyHealth = health;
+        _gameController.ChangeToBattle();
+>>>>>>> SamBranch:Assets/Eduardo's Assets/Script/CardEvent_Enemy.cs
     }
+
+
 
     public Vector2Int AttackRange
     {

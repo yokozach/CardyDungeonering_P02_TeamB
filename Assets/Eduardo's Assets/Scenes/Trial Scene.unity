@@ -907,6 +907,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8559892589037444293, guid: 3493887d0a3a70b4a8968dd951d65b79, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559892589037444293, guid: 3493887d0a3a70b4a8968dd951d65b79, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 492671343
+      objectReference: {fileID: 0}
     - target: {fileID: 8617039454236701898, guid: 3493887d0a3a70b4a8968dd951d65b79, type: 3}
       propertyPath: m_Name
       value: Card - Dark Knight
@@ -1235,9 +1243,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 650419352}
     - target: {fileID: 7063388122360960995, guid: 368ffa2a219703b44adf1cdeff61ebb9, type: 3}
+      propertyPath: _enemiesDefeated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063388122360960995, guid: 368ffa2a219703b44adf1cdeff61ebb9, type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 5239304314239634612}
+    - target: {fileID: 7063388122360960995, guid: 368ffa2a219703b44adf1cdeff61ebb9, type: 3}
+      propertyPath: _playerAttackButton
+      value: 
+      objectReference: {fileID: 2042892941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368ffa2a219703b44adf1cdeff61ebb9, type: 3}
 --- !u!1001 &1848003150

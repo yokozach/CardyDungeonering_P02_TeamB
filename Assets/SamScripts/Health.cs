@@ -39,6 +39,11 @@ public class Health : MonoBehaviour, IDamageable
         playerController = centralManager._playerController;
         playerStats = centralManager._playerStats;
         enemy = GetComponent<CardEvent_Enemy>();
+        if(playerController != null)
+        {
+            DontDestroyOnLoad(this);
+        }
+
     }
 
     public void TakeDamage(int dmg)
@@ -163,6 +168,20 @@ public class Health : MonoBehaviour, IDamageable
     public void HealHP(int value)
     {
         _curHP += value;
+        Debug.Log("Dead");
+        if (playerController != null)
+        {
+            Debug.Log("YOU LOSE!");
+            playerController._killed = true;
+        }
+        if (enemy != null) 
+        {
+            Debug.Log("Player Wins!");
+            StartCoroutine(EnemyDeathWaitTimer(1));
+            enemy._killed = true;
+            enemy.EndEvent(this.gameObject);
+        }
+    }
 
         if (_curHP > _maxHP) _curHP = _maxHP;
 
@@ -170,6 +189,10 @@ public class Health : MonoBehaviour, IDamageable
         else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.HealthCalc();
 
         centralManager._sfxPlayer.Audio_Heal();
+    IEnumerator EnemyDeathWaitTimer(float pauseDuration)
+    {
+        yield return new WaitForSeconds(pauseDuration);
+        //play death animation
     }
 
     public void HealSH(int value)

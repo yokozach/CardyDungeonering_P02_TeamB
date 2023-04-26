@@ -6,7 +6,7 @@ public class PlayerChooseCardState : State
 {
     private GameFSM _stateMachine;
     private GameController _controller;
-
+    private bool _canMoveYet = false;
     public PlayerChooseCardState(GameFSM stateMachine, GameController controller)
     {
         //hold on to our parameters in our class variables for reuse
@@ -18,12 +18,13 @@ public class PlayerChooseCardState : State
     {
         base.Enter();
         Debug.Log("Entering Player Choose a Card State");
-        _controller._playerController.SetPlayerActiveState(true);
     }
 
     public override void Exit()
     {
-        Debug.Log("Leaving");
+        Debug.Log("Leaving Choose Card");
+        _controller._playerController.SetPlayerActiveState(false);
+        _canMoveYet = false;
         base.Exit();
     }
 
@@ -35,17 +36,10 @@ public class PlayerChooseCardState : State
     public override void Tick()
     {
         base.Tick();
-        if(_controller._whatEvent1._battleStart == true || _controller._whatEvent2._battleStart == true || _controller._whatEvent3._battleStart == true)
+        if(StateDuration >= 1f && _canMoveYet == false)
         {
-            Debug.Log("Switch to battle state");
-            _controller._playerController.SetPlayerActiveState(false);
-            _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
-        }
-        if(_controller._whatEvent4._stairs == true)
-        {
-            Debug.Log("swtich to win state");
-            _controller._playerController.SetPlayerActiveState(false);
-            _stateMachine.ChangeState(_stateMachine.WinState);
+            _controller._playerController.SetPlayerActiveState(true);
+            _canMoveYet = true;
         }
     }
 }

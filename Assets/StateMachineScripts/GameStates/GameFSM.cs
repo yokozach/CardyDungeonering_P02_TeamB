@@ -33,4 +33,28 @@ public class GameFSM : StateMachineMB
     {
         ChangeState(SetupState);
     }
+
+    public void ChangeToBattle()
+    {
+        ChangeState(PlayerBattleState);
+    }
+
+    public void ChangeToChooseCard()
+    {
+        ChangeState(PlayerChooseCardState);
+    }
+
+    public void ChangeToLose()
+    {
+        ChangeState(LoseState);
+    }
+
+    public void ChangeToWin()
+    {
+        ChangeState(WinState);
+    }
+    public void PlayerAttackButton()
+    {
+        PlayerBattleState.PlayerAttack();
+    }
 }

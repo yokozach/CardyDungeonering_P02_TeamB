@@ -20,6 +20,7 @@ public class GameSetupState : State
         base.Enter();
         //TODO Put what we need for setup
         Debug.Log("Entering Setup State");
+        _controller._playerAttackButton.SetActive(false);
     }
 
     public override void FixedTick()
@@ -30,7 +31,10 @@ public class GameSetupState : State
     public override void Tick()
     {
         base.Tick();
-        _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
+        if (StateDuration >= 2f)
+        {
+            _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
+        }
     }
 
     public override void Exit()
