@@ -151,10 +151,10 @@ MonoBehaviour:
   tileType: 4
   _renderer: {fileID: 199120991384243110}
   _litStairs: {fileID: -493237519, guid: ff35ba7083ee9544683cb71fa6d06e0e, type: 3}
-  _enemiesNeededToWin: 3
-  _anotherScene: 0
+  _enemiesNeededToWin: 1
+  _anotherScene: 1
   _sceneManager: {fileID: 0}
-  _nextScene: MainMenu
+  _nextScene: Trial Scene 1
   _revealed: 0
   _active: 0
 --- !u!1 &7334612307633808633

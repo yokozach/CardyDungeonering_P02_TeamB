@@ -122,16 +122,21 @@ public class PlayerStats : MonoBehaviour
     #endregion
 
     // Applies buffs & runs the counters
-    public void RunAllBuffEffects()
+    public void RunOffensiveBuffEffects()
     {
         RunAttackBuffTurns();
-        RunDefenseBuffTurns();
         RunMultiHitBuffTurns();
         RunPierceBuffTurns();
         RunSharpBuffTurns();
         RunHeavykBuffTurns();
         RunCritBuffTurns();
     }
+
+    public void RunDefensiveBuffEffects()
+    {
+        RunDefenseBuffTurns();
+    }
+
 
     // Resets the buff effects for next use
     public void ResetBuffEffects()

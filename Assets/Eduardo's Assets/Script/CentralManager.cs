@@ -31,11 +31,27 @@ public class CentralManager : MonoBehaviour
     public List<CardEvent_Event> _events;
     public List<CardEvent_Enemy> _enemies;
 
-    private void Start()
+    private void Awake()
     {
-        if (_playerController == null) FindObjectOfType<PlayerController>();
-        if (_playerStats == null) FindObjectOfType<PlayerStats>();
-        if (_inventoryController == null) FindObjectOfType<InventoryController>();
+        if (PlayerData.shareData)
+        {
+            Health playerHealth = _playerController.GetComponent<Health>();
+            playerHealth._curHP = PlayerData.curHP;
+            playerHealth._curDef = PlayerData.curShield;
+            playerHealth._maxHP = PlayerData.maxHP;
+            playerHealth._maxDef = PlayerData.maxShield;
+
+            _playerStats._playerBaseAttack = PlayerData.baseAttack;
+            _playerStats._playerBaseDefense = PlayerData.baseDefense;
+            _playerStats._numberOfAttacks = PlayerData.numberOfAttacks;
+            _playerStats._pierce = PlayerData.pierce;
+            _playerStats._sharp = PlayerData.sharp;
+            _playerStats._heavy = PlayerData.heavy;
+            _playerStats._baseCritChance = PlayerData.baseCritChance;
+
+            PlayerData.shareData = false;
+
+        }
 
     }
 

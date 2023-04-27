@@ -47,7 +47,11 @@ public class CardEvent_Enemy : IEvent
         _gameController.ChangeToBattle();
     }
 
-
+    public override void EndEvent(GameObject mainCard)
+    {
+        centralManager._deckManager.AddRandomCard();
+        base.EndEvent(mainCard);
+    }
 
     public Vector2Int AttackRange
     {

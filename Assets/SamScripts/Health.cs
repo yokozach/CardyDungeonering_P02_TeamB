@@ -39,10 +39,6 @@ public class Health : MonoBehaviour, IDamageable
         playerController = centralManager._playerController;
         playerStats = centralManager._playerStats;
         enemy = GetComponent<CardEvent_Enemy>();
-        if(playerController != null)
-        {
-            DontDestroyOnLoad(this);
-        }
 
     }
 
@@ -58,6 +54,7 @@ public class Health : MonoBehaviour, IDamageable
     private void PlayerTakeDamage(int dmg)
     {
         // Reduces dmg by player defense
+        playerStats.RunDefenseBuffTurns();
         if (playerController != null) dmg -= playerStats._totalPlayerDefense;
 
         if (_curDef >= 1)
@@ -92,12 +89,15 @@ public class Health : MonoBehaviour, IDamageable
                 playerController._hurt = true;
             }
         }
+        playerStats.ResetBuffEffects();
+
+        if (_curHP <= 0.3 * _maxHP) playerController._lowHP = true;
 
     }
 
     private IEnumerator EnemyTakeDamage(int dmg)
     {
-        Debug.Log(playerStats._totalNumberOfAttacks);
+        centralManager._playerStats.RunOffensiveBuffEffects();
         for (int i = 0; i < playerStats._totalNumberOfAttacks; i++)
         {
             // Calculate if dmg inflicted was a critical hit
@@ -129,6 +129,7 @@ public class Health : MonoBehaviour, IDamageable
 
                 if (_curHP <= 0)
                 {
+                    centralManager._playerStats.ResetBuffEffects();
                     Kill();
                     break;
                 }
@@ -150,6 +151,8 @@ public class Health : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(0.75f);
 
         }
+
+        centralManager._playerStats.ResetBuffEffects();
 
     }
 

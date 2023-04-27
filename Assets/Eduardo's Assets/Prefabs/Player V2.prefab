@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
   unitType: 0
-  _maxHP: 1000
-  _curHP: 1000
+  _maxHP: 10
+  _curHP: 10
   _maxDef: 10
   _curDef: 3
 --- !u!114 &2815393853810834799

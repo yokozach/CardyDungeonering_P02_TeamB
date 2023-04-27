@@ -14,10 +14,14 @@ public class CardEvent_Stairs : IEvent
     public bool _revealed;
     public bool _active;
 
+    private Health playerHealth;
+    private PlayerStats playerStats;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        playerHealth = centralManager._playerController.GetComponent<Health>();
+        playerStats = centralManager._playerStats;
     }
 
     // Update is called once per frame
@@ -51,6 +55,10 @@ public class CardEvent_Stairs : IEvent
                 // Add code to change state machine to next floor transition!
                 if(_sceneManager != null)
                 {
+                    PlayerData.StoreData(playerHealth._curHP, playerHealth._curDef, playerHealth._maxHP, playerHealth._maxDef,
+                        playerStats._playerBaseAttack, playerStats._playerBaseDefense, playerStats._numberOfAttacks, playerStats._pierce, 
+                        playerStats._sharp, playerStats._heavy, playerStats._baseCritChance, centralManager._inventoryController.inventoryCards);
+                    PlayerData.shareData = true;
                     _sceneManager.LoadScene(_nextScene);
                 }
             }

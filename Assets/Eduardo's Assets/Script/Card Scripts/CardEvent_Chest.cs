@@ -19,7 +19,15 @@ public class CardEvent_Chest : IEvent
     // Chest revealed; Draw a random card from card pool
     public override void PlayEvent()
     {
-        
+        StartCoroutine(GrantCard());
+    }
+
+    private IEnumerator GrantCard()
+    {
+        yield return new WaitForSeconds(0.25f);
+        centralManager._deckManager.AddRandomCard();
+        centralManager._sfxPlayer.Audio_CardCollected();
+        EndEvent(this.gameObject);
     }
 
 }

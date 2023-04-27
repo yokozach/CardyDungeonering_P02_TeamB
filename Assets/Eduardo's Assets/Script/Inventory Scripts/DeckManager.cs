@@ -35,7 +35,7 @@ public class DeckManager : MonoBehaviour
     }
 
     // Instantiate a random card from the list of card prefabs and add it to the inventory (Remove from availableDeck)
-    void AddRandomCard()
+    public void AddRandomCard()
     {
         if (centralManager._inventoryController.inventoryCards.Count >= 10)
             return;
@@ -61,7 +61,7 @@ public class DeckManager : MonoBehaviour
     }
 
     // Instantiate a specific card from the list of card prefabs and add it to the inventory (Chooses a specific card in the overall deck)
-    void AddSpecificCard(int cardIndex)
+    public void AddSpecificCard(int cardIndex)
     {
         if (centralManager._inventoryController.inventoryCards.Count >= 10)
             return;

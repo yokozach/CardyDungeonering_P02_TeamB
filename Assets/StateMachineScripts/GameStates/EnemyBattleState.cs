@@ -44,8 +44,6 @@ public class EnemyBattleState : State
             Debug.Log("enemyDefeated in enemyState");
             _controller._battleTurn = 0;
             _controller._enemiesDefeated++;
-            Debug.Log("Cur Enemies Defeated: " + _controller._enemiesDefeated);
-            Debug.Log("Needed AMount: " + _controller._stairs._enemiesNeededToWin);
             if (_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
             {
                 _controller._stairs.ActivateStairs();

@@ -17,11 +17,11 @@ public class Player_Hud : MonoBehaviour
 
     private void Awake()
     {
-        playerHP = centralManager._playerController.GetComponent<Health>();
     }
 
     private void Start()
     {
+        playerHP = centralManager._playerController.GetComponent<Health>();
         HealthCalc();
         ShieldCalc();
         AttackDisplay();

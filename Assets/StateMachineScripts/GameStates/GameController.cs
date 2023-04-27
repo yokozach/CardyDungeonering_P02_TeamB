@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] public CameraController _cam = null;
     [SerializeField] public PlayerController _playerController = null;
     [SerializeField] public Health _playerHP = null;
     [SerializeField] public PlayerStats _playerStats = null;
@@ -19,7 +20,7 @@ public class GameController : MonoBehaviour
     public int _enemiesDefeated = 0;
 
 
-    private void Start()
+    private void Awake()
     {
         if (_playerController == null) FindObjectOfType<PlayerController>();
         if (_playerStats == null) FindObjectOfType<PlayerStats>();

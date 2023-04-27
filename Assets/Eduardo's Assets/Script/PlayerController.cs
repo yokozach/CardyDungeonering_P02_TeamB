@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
         move.Enable();
         move.performed += context => { StartCoroutine(MovePlayer(context.ReadValue<Vector2>())); };
         InputManager.instance.swipePerformed += context => { StartCoroutine(MovePlayer(context)); };
+        centralManager = FindObjectOfType<CentralManager>();
+        inputManager = FindObjectOfType<InputManager>();
         curGridPos = startGridPos;
 
     }
