@@ -21,7 +21,9 @@ public class GameSetupState : State
         //TODO Put what we need for setup
         Debug.Log("Entering Setup State");
         _controller._playerAttackButton.SetActive(false);
-
+        _controller._playerTurnImage.SetActive(false);
+        _controller._enemyTurnImage.SetActive(false);
+        _controller._returnToMainMenuButton.SetActive(false);
     }
 
     public override void FixedTick()

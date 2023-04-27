@@ -18,11 +18,13 @@ public class EnemyBattleState : State
     {
         base.Enter();
         Debug.Log("Entering Enemy Battle State");
+        _controller._enemyTurnImage.SetActive(true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        _controller._enemyTurnImage.SetActive(false);
     }
 
     public override void FixedTick()

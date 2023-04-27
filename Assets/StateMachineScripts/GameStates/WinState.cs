@@ -19,12 +19,14 @@ public class WinState : State
         base.Enter();
         Debug.Log("Entering Win State");
         _controller._youWin.SetActive(true);
+        _controller._returnToMainMenuButton.SetActive(true);
     }
 
     public override void Exit()
     {
         base.Exit();
         _controller._youLose.SetActive(false);
+        _controller._returnToMainMenuButton.SetActive(false);
     }
 
     public override void FixedTick()
