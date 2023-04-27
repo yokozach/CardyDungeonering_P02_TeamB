@@ -33,7 +33,7 @@ public class PlayerBattleState : State
             _controller._cam.SetTarget2(_enemyHealth.gameObject);
             _controller._cam.ToggleFocus();
 
-            _controller._enemyHUD.SetActive(true);
+            // _controller._enemyHUD.SetActive(true);
         }
     }
 
@@ -55,7 +55,7 @@ public class PlayerBattleState : State
         //Check if Enemy health is <= 0 then switch states if true
         if(_enemyHealth._curHP <= 0)
         {
-            _controller._enemyHUD.SetActive(false);
+            // _controller._enemyHUD.SetActive(false);
             _controller._battleTurn = 0;
             _controller._enemiesDefeated++;
             Debug.Log("enemyDefeated in playerState");

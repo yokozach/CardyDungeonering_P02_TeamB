@@ -116,6 +116,7 @@ public class Health : MonoBehaviour, IDamageable
                 centralManager._sfxPlayer.Audio_DmgShield();
                 _curDef -= dmg;
                 if (_curDef < 0) _curDef = 0;
+                enemy._hurtShield = true;
                 // centralManager._enemyHUD.Shieldcalc();
             }
             else
@@ -165,8 +166,8 @@ public class Health : MonoBehaviour, IDamageable
         }
         else if (unitType == UnitType.Enemy) 
         {
-            StartCoroutine(EnemyDeathWaitTimer(1));
             enemy._killed = true;
+            StartCoroutine(EnemyDeathWaitTimer(2));
             centralManager._playerHUD.HealthCalc();
             enemy.EndEvent(this.gameObject);
         }
