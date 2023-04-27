@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     [SerializeField] public GameObject _youLose = null;
     [SerializeField] public CardEvent_Stairs _stairs = null;
     [SerializeField] public GameObject _playerAttackButton = null;
+    [SerializeField] public GameObject _enemyHUD = null;
+
     public Health _enemyHealth = null;
     public CardEvent_Enemy _enemyStats = null;
     public int _battleTurn = 0;

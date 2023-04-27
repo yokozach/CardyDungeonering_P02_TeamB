@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+
 public class Player_Hud : MonoBehaviour
 {
 
@@ -12,8 +13,8 @@ public class Player_Hud : MonoBehaviour
     [SerializeField] TMP_Text healthNum;
     [SerializeField] TMP_Text defenseNum;
     [SerializeField] TMP_Text attackNum;
-    
-    private Health playerHP;
+
+private Health playerHP;
 
     private void Awake()
     {
@@ -41,8 +42,6 @@ public class Player_Hud : MonoBehaviour
         healthBar.fillAmount = healthPercentage;
         healthNum.text = playerHP._curHP.ToString();
     }
-
-
     public void AttackDisplay()
     {
         attackNum.text = centralManager._playerStats._attackValueDisplay.ToString();

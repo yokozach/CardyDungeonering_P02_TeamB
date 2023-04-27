@@ -25,6 +25,7 @@ public class PlayerBattleState : State
         {
             //Find Current Enemy
             _enemyHealth = _controller._enemyHealth;
+            _controller._enemyHUD.SetActive(true);
         }
     }
 
@@ -45,6 +46,7 @@ public class PlayerBattleState : State
         //Check if Enemy health is <= 0 then switch states if true
         if(_enemyHealth._curHP <= 0)
         {
+            _controller._enemyHUD.SetActive(false);
             _controller._battleTurn = 0;
             _controller._enemiesDefeated++;
             Debug.Log("enemyDefeated in playerState");
