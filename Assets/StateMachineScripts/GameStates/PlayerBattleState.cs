@@ -21,6 +21,7 @@ public class PlayerBattleState : State
         base.Enter();
         Debug.Log("Entering Player Battle State");
         _controller._playerAttackButton.SetActive(true);
+        _controller._playerTurnImage.SetActive(true);
         if (_controller._battleTurn == 0)
         {
             //Find Current Enemy
@@ -32,6 +33,7 @@ public class PlayerBattleState : State
     {
         base.Exit();
         _controller._playerAttackButton.SetActive(false);
+        _controller._playerTurnImage.SetActive(false);
     }
 
     public override void FixedTick()
