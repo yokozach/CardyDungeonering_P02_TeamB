@@ -48,6 +48,13 @@ public class PlayerBattleState : State
             _controller._battleTurn = 0;
             _controller._enemiesDefeated++;
             Debug.Log("enemyDefeated in playerState");
+
+            Debug.Log("Cur Enemies Defeated: " + _controller._enemiesDefeated);
+            Debug.Log("Needed AMount: " + _controller._stairs._enemiesNeededToWin);
+            if (_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
+            {
+                _controller._stairs.ActivateStairs();
+            }
             _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
         }
         if(_controller._playerHP._curHP <= 0)
@@ -60,7 +67,7 @@ public class PlayerBattleState : State
     public void PlayerAttack()
     {
         Debug.Log("Attacked");
-        _enemyHealth.TakeDamage(2);
+        _enemyHealth.TakeDamage(_controller._playerStats._totalPlayerAttack);
         _controller._battleTurn++;
         if (_enemyHealth._curHP > 0)
         {

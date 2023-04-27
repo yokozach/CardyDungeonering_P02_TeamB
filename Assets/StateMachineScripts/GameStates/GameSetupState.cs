@@ -21,6 +21,7 @@ public class GameSetupState : State
         //TODO Put what we need for setup
         Debug.Log("Entering Setup State");
         _controller._playerAttackButton.SetActive(false);
+
     }
 
     public override void FixedTick()

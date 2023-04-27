@@ -49,7 +49,7 @@ public class Health : MonoBehaviour, IDamageable
     public void TakeDamage(int dmg)
     {
         // Identifies if gameObject is an enemy or player
-        if (unitType == UnitType.Enemy) EnemyTakeDamage(dmg);
+        if (unitType == UnitType.Enemy) StartCoroutine(EnemyTakeDamage(dmg));
         else if (unitType == UnitType.Player) PlayerTakeDamage(dmg);
 
     }
@@ -64,12 +64,14 @@ public class Health : MonoBehaviour, IDamageable
         {
             centralManager._sfxPlayer.Audio_DmgShield();
             _curDef -= dmg;
+            if (_curDef < 0) _curDef = 0;
             centralManager._playerHUD.ShieldCalc();
             playerController._hurtShield = true;
         }
         else
         {
             _curHP -= dmg;
+            if (_curHP < 0) _curHP = 0;
             centralManager._playerHUD.HealthCalc();
 
             if (_curHP <= 0)
@@ -82,21 +84,21 @@ public class Health : MonoBehaviour, IDamageable
             {
                 _critOccured = false;
                 centralManager._sfxPlayer.Audio_DmgCrit();
-                enemy._hurtCrit = true;
+                playerController._hurtCrit = true;
             }
             else
             {
                 centralManager._sfxPlayer.Audio_DmgHealth();
-                enemy._hurt = true;
+                playerController._hurt = true;
             }
         }
 
     }
 
-    // Implement sfx
-    private void EnemyTakeDamage(int dmg)
+    private IEnumerator EnemyTakeDamage(int dmg)
     {
-        for (int i = 0; i > playerStats._totalNumberOfAttacks; i++)
+        Debug.Log(playerStats._totalNumberOfAttacks);
+        for (int i = 0; i < playerStats._totalNumberOfAttacks; i++)
         {
             // Calculate if dmg inflicted was a critical hit
             float randomValue = Random.Range(0f, 1f);
@@ -113,6 +115,7 @@ public class Health : MonoBehaviour, IDamageable
 
                 centralManager._sfxPlayer.Audio_DmgShield();
                 _curDef -= dmg;
+                if (_curDef < 0) _curDef = 0;
                 // centralManager._enemyHUD.Shieldcalc();
                 enemy._hurtShield = true;
             }
@@ -121,6 +124,7 @@ public class Health : MonoBehaviour, IDamageable
                 if (playerStats._sharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
 
                 _curHP -= dmg;
+                if (_curHP < 0) _curHP = 0;
                 // centralManager._enemyHUD.HealthCalc();
 
                 if (_curHP <= 0)
@@ -143,7 +147,7 @@ public class Health : MonoBehaviour, IDamageable
 
             }
 
-            // Make this script a coroutine & make a visable wait time between each hit
+            yield return new WaitForSeconds(0.75f);
 
         }
 
@@ -158,8 +162,10 @@ public class Health : MonoBehaviour, IDamageable
         }
         else if (unitType == UnitType.Enemy) 
         {
+            StartCoroutine(EnemyDeathWaitTimer(1));
             enemy._killed = true;
             centralManager._playerHUD.HealthCalc();
+            enemy.EndEvent(this.gameObject);
         }
         centralManager._sfxPlayer.Audio_Death();
 
@@ -168,27 +174,14 @@ public class Health : MonoBehaviour, IDamageable
     public void HealHP(int value)
     {
         _curHP += value;
-        Debug.Log("Dead");
-        if (playerController != null)
-        {
-            Debug.Log("YOU LOSE!");
-            playerController._killed = true;
-        }
-        if (enemy != null) 
-        {
-            Debug.Log("Player Wins!");
-            StartCoroutine(EnemyDeathWaitTimer(1));
-            enemy._killed = true;
-            enemy.EndEvent(this.gameObject);
-        }
-    }
-
         if (_curHP > _maxHP) _curHP = _maxHP;
 
         if (unitType == UnitType.Player) centralManager._playerHUD.HealthCalc();
         else if (unitType == UnitType.Enemy) ; // centralManager._enemyHUD.HealthCalc();
 
         centralManager._sfxPlayer.Audio_Heal();
+    }
+            
     IEnumerator EnemyDeathWaitTimer(float pauseDuration)
     {
         yield return new WaitForSeconds(pauseDuration);

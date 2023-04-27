@@ -863,6 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76127db05d08244aa2cceacfd04b83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   _startPos: {x: 0, y: 0, z: -10}
   _startSize: 0
   bobbingEnabled: 0
@@ -871,11 +872,11 @@ MonoBehaviour:
   _animationSpeed: 5
   _camZoom: 1
   _minSize: 4.5
-  combatFocus: 0
+  focusEnabled: 0
   shakeDuration: 0.2
   shakeIntensity: 0.1
-  _player: {fileID: 1945445524}
-  _target: {fileID: 0}
+  _target1: {fileID: 0}
+  _target2: {fileID: 0}
 --- !u!1 &1149876315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8243817842405482900, guid: cae5758b0289b2540bfd3814914abad2, type: 3}
@@ -1208,6 +1209,34 @@ PrefabInstance:
       propertyPath: _cards.Array.data[5]
       value: 
       objectReference: {fileID: 175259782}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[1]
+      value: 
+      objectReference: {fileID: 62097016}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[2]
+      value: 
+      objectReference: {fileID: 969679443}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[3]
+      value: 
+      objectReference: {fileID: 564279436}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[4]
+      value: 
+      objectReference: {fileID: 14371866}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[5]
+      value: 
+      objectReference: {fileID: 259438203}
+    - target: {fileID: 3906783405767934942, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
+      propertyPath: _fixedCards.Array.data[6]
+      value: 
+      objectReference: {fileID: 175259782}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 064021e90b5380f4c9e586a6952c5fc0, type: 3}
 --- !u!114 &1848003151 stripped
@@ -1297,11 +1326,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1945445524 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2815393853810834798, guid: dacc1431d21a51043a2b954cf0f9a2bc, type: 3}
-  m_PrefabInstance: {fileID: 8045670052031803867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1955805723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5192233742735318598, guid: e0f242cb0aa491044b649bbdc26d49dd, type: 3}
@@ -1374,6 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6746fb27121546a4faa7a95c2e678ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fixedBackgroundSize: 1
   backgroundImages:
   - {fileID: 21300000, guid: c80e5b848a73f0c439b8d8f60be48c71, type: 3}
   - {fileID: 21300000, guid: 24023ac29aaceb345b1386358da32225, type: 3}
@@ -1648,7 +1673,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2815393853810834799, guid: dacc1431d21a51043a2b954cf0f9a2bc, type: 3}
   m_PrefabInstance: {fileID: 8045670052031803867}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945445524}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91ec99a1bab142e439bee758c322580d, type: 3}
@@ -1659,7 +1684,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8196916071806066834, guid: dacc1431d21a51043a2b954cf0f9a2bc, type: 3}
   m_PrefabInstance: {fileID: 8045670052031803867}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945445524}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a98d1d45eada249479563936935a6d94, type: 3}

@@ -6,8 +6,8 @@ public class CardEvent_Enemy : IEvent
 {
     [Header("Combat Values")]
     [SerializeField] public bool active;
-    [Range(1, 25)] [SerializeField] private int _minAttackRange = 1;
-    [Range(1, 25)] [SerializeField] private int _maxAttackRange = 1;
+    [Range(1, 25)] [SerializeField] public int _minAttackRange = 1;
+    [Range(1, 25)] [SerializeField] public int _maxAttackRange = 1;
 
     // Bools for player animator; All auto disable when turned true except for _lowHP & _dead
     // Don't change _dead bool directly; use _killed instead
@@ -39,14 +39,12 @@ public class CardEvent_Enemy : IEvent
     // Initiate Combat State
     public override void PlayEvent()
     {
-<<<<<<< HEAD:Assets/Eduardo's Assets/Script/Card Scripts/CardEvent_Enemy.cs
         centralManager._sfxPlayer.Audio_EnemyEncounter();
-=======
         GameFSM _gameController = (GameFSM)FindObjectOfType(typeof(GameFSM));
         GameController _controller = (GameController)FindObjectOfType(typeof(GameController));
         _controller._enemyHealth = health;
+        _controller._enemyStats = this;
         _gameController.ChangeToBattle();
->>>>>>> SamBranch:Assets/Eduardo's Assets/Script/CardEvent_Enemy.cs
     }
 
 

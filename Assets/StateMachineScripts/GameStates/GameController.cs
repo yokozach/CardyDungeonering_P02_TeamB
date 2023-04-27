@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] public PlayerController _playerController;
-    [SerializeField] public Health _playerHP;
+    [SerializeField] public PlayerController _playerController = null;
+    [SerializeField] public Health _playerHP = null;
+    [SerializeField] public PlayerStats _playerStats = null;
     public bool _inBattle = false;
     [SerializeField] public InputManager _checkTouched;
     [SerializeField] public GameObject _youWin = null;
@@ -13,6 +14,16 @@ public class GameController : MonoBehaviour
     [SerializeField] public CardEvent_Stairs _stairs = null;
     [SerializeField] public GameObject _playerAttackButton = null;
     public Health _enemyHealth = null;
+    public CardEvent_Enemy _enemyStats = null;
     public int _battleTurn = 0;
     public int _enemiesDefeated = 0;
+
+
+    private void Start()
+    {
+        if (_playerController == null) FindObjectOfType<PlayerController>();
+        if (_playerStats == null) FindObjectOfType<PlayerStats>();
+
+    }
+
 }

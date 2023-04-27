@@ -38,17 +38,21 @@ public class EnemyBattleState : State
         {
             _stateMachine.ChangeState(_stateMachine.LoseState);
         }
+
         if(_controller._enemyHealth._curHP <= 0)
         {
             Debug.Log("enemyDefeated in enemyState");
             _controller._battleTurn = 0;
             _controller._enemiesDefeated++;
-            if(_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
+            Debug.Log("Cur Enemies Defeated: " + _controller._enemiesDefeated);
+            Debug.Log("Needed AMount: " + _controller._stairs._enemiesNeededToWin);
+            if (_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
             {
-                _controller._stairs._active = true;
+                _controller._stairs.ActivateStairs();
             }
             _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
         }
+
         //Enemy Attack After thinking 
         else if (StateDuration >= 2.5f)
         {
@@ -59,8 +63,7 @@ public class EnemyBattleState : State
     public void EnemyBasicAttack()
     {
         Debug.Log("EnemyAttack");
-        int _damage;
-        _damage = Random.Range(1, 4);
+        int _damage = Random.Range(_controller._enemyStats._minAttackRange, _controller._enemyStats._maxAttackRange);
         _controller._playerHP.TakeDamage(_damage);
         _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
     }

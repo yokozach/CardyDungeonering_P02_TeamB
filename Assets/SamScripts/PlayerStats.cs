@@ -37,6 +37,7 @@ public class PlayerStats : MonoBehaviour
     {
         _totalPlayerAttack = _playerBaseAttack;
         _totalPlayerDefense = _playerBaseDefense;
+        _totalNumberOfAttacks = _numberOfAttacks;
 
         _attackValueDisplay = _totalPlayerAttack;
         _defenseValueDisplay = _totalPlayerDefense;
@@ -51,6 +52,11 @@ public class PlayerStats : MonoBehaviour
         _sharp = sharp;
         _heavy = heavy;
         _baseCritChance = crit;
+
+        _totalPlayerAttack = _playerBaseAttack;
+        _totalPlayerDefense = _playerBaseDefense;
+        _totalNumberOfAttacks = _numberOfAttacks;
+
         UpdateAttackValueDisplay();
     }
 

@@ -31,7 +31,6 @@ public class Player_Hud : MonoBehaviour
     public void ShieldCalc()
     {
         float shieldPercentage = Mathf.Clamp01((float)playerHP._curDef / (float)playerHP._maxDef);
-        Debug.Log(shieldPercentage);
         shieldBar.fillAmount = shieldPercentage; 
         defenseNum.text = playerHP._curDef.ToString();
 
@@ -39,7 +38,6 @@ public class Player_Hud : MonoBehaviour
     public void HealthCalc()
     {
         float healthPercentage = Mathf.Clamp01((float)playerHP._curHP / (float)playerHP._maxHP);
-        Debug.Log(healthPercentage);
         healthBar.fillAmount = healthPercentage;
         healthNum.text = playerHP._curHP.ToString();
     }

@@ -31,5 +31,12 @@ public class CentralManager : MonoBehaviour
     public List<CardEvent_Event> _events;
     public List<CardEvent_Enemy> _enemies;
 
+    private void Start()
+    {
+        if (_playerController == null) FindObjectOfType<PlayerController>();
+        if (_playerStats == null) FindObjectOfType<PlayerStats>();
+        if (_inventoryController == null) FindObjectOfType<InventoryController>();
+
+    }
 
 }
