@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
-  _playerBaseAttack: 3
+  _playerBaseAttack: 2
   _playerBaseDefense: 0
   _totalPlayerAttack: 0
   _totalPlayerDefense: 0
@@ -155,12 +155,12 @@ MonoBehaviour:
   _numberOfAttacks: 1
   _pierce: 0
   _sharp: 0
-  _sharpMultiplier: 1.5
+  _sharpMultiplier: 2
   _heavy: 0
-  _heavyMultiplier: 1.5
+  _heavyMultiplier: 2
   _totalNumberOfAttacks: 0
   _baseCritChance: 0.01
-  _CritMultiplier: 1.5
+  _CritMultiplier: 2
   _totalCritChance: 0
 --- !u!1 &5049954620238714238
 GameObject:

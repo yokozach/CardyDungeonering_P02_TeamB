@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    void TakeDamage(int damage);
+    void TakeDamage(int dmg, int count = 1, bool pierce = false, bool sharp = false, bool heavy = false, float crit = 0.01f);
 
     void Kill();
 }

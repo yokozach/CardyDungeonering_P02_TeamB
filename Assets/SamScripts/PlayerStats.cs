@@ -26,6 +26,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float _heavyMultiplier = 1.5f; // Percentage of extra dmg dealt
 
     [HideInInspector] public int _totalNumberOfAttacks;
+    [HideInInspector] public bool _totalPierce;
+    [HideInInspector] public bool _totalSharp;
+    [HideInInspector] public bool _totalHeavy;
 
     [Header("Crit Stats")]
     [Range(0, 1)] [SerializeField] public float _baseCritChance = 0.01f; // Base crit chance
@@ -38,6 +41,10 @@ public class PlayerStats : MonoBehaviour
         _totalPlayerAttack = _playerBaseAttack;
         _totalPlayerDefense = _playerBaseDefense;
         _totalNumberOfAttacks = _numberOfAttacks;
+        _totalPierce = _pierce;
+        _totalSharp = _sharp;
+        _totalHeavy = _heavy;
+        _totalCritChance = _baseCritChance;
 
         _attackValueDisplay = _totalPlayerAttack;
         _defenseValueDisplay = _totalPlayerDefense;
@@ -53,9 +60,7 @@ public class PlayerStats : MonoBehaviour
         _heavy = heavy;
         _baseCritChance = crit;
 
-        _totalPlayerAttack = _playerBaseAttack;
-        _totalPlayerDefense = _playerBaseDefense;
-        _totalNumberOfAttacks = _numberOfAttacks;
+        ResetBuffEffects();
 
         UpdateAttackValueDisplay();
     }
@@ -144,9 +149,9 @@ public class PlayerStats : MonoBehaviour
         _totalPlayerAttack = _playerBaseAttack;
         _totalPlayerDefense = _playerBaseDefense;
         _totalNumberOfAttacks = _numberOfAttacks;
-        _pierce = false;
-        _sharp = false;
-        _heavy = false;
+        _totalPierce = _pierce;
+        _totalSharp = _sharp;
+        _totalHeavy = _heavy;
         _baseCritChance = _totalCritChance;
     }
 
@@ -194,6 +199,7 @@ public class PlayerStats : MonoBehaviour
             {
                 attackBuffs.RemoveAt(i);
                 i--;
+                UpdateAttackValueDisplay();
             }
         }
     }

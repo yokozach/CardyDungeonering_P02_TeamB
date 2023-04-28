@@ -97,12 +97,13 @@ MonoBehaviour:
   selectBtn: {fileID: 4924147351935745368}
   cardName: Swift+ Potion
   cardType: 3
-  cardDescription: +2 hit for 5 turns
+  cardDescription: +2 hits for 5 turns
   countInDeck: 1
   invNum: 0
+  deckNum: 25
   animationSpeed: 1.5
   isMoving: 0
-  _buffType: 0
+  _buffType: 2
   _buffValue: 2
   _turnsItLasts: 5
 --- !u!1 &1332273401592808508

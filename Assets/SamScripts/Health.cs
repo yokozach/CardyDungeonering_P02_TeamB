@@ -31,7 +31,7 @@ public class Health : MonoBehaviour, IDamageable
 
     void Awake()
     {
-        _curHP = _maxHP;
+        
     }
 
     void Start()
@@ -42,10 +42,10 @@ public class Health : MonoBehaviour, IDamageable
 
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, int count=1, bool pierce=false, bool sharp=false, bool heavy=false, float crit=0.01f)
     {
         // Identifies if gameObject is an enemy or player
-        if (unitType == UnitType.Enemy) StartCoroutine(EnemyTakeDamage(dmg));
+        if (unitType == UnitType.Enemy) StartCoroutine(EnemyTakeDamage(dmg, count, pierce, sharp, heavy, crit));
         else if (unitType == UnitType.Player) PlayerTakeDamage(dmg);
 
     }
@@ -56,8 +56,9 @@ public class Health : MonoBehaviour, IDamageable
         // Reduces dmg by player defense
         playerStats.RunDefenseBuffTurns();
         if (playerController != null) dmg -= playerStats._totalPlayerDefense;
+        if (dmg < 0) dmg = 0;
 
-        if (_curDef >= 1)
+        if (_curDef >= 1 || dmg == 0)
         {
             centralManager._sfxPlayer.Audio_DmgShield();
             _curDef -= dmg;
@@ -95,23 +96,22 @@ public class Health : MonoBehaviour, IDamageable
 
     }
 
-    private IEnumerator EnemyTakeDamage(int dmg)
+    private IEnumerator EnemyTakeDamage(int dmg, int count, bool pierce, bool sharp, bool heavy, float crit)
     {
-        centralManager._playerStats.RunOffensiveBuffEffects();
-        for (int i = 0; i < playerStats._totalNumberOfAttacks; i++)
+        for (int i = 0; i < count; i++)
         {
             // Calculate if dmg inflicted was a critical hit
             float randomValue = Random.Range(0f, 1f);
-            if (playerStats._totalCritChance > randomValue)
+            if (crit > randomValue)
             {
                 dmg = Mathf.RoundToInt(dmg * playerStats._CritMultiplier);
                 _critOccured = true;
             }
 
             // Deal dmg to shield if any; deal dmg to HP if pierce enabled or no shield remaining
-            if (_curDef >= 1 && !playerStats._pierce)
+            if (_curDef >= 1 && !pierce)
             {
-                if (playerStats._heavy) dmg = Mathf.RoundToInt(dmg * playerStats._heavyMultiplier);
+                if (heavy) dmg = Mathf.RoundToInt(dmg * playerStats._heavyMultiplier);
 
                 centralManager._sfxPlayer.Audio_DmgShield();
                 _curDef -= dmg;
@@ -121,7 +121,7 @@ public class Health : MonoBehaviour, IDamageable
             }
             else
             {
-                if (playerStats._sharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
+                if (sharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
 
                 _curHP -= dmg;
                 if (_curHP < 0) _curHP = 0;
@@ -134,8 +134,7 @@ public class Health : MonoBehaviour, IDamageable
                     Kill();
                     break;
                 }
-
-                if (_critOccured)
+                else if (_critOccured)
                 {
                     _critOccured = false;
                     centralManager._sfxPlayer.Audio_DmgCrit();
@@ -149,11 +148,9 @@ public class Health : MonoBehaviour, IDamageable
 
             }
 
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(0.5f);
 
         }
-
-        centralManager._playerStats.ResetBuffEffects();
 
     }
 
@@ -167,12 +164,10 @@ public class Health : MonoBehaviour, IDamageable
         else if (unitType == UnitType.Enemy) 
         {
             enemy._killed = true;
-            StartCoroutine(EnemyDeathWaitTimer(2));
+            centralManager._sfxPlayer.Audio_Death();
             centralManager._playerHUD.HealthCalc();
-            enemy.EndEvent(this.gameObject);
+            StartCoroutine(EnemyDeathWaitTimer(0.7f));
         }
-        centralManager._sfxPlayer.Audio_Death();
-
     }
 
     public void HealHP(int value)
@@ -189,7 +184,7 @@ public class Health : MonoBehaviour, IDamageable
     IEnumerator EnemyDeathWaitTimer(float pauseDuration)
     {
         yield return new WaitForSeconds(pauseDuration);
-        //play death animation
+        enemy.EndEvent(this.gameObject);
     }
 
     public void HealSH(int value)

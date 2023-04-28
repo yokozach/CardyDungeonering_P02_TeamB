@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public abstract class InvCard : MonoBehaviour
 {
@@ -19,11 +20,12 @@ public abstract class InvCard : MonoBehaviour
     [SerializeField] public GameObject selectBtn;
 
     [Header("Card Data")]
-    public string cardName;
-    public CardType cardType;
-    public string cardDescription;
-    public int countInDeck = 1;
-    public int invNum;
+    [SerializeField] string cardName;
+    [SerializeField] CardType cardType;
+    [SerializeField] string cardDescription;
+    [SerializeField] public int countInDeck = 1;
+    [SerializeField] public int invNum;
+    [HideInInspector] public int deckNum;
 
     [Header("Animation")]
     public float animationSpeed = 1.5f; // speed multiplier for the animation
@@ -47,6 +49,7 @@ public abstract class InvCard : MonoBehaviour
     private void Start()
     {
 
+
     }
 
     public void ToggleSelect()
@@ -60,6 +63,7 @@ public abstract class InvCard : MonoBehaviour
             centralManager._inventoryController.SetSelectedCard(null);
             centralManager._inventoryController.DeactivateSelectPanel();
             selectBtn.SetActive(false);
+            ActivateDescription(false);
             isSelected = false;
         }
         else
@@ -70,6 +74,7 @@ public abstract class InvCard : MonoBehaviour
             centralManager._inventoryController.ActivateSelectPanel();
             ReorderCards();
             selectBtn.SetActive(true);
+            ActivateDescription(true);
             isSelected = true;
         }
     }
@@ -86,6 +91,8 @@ public abstract class InvCard : MonoBehaviour
             centralManager._inventoryController.ActivateSelectPanel();
             ReorderCards();
             selectBtn.SetActive(true);
+            centralManager._cardDescriptionText.text = cardDescription;
+            ActivateDescription(true);
             isSelected = true;
         }
     }
@@ -163,4 +170,13 @@ public abstract class InvCard : MonoBehaviour
     {
         centerPosition = newCenterPos;
     }
+
+    public void ActivateDescription(bool state)
+    {
+        if (state)
+            centralManager._cardDescriptionText.text = cardDescription;
+        centralManager._cardDescriptionText.gameObject.SetActive(state);
+        
+    }
+
 }

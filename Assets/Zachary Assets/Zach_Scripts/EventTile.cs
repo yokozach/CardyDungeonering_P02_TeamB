@@ -35,7 +35,6 @@ public class EventTile : MonoBehaviour
 
     public void EndEvent()
     {
-        Debug.Log("End Event Called");
         Destroy(_card);
     }
 

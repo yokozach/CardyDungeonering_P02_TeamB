@@ -49,16 +49,15 @@ public class CardEvent_Stairs : IEvent
     {
         if (_active == true)
         {
-            Debug.Log("Floor Cleared!");
             if (_anotherScene && _nextScene != null)
             {
                 // Add code to change state machine to next floor transition!
                 if(_sceneManager != null)
                 {
+                    Debug.Log("Stored Deck: " + centralManager._inventoryController.inventoryCards);
                     PlayerData.StoreData(playerHealth._curHP, playerHealth._curDef, playerHealth._maxHP, playerHealth._maxDef,
                         playerStats._playerBaseAttack, playerStats._playerBaseDefense, playerStats._numberOfAttacks, playerStats._pierce, 
                         playerStats._sharp, playerStats._heavy, playerStats._baseCritChance, centralManager._inventoryController.inventoryCards);
-                    PlayerData.shareData = true;
                     _sceneManager.LoadScene(_nextScene);
                 }
             }

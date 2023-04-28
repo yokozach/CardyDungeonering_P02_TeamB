@@ -100,9 +100,10 @@ MonoBehaviour:
   cardDescription: Attacks are (Sharp) for 3 turns
   countInDeck: 1
   invNum: 0
+  deckNum: 27
   animationSpeed: 1.5
   isMoving: 0
-  _buffType: 0
+  _buffType: 4
   _buffValue: 1
   _turnsItLasts: 3
 --- !u!1 &1332273401592808508

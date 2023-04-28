@@ -97,7 +97,7 @@ MonoBehaviour:
   selectBtn: {fileID: 4924147351935745368}
   cardName: Swiftness Potion
   cardType: 3
-  cardDescription: +1 hit for 3 turns
+  cardDescription: +1 hits for 3 turns
   countInDeck: 2
   invNum: 0
   animationSpeed: 1.5

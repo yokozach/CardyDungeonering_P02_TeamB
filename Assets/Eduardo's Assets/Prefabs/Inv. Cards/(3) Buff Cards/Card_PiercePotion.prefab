@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3360646017356362384}
   - component: {fileID: 7016244626102339036}
   m_Layer: 5
-  m_Name: Card_PrickPotion
+  m_Name: Card_PiercePotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,11 +95,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
   selectBtn: {fileID: 4924147351935745368}
-  cardName: Point Potion
+  cardName: Pierce Potion
   cardType: 3
   cardDescription: Attacks (Pierce) for 3 turns
   countInDeck: 1
   invNum: 0
+  deckNum: 26
   animationSpeed: 1.5
   isMoving: 0
   _buffType: 3
@@ -398,7 +399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prick Potion
+  m_text: Pierce Potion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 401e0dcd105624747b715e9bf256b976, type: 2}
   m_sharedMaterial: {fileID: 6784127733612686732, guid: 401e0dcd105624747b715e9bf256b976, type: 2}

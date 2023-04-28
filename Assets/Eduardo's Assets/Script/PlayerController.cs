@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour
         // Checks if the next tile exists within grid bounderies
         if (curGridPos.x + direction.x < 0 || curGridPos.x + direction.x > centralManager._gridManager.ReturnColCount() - 1 || curGridPos.y - direction.y < 0 || curGridPos.y - direction.y > centralManager._gridManager.ReturnRowCount() - 1)
         {
-            Debug.Log("Next Tile Doesn't exist!");
             return true;
         }
 
@@ -109,14 +108,12 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Stairs Found");
                     curMainCard.Reveal();
                     return true;
                 }
             }
             else
             {
-                Debug.Log("Next Tile is Occupied!");
                 curMainCard.Reveal();
                 return true;
             }
@@ -150,7 +147,7 @@ public class PlayerController : MonoBehaviour
         for (int i=0; i<30; i++)
         {
             yield return null;
-            transform.position += new Vector3(direction.x * moveDis, direction.y * moveDis, transform.position.z);
+            transform.position += new Vector3(direction.x * moveDis * Time.deltaTime, direction.y * moveDis * Time.deltaTime, transform.position.z);
         }
 
         // Fixes player onto the tile they are supposed to be on
