@@ -230,13 +230,14 @@ MonoBehaviour:
   selectBtn: {fileID: 8383673517530330934}
   cardName: Heavy Sword
   cardType: 0
-  cardDescription: (Heavy) Inflict 7 dmg
+  cardDescription: (Heavy) Inflict 6 dmg
   countInDeck: 1
   invNum: 0
+  deckNum: 3
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
-  attDmg: 7
+  attDmg: 6
   hits: 1
   pierce: 0
   sharp: 0

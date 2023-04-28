@@ -98,7 +98,7 @@ MonoBehaviour:
   cardName: Sharp Potion
   cardType: 3
   cardDescription: Attacks are (Sharp) for 3 turns
-  countInDeck: 1
+  countInDeck: 2
   invNum: 0
   deckNum: 27
   animationSpeed: 1.5

@@ -40,6 +40,8 @@ public class Health : MonoBehaviour, IDamageable
         playerStats = centralManager._playerStats;
         enemy = GetComponent<CardEvent_Enemy>();
 
+        if (_curHP < 0.3 * _maxHP) playerController._lowHP = true;
+
     }
 
     public void TakeDamage(int dmg, int count=1, bool pierce=false, bool sharp=false, bool heavy=false, float crit=0.01f)
@@ -173,6 +175,7 @@ public class Health : MonoBehaviour, IDamageable
     public void HealHP(int value)
     {
         _curHP += value;
+        if (_curHP > 0.3 * _maxHP) playerController._lowHP = false;
         if (_curHP > _maxHP) _curHP = _maxHP;
 
         if (unitType == UnitType.Player) centralManager._playerHUD.HealthCalc();

@@ -232,13 +232,14 @@ MonoBehaviour:
   selectBtn: {fileID: 6281754237983516880}
   cardName: Gauntlet
   cardType: 0
-  cardDescription: Deal 2 dmg (3x) with 10% crit rate
-  countInDeck: 3
+  cardDescription: Deal 1 dmg (3x) with 10% crit rate
+  countInDeck: 2
   invNum: 0
+  deckNum: 1
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
-  attDmg: 2
+  attDmg: 1
   hits: 3
   pierce: 0
   sharp: 0

@@ -98,7 +98,7 @@ MonoBehaviour:
   cardName: Critical Potion
   cardType: 3
   cardDescription: +25% Crit Rate for 5 turns
-  countInDeck: 1
+  countInDeck: 2
   invNum: 0
   deckNum: 29
   animationSpeed: 1.5

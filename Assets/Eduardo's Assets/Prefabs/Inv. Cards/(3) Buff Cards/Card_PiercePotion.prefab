@@ -98,7 +98,7 @@ MonoBehaviour:
   cardName: Pierce Potion
   cardType: 3
   cardDescription: Attacks (Pierce) for 3 turns
-  countInDeck: 1
+  countInDeck: 2
   invNum: 0
   deckNum: 26
   animationSpeed: 1.5
