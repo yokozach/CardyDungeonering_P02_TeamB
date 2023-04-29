@@ -59,7 +59,7 @@ public class CardEvent_Stairs : IEvent
                         playerStats._playerBaseAttack, playerStats._playerBaseDefense, playerStats._numberOfAttacks, playerStats._pierce, 
                         playerStats._sharp, playerStats._heavy, playerStats._baseCritChance, centralManager._inventoryController.inventoryCards);
                     PlayerData.shareData = true;
-                    _sceneManager.LoadScene(_nextScene);
+                    StartCoroutine(StairsWaitTimer(1));
                 }
             }
             else
@@ -76,5 +76,10 @@ public class CardEvent_Stairs : IEvent
         }
     }
 
+    IEnumerator StairsWaitTimer(float pauseDuration)
+    {
+        yield return new WaitForSeconds(pauseDuration);
+        _sceneManager.LoadScene(_nextScene);
+    }
 
 }

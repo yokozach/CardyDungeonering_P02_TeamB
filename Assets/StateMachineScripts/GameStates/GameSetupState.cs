@@ -24,6 +24,7 @@ public class GameSetupState : State
         _controller._playerTurnImage.SetActive(false);
         _controller._enemyTurnImage.SetActive(false);
         _controller._returnToMainMenuButton.SetActive(false);
+        _controller._nextFloorButton.SetActive(false);
     }
 
     public override void FixedTick()

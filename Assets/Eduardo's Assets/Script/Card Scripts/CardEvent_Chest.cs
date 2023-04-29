@@ -24,7 +24,7 @@ public class CardEvent_Chest : IEvent
 
     private IEnumerator GrantCard()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1f);
         centralManager._deckManager.AddRandomCard();
         centralManager._sfxPlayer.Audio_CardCollected();
         EndEvent(this.gameObject);

@@ -18,6 +18,10 @@ public class PlayerChooseCardState : State
     {
         base.Enter();
         Debug.Log("Entering Player Choose a Card State");
+        if(_controller._stairs._enemiesNeededToWin == _controller._enemiesDefeated && _controller._stairs._revealed)
+        {
+            _controller._nextFloorButton.SetActive(true);
+        }
     }
 
     public override void Exit()

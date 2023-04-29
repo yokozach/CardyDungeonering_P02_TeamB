@@ -44,13 +44,13 @@ public class EnemyBattleState : State
         if(_controller._enemyHealth._curHP <= 0)
         {
             Debug.Log("enemyDefeated in enemyState");
-            _controller._battleTurn = 0;
-            _controller._enemiesDefeated++;
+            //_controller._battleTurn = 0;
+            //_controller._enemiesDefeated++;
             if (_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
             {
                 _controller._stairs.ActivateStairs();
             }
-            _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
+            _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
         }
 
         //Enemy Attack After thinking 

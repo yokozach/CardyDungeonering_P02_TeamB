@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField] public CardEvent_Stairs _stairs = null;
     [SerializeField] public GameObject _playerAttackButton = null;
     [SerializeField] public GameObject _returnToMainMenuButton = null;
+    [SerializeField] public GameObject _nextFloorButton = null;
     [SerializeField] public GameObject _playerTurnImage = null;
     [SerializeField] public GameObject _enemyTurnImage = null;
     public Health _enemyHealth = null;

@@ -21,8 +21,11 @@ public class PlayerBattleState : State
     {
         base.Enter();
         Debug.Log("Entering Player Battle State");
-
-        _controller._playerHP.RunRegenTurns();
+        Debug.Log(_controller._battleTurn);
+        if (_controller._playerHP._curHP > 0 && _controller._enemyHealth._curHP > 0)
+        {
+            _controller._playerHP.RunRegenTurns();
+        }
 
         _controller._playerAttackButton.SetActive(true);
         _controller._playerTurnImage.SetActive(true);
@@ -32,7 +35,6 @@ public class PlayerBattleState : State
             _enemyHealth = _controller._enemyHealth;
             _controller._cam.SetTarget2(_enemyHealth.gameObject);
             _controller._cam.ToggleFocus();
-
         }
     }
 
@@ -58,7 +60,6 @@ public class PlayerBattleState : State
             _controller._enemiesDefeated++;
             Debug.Log("enemyDefeated in playerState");
             Debug.Log("Cur Enemies Defeated: " + _controller._enemiesDefeated);
-            Debug.Log("Needed AMount: " + _controller._stairs._enemiesNeededToWin);
             if (_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
             {
                 _controller._stairs.ActivateStairs();

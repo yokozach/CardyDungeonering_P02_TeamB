@@ -165,10 +165,9 @@ public class Health : MonoBehaviour, IDamageable
         }
         else if (unitType == UnitType.Enemy) 
         {
-            StartCoroutine(EnemyDeathWaitTimer(1));
             enemy._killed = true;
             centralManager._playerHUD.HealthCalc();
-            enemy.EndEvent(this.gameObject);
+            StartCoroutine(EnemyDeathWaitTimer(1));
         }
         centralManager._sfxPlayer.Audio_Death();
 
@@ -189,6 +188,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(pauseDuration);
         //play death animation
+        enemy.EndEvent(this.gameObject);
     }
 
     public void HealSH(int value)
