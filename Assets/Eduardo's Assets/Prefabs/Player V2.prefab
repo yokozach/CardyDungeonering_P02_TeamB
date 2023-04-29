@@ -49,10 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
   unitType: 0
-  _maxHP: 20
-  _curHP: 20
-  _maxDef: 15
-  _curDef: 10
+  _maxHP: 15
+  _curHP: 15
+  _maxDef: 10
+  _curDef: 7
 --- !u!114 &2815393853810834799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,22 +146,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
-  _playerBaseAttack: 2
-  _playerBaseDefense: 0
-  _totalPlayerAttack: 0
-  _totalPlayerDefense: 0
-  _attackValueDisplay: 0
-  _defenseValueDisplay: 0
-  _numberOfAttacks: 1
-  _pierce: 0
-  _sharp: 0
+  _baseAtt: 3
+  _baseDef: 0
+  _baseHit: 1
+  _baseCrit: 0.01
+  _basePierce: 0
+  _baseSharp: 0
+  _baseHeavy: 0
+  _buffAtt: 0
+  _buffDef: 0
+  _buffHit: 0
+  _buffCrit: 0
+  _buffPierce: 0
+  _buffSharp: 0
+  _buffHeavy: 0
+  _finalAtt: 0
+  _finalDef: 0
+  _finalHit: 0
+  _finalCrit: 0
+  _finalPierce: 0
+  _finalSharp: 0
+  _finalHeavy: 0
   _sharpMultiplier: 2
-  _heavy: 0
   _heavyMultiplier: 2
-  _totalNumberOfAttacks: 0
-  _baseCritChance: 0.01
-  _CritMultiplier: 2
-  _totalCritChance: 0
+  _critMultiplier: 2
 --- !u!1 &5049954620238714238
 GameObject:
   m_ObjectHideFlags: 0

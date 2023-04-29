@@ -244,7 +244,7 @@ MonoBehaviour:
   pierce: 0
   sharp: 0
   heavy: 0
-  Crit: 0.1
+  crit: 0.1
 --- !u!1 &1034978449561971684
 GameObject:
   m_ObjectHideFlags: 0

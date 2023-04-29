@@ -56,8 +56,8 @@ public class CardEvent_Stairs : IEvent
                 {
                     Debug.Log("Stored Deck: " + centralManager._inventoryController.inventoryCards);
                     PlayerData.StoreData(playerHealth._curHP, playerHealth._curDef, playerHealth._maxHP, playerHealth._maxDef,
-                        playerStats._playerBaseAttack, playerStats._playerBaseDefense, playerStats._numberOfAttacks, playerStats._pierce, 
-                        playerStats._sharp, playerStats._heavy, playerStats._baseCritChance, centralManager._inventoryController.inventoryCards);
+                        playerStats._baseAtt, playerStats._baseDef, playerStats._baseHit, playerStats._baseCrit, playerStats._basePierce, 
+                        playerStats._baseSharp, playerStats._baseHeavy, centralManager._inventoryController.inventoryCards);
                     _sceneManager.LoadScene(_nextScene);
                 }
             }

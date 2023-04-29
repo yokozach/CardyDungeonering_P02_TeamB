@@ -81,9 +81,7 @@ public class PlayerBattleState : State
     {
         Debug.Log("Attacked");
         PlayerStats stats = _controller._playerStats;
-        _controller._playerStats.RunOffensiveBuffEffects();
-        _enemyHealth.TakeDamage(stats._totalPlayerAttack, stats._totalNumberOfAttacks, stats._totalPierce, stats._totalSharp, stats._totalHeavy, stats._totalCritChance);
-        _controller._playerStats.ResetBuffEffects();
+        _enemyHealth.TakeDamage(stats._finalAtt);
         _controller._battleTurn++;
         if (_enemyHealth._curHP > 0)
         {

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
-  addCardsAtStart: 4
+  addCardsAtStart: 5
   deck:
   - {fileID: 443434881322344062, guid: fff7fc384ead2f14ca2c7444efba93fb, type: 3}
   - {fileID: 443434881322344062, guid: c1441b80cb97c4545ab5b38644d83e51, type: 3}

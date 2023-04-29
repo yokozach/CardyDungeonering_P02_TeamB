@@ -56,13 +56,7 @@ public class CentralManager : MonoBehaviour
             playerHealth._maxDef = PlayerData.maxShield;
 
             // Sets Player Combat Ability
-            _playerStats._playerBaseAttack = PlayerData.baseAttack;
-            _playerStats._playerBaseDefense = PlayerData.baseDefense;
-            _playerStats._numberOfAttacks = PlayerData.numberOfAttacks;
-            _playerStats._pierce = PlayerData.pierce;
-            _playerStats._sharp = PlayerData.sharp;
-            _playerStats._heavy = PlayerData.heavy;
-            _playerStats._baseCritChance = PlayerData.baseCritChance;
+            _playerStats.ChangeBaseStats(PlayerData.baseAttack, PlayerData.baseDefense, PlayerData.numberOfAttacks, PlayerData.baseCritChance, PlayerData.pierce, PlayerData.sharp, PlayerData.heavy);
 
         }
 

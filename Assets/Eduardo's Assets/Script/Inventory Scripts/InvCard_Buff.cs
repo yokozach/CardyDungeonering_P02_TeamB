@@ -44,8 +44,8 @@ public class InvCard_Buff : InvCard
         if (_buffType == BuffType.Sharp) SharpBuff();
         if (_buffType == BuffType.Heavy) HeavyBuff();
         if (_buffType == BuffType.Crit) CritBuff();
+        centralManager._playerStats.CalculateBuffEffects();
         RemoveCardFromInv();
-
     }
 
     public void AttackStatBuff()

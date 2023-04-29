@@ -44,10 +44,10 @@ public class Health : MonoBehaviour, IDamageable
 
     }
 
-    public void TakeDamage(int dmg, int count=1, bool pierce=false, bool sharp=false, bool heavy=false, float crit=0.01f)
+    public void TakeDamage(int dmg)
     {
         // Identifies if gameObject is an enemy or player
-        if (unitType == UnitType.Enemy) StartCoroutine(EnemyTakeDamage(dmg, count, pierce, sharp, heavy, crit));
+        if (unitType == UnitType.Enemy) StartCoroutine(EnemyTakeDamage(dmg));
         else if (unitType == UnitType.Player) PlayerTakeDamage(dmg);
 
     }
@@ -56,8 +56,7 @@ public class Health : MonoBehaviour, IDamageable
     private void PlayerTakeDamage(int dmg)
     {
         // Reduces dmg by player defense
-        playerStats.RunDefenseBuffTurns();
-        if (playerController != null) dmg -= playerStats._totalPlayerDefense;
+        if (playerController != null) dmg -= playerStats._finalDef;
         if (dmg < 0) dmg = 0;
 
         if (_curDef >= 1 || dmg == 0)
@@ -92,28 +91,29 @@ public class Health : MonoBehaviour, IDamageable
                 playerController._hurt = true;
             }
         }
-        playerStats.ResetBuffEffects();
 
         if (_curHP <= 0.3 * _maxHP) playerController._lowHP = true;
 
+        playerStats.ReduceDefBuffTurns();
+
     }
 
-    private IEnumerator EnemyTakeDamage(int dmg, int count, bool pierce, bool sharp, bool heavy, float crit)
+    private IEnumerator EnemyTakeDamage(int dmg)
     {
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < playerStats._finalHit; i++)
         {
             // Calculate if dmg inflicted was a critical hit
             float randomValue = Random.Range(0f, 1f);
-            if (crit > randomValue)
+            if (playerStats._finalCrit > randomValue)
             {
-                dmg = Mathf.RoundToInt(dmg * playerStats._CritMultiplier);
+                dmg = Mathf.RoundToInt(dmg * playerStats._critMultiplier);
                 _critOccured = true;
             }
 
             // Deal dmg to shield if any; deal dmg to HP if pierce enabled or no shield remaining
-            if (_curDef >= 1 && !pierce)
+            if (_curDef >= 1 && !playerStats._finalPierce)
             {
-                if (heavy) dmg = Mathf.RoundToInt(dmg * playerStats._heavyMultiplier);
+                if (playerStats._finalHeavy) dmg = Mathf.RoundToInt(dmg * playerStats._heavyMultiplier);
 
                 centralManager._sfxPlayer.Audio_DmgShield();
                 _curDef -= dmg;
@@ -123,7 +123,7 @@ public class Health : MonoBehaviour, IDamageable
             }
             else
             {
-                if (sharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
+                if (playerStats._finalSharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
 
                 _curHP -= dmg;
                 if (_curHP < 0) _curHP = 0;
@@ -132,13 +132,11 @@ public class Health : MonoBehaviour, IDamageable
 
                 if (_curHP <= 0)
                 {
-                    centralManager._playerStats.ResetBuffEffects();
                     Kill();
                     break;
                 }
                 else if (_critOccured)
                 {
-                    _critOccured = false;
                     centralManager._sfxPlayer.Audio_DmgCrit();
                     enemy._hurtCrit = true;
                 }
@@ -150,9 +148,16 @@ public class Health : MonoBehaviour, IDamageable
 
             }
 
-            yield return new WaitForSeconds(0.5f);
+            if (_critOccured)
+            {
+                _critOccured = false;
+                yield return new WaitForSeconds(0.7f);
+            }
+            else yield return new WaitForSeconds(0.5f);
 
         }
+
+        playerStats.ReduceOffBuffTurns();
 
     }
 
@@ -161,13 +166,15 @@ public class Health : MonoBehaviour, IDamageable
         if (unitType == UnitType.Player)
         {
             playerController._killed = true;
-            // centralManager._enemyHUD.HealthCalc();
+            centralManager._sfxPlayer.Audio_Death();
+            centralManager._playerHUD.HealthCalc();
+            centralManager._musicPlayer.GetComponent<AudioSource>().mute = true;
         }
         else if (unitType == UnitType.Enemy) 
         {
             enemy._killed = true;
             centralManager._sfxPlayer.Audio_Death();
-            centralManager._playerHUD.HealthCalc();
+            // centralManager._enemyHUD.HealthCalc();
             StartCoroutine(EnemyDeathWaitTimer(0.7f));
         }
     }

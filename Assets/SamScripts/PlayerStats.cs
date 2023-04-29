@@ -1,68 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private CentralManager centralManager;
+    private Player_Hud playerHud;
 
-    [Header("ATT & DEF")]
-    [SerializeField] public int _playerBaseAttack = 3; // Base attack power
-    [SerializeField] public int _playerBaseDefense = 0; // Base defense power
+    [Header("Base Stats")]
+    [SerializeField] public int _baseAtt = 3;
+    [SerializeField] public int _baseDef = 0;
+    [SerializeField] public int _baseHit = 1;
+    [Range(0, 1)] [SerializeField] public float _baseCrit = 0.01f;
+    [SerializeField] public bool _basePierce = false;
+    [SerializeField] public bool _baseSharp = false;
+    [SerializeField] public bool _baseHeavy = false;
 
-    [HideInInspector] public int _totalPlayerAttack; // Includes base & other variables
-    [HideInInspector] public int _totalPlayerDefense; // Includes base & other variables
+    [Header("Buff Stats")]
+    [SerializeField] public int _buffAtt;
+    [SerializeField] public int _buffDef;
+    [SerializeField] public int _buffHit;
+    [Range(0, 1)] [SerializeField] public float _buffCrit;
+    [SerializeField] public bool _buffPierce;
+    [SerializeField] public bool _buffSharp;
+    [SerializeField] public bool _buffHeavy;
 
-    [HideInInspector] public int _attackValueDisplay; // Use to display visuals indicators
-    [HideInInspector] public int _defenseValueDisplay; // Use to display visuals indicators
+    [Header("Totals")]
+    [SerializeField] public int _finalAtt;
+    [SerializeField] public int _finalDef;
+    [SerializeField] public int _finalHit;
+    [Range(0, 1)] [SerializeField] public float _finalCrit;
+    [SerializeField] public bool _finalPierce;
+    [SerializeField] public bool _finalSharp;
+    [SerializeField] public bool _finalHeavy;
 
-    [Header("Attack Styles")]
-    [Range(0, 10)] [SerializeField] public int _numberOfAttacks = 1; // Number of times to inflict dmg in one turn
-    [SerializeField] public bool _pierce = false; // Ignores enemy shield & directly dmgs enemy HP
-    [SerializeField] public bool _sharp = false; // Extra dmg against HP
-    [SerializeField] public float _sharpMultiplier = 1.5f; // Percentage of extra dmg dealt
-    [SerializeField] public bool _heavy = false; // Extra dmg against shield
-    [SerializeField] public float _heavyMultiplier = 1.5f; // Percentage of extra dmg dealt
-
-    [HideInInspector] public int _totalNumberOfAttacks;
-    [HideInInspector] public bool _totalPierce;
-    [HideInInspector] public bool _totalSharp;
-    [HideInInspector] public bool _totalHeavy;
-
-    [Header("Crit Stats")]
-    [Range(0, 1)] [SerializeField] public float _baseCritChance = 0.01f; // Base crit chance
-    [SerializeField] public float _CritMultiplier = 1.5f; // Percentage of extra dmg dealt if a crit lands
-
-    [Range(0, 1)] [HideInInspector] public float _totalCritChance;
+    [Header("Multipliers")]
+    [SerializeField] public float _sharpMultiplier;
+    [SerializeField] public float _heavyMultiplier;
+    [SerializeField] public float _critMultiplier;
 
     private void Awake()
     {
-        _totalPlayerAttack = _playerBaseAttack;
-        _totalPlayerDefense = _playerBaseDefense;
-        _totalNumberOfAttacks = _numberOfAttacks;
-        _totalPierce = _pierce;
-        _totalSharp = _sharp;
-        _totalHeavy = _heavy;
-        _totalCritChance = _baseCritChance;
+        playerHud = centralManager._playerHUD;
 
-        _attackValueDisplay = _totalPlayerAttack;
-        _defenseValueDisplay = _totalPlayerDefense;
     }
 
-    public void ChangeBaseStats(int att = 3, int def = 0, int numOfAtt = 1, bool pierce = false, bool sharp = false, bool heavy = false, float crit = 0.01f)
+    private void Start()
     {
-        _playerBaseAttack = att;
-        _playerBaseDefense = def;
-        _numberOfAttacks = numOfAtt;
-        _pierce = pierce;
-        _sharp = sharp;
-        _heavy = heavy;
-        _baseCritChance = crit;
+        CalculateBuffEffects();
+    }
 
-        ResetBuffEffects();
+    public void ChangeBaseStats(int att = 3, int def = 0, int numOfAtt = 1, float crit = 0.01f, bool pierce = false, bool sharp = false, bool heavy = false)
+    {
+        _baseAtt = att;
+        _baseDef = def;
+        _baseHit = numOfAtt;
+        _baseCrit = crit;
+        _basePierce = pierce;
+        _baseSharp = sharp;
+        _baseHeavy= heavy;
 
-        UpdateAttackValueDisplay();
+        _finalAtt = _baseAtt + _buffAtt;
+        _finalDef = _baseDef + _buffDef;
+        _finalHit = _baseHit + _buffHit;
+        _finalCrit = _baseCrit + _buffCrit;
+        if (_basePierce || _buffPierce) _finalPierce = true; else _finalPierce = false;
+        if (_baseSharp || _buffSharp) _finalSharp = true; else _finalSharp = false;
+        if (_baseHeavy || _buffHeavy) _finalHeavy = true; else _finalHeavy = false;
+
+        centralManager._playerHUD.StatDisplay();
+
     }
 
     #region Buff Lists
@@ -84,151 +93,221 @@ public class PlayerStats : MonoBehaviour
         // Create a new attack buff object and add it to the list of attack buffs
         AttackBuff newBuff = new AttackBuff(buffValue, buffTurns);
         attackBuffs.Add(newBuff);
-        UpdateAttackValueDisplay();
+        CalculateAttBuffs();
     }
     public void AddDefBuff(int buffValue, int buffTurns)
     {
         // Create a new attack buff object and add it to the list of attack buffs
         DefenseBuff newBuff = new DefenseBuff(buffValue, buffTurns);
         defenseBuffs.Add(newBuff);
-        UpdateDefenseValueDisplay();
+        CalculateDefBuffs();
     }
     public void AddMultiHitBuff(int buffValue, int buffTurns)
     {
         // Create a new attack buff object and add it to the list of attack buffs
         MultiHitBuff newBuff = new MultiHitBuff(buffValue, buffTurns);
         multiHitBuffs.Add(newBuff);
+        CalculateHitBuffs();
+    }
+    
+    public void AddCritBuff(float buffPercentage, int buffTurns)
+    {
+        // Create a new attack buff object and add it to the list of attack buffs
+        CritBuff newBuff = new CritBuff(buffPercentage, buffTurns);
+        critBuffs.Add(newBuff);
+        CalculateCritBuffs();
     }
     public void AddPierceBuff(bool buffState, int buffTurns)
     {
         // Create a new attack buff object and add it to the list of attack buffs
         PierceBuff newBuff = new PierceBuff(buffState, buffTurns);
         pierceBuffs.Add(newBuff);
+        CalculatePierceBuffs();
     }
+
     public void AddSharpBuff(bool buffState, int buffTurns)
     {
         // Create a new attack buff object and add it to the list of attack buffs
         SharpBuff newBuff = new SharpBuff(buffState, buffTurns);
         sharpBuffs.Add(newBuff);
+        CalculateSharpBuffs();
     }
     public void AddHeavyBuff(bool buffState, int buffTurns)
     {
         // Create a new attack buff object and add it to the list of attack buffs
         HeavyBuff newBuff = new HeavyBuff(buffState, buffTurns);
         heavyBuffs.Add(newBuff);
+        CalculateHeavyBuffs();
     }
-    public void AddCritBuff(float buffPercentage, int buffTurns)
-    {
-        // Create a new attack buff object and add it to the list of attack buffs
-        CritBuff newBuff = new CritBuff(buffPercentage, buffTurns);
-        critBuffs.Add(newBuff);
-    }
+
 
     #endregion
 
-    // Applies buffs & runs the counters
-    public void RunOffensiveBuffEffects()
+    // Calculate buffs & updates buff values
+    public void CalculateBuffEffects()
     {
-        RunAttackBuffTurns();
-        RunMultiHitBuffTurns();
-        RunPierceBuffTurns();
-        RunSharpBuffTurns();
-        RunHeavykBuffTurns();
-        RunCritBuffTurns();
+        CalculateAttBuffs();
+        CalculateDefBuffs();
+        CalculateHitBuffs();
+        CalculateCritBuffs();
+        CalculatePierceBuffs();
+        CalculateSharpBuffs();
+        CalculateHeavyBuffs();
+        centralManager._playerHUD.StatDisplay();
     }
 
-    public void RunDefensiveBuffEffects()
+    // Reduce offensive buff turn counters by 1
+    public void ReduceOffBuffTurns ()
     {
-        RunDefenseBuffTurns();
+        DecreaseAttBuffTurns();
+        DecreaseHitBuffTurns();
+        DecreaseCritBuffTurns();
+        DecreasePierceBuffTurns();
+        DecreaseSharpBuffTurns();
+        DecreaseHeavyBuffTurns();
+        centralManager._playerHUD.StatDisplay();
     }
 
-
-    // Resets the buff effects for next use
-    public void ResetBuffEffects()
+    public void ReduceDefBuffTurns()
     {
-        _totalPlayerAttack = _playerBaseAttack;
-        _totalPlayerDefense = _playerBaseDefense;
-        _totalNumberOfAttacks = _numberOfAttacks;
-        _totalPierce = _pierce;
-        _totalSharp = _sharp;
-        _totalHeavy = _heavy;
-        _baseCritChance = _totalCritChance;
+        DecreaseDefBuffTurns();
+        centralManager._playerHUD.StatDisplay();
     }
 
-    #region Display Calculator Methods
+    #region  Buff Calculators
 
-    public void UpdateAttackValueDisplay()
+    public void CalculateAttBuffs()
     {
-        _attackValueDisplay = _playerBaseAttack;
-        // Loop through all attack buffs and calculate total attack value
+        _buffAtt = 0;
+        // Loop through all attack buffs and apply them to the buff att value
         for (int i = 0; i < attackBuffs.Count; i++)
         {
             AttackBuff buff = attackBuffs[i];
-            _attackValueDisplay += buff.value;
+            _buffAtt += buff.value;
         }
-        centralManager._playerHUD.AttackDisplay();
+        _finalAtt = _baseAtt + _buffAtt;
     }
 
-    public void UpdateDefenseValueDisplay()
+    public void CalculateDefBuffs()
     {
-        _attackValueDisplay = _playerBaseAttack;
-        // Loop through all defense buffs and calculate total defense value
+        _buffDef = 0;
+        // Loop through all defense buffs and apply them to the buff def value
         for (int i = 0; i < defenseBuffs.Count; i++)
         {
             DefenseBuff buff = defenseBuffs[i];
-            _attackValueDisplay += buff.value;
+            _buffDef += buff.value;
         }
-        // FindObjectOfType<Player_Hud>().AttackDefense();
+        _finalDef = _baseDef + _buffDef;
+    }
+
+    public void CalculateHitBuffs()
+    {
+        _buffHit = 0;
+        // Loop through all multi-hit buffs and apply them to the buff hit value
+        for (int i = 0; i < multiHitBuffs.Count; i++)
+        {
+            MultiHitBuff buff = multiHitBuffs[i];
+            _buffHit += buff.value;
+        }
+        _finalHit = _baseHit + _buffHit;
+    }
+
+    public void CalculateCritBuffs()
+    {
+        _buffCrit = 0;
+        // Loop through all crit buffs and apply them to the buff crit value
+        for (int i = 0; i < critBuffs.Count; i++)
+        {
+            CritBuff buff = critBuffs[i];
+            _buffCrit += buff.percent;
+        }
+        _finalCrit = _baseCrit + _buffCrit;
+    }
+
+    public void CalculatePierceBuffs()
+    {
+        _buffPierce = false;
+        // Check if any pierce buffs are active
+        for (int i = 0; i < pierceBuffs.Count; i++)
+        {
+            PierceBuff buff = pierceBuffs[i];
+            _buffPierce = buff.pierce;
+            if (buff.pierce) break;
+        }
+        if (_basePierce || _buffPierce) _finalPierce = true; else _finalPierce = false;
+    }
+
+    public void CalculateSharpBuffs()
+    {
+        _buffSharp = false;
+        // Check if any sharp buffs are active
+        for (int i = 0; i < sharpBuffs.Count; i++)
+        {
+            SharpBuff buff = sharpBuffs[i];
+            _buffSharp = buff.sharp;
+            if (buff.sharp) break;
+        }
+        if (_baseSharp || _buffSharp) _finalSharp = true; else _finalSharp = false;
+    }
+
+    public void CalculateHeavyBuffs()
+    {
+        _buffHeavy = false;
+        // Check if any heavy buffs are active
+        for (int i = 0; i < heavyBuffs.Count; i++)
+        {
+            HeavyBuff buff = heavyBuffs[i];
+            _buffHeavy = buff.heavy;
+            if (buff.heavy) break;
+        }
+        if (_baseHeavy || _buffHeavy) _finalHeavy = true; else _finalHeavy = false;
     }
 
     #endregion
 
-    #region Buff Counters
+    #region Buff Turn Counters
 
-    public void RunAttackBuffTurns()
+    public void DecreaseAttBuffTurns()
     {
-        // Loop through all attack buffs and apply them to the player's attack value
+        int listCount = attackBuffs.Count;
+        // Loop through all att buffs and reduce turns left by 1
         for (int i = 0; i < attackBuffs.Count; i++)
         {
             AttackBuff buff = attackBuffs[i];
-            _totalPlayerAttack += buff.value;
-
-            // Decrement the number of turns left for the buff; if it has expired, remove it from the list
             buff.turnsLeft--;
             if (buff.turnsLeft <= 0)
             {
                 attackBuffs.RemoveAt(i);
                 i--;
-                UpdateAttackValueDisplay();
             }
         }
+        if (listCount != attackBuffs.Count) CalculateAttBuffs();
     }
-    public void RunDefenseBuffTurns()
+
+    public void DecreaseDefBuffTurns()
     {
-        // Loop through all defense buffs and apply them to the player's defense value
+        int listCount = defenseBuffs.Count;
+        // Loop through all def buffs and reduce turns left by 1
         for (int i = 0; i < defenseBuffs.Count; i++)
         {
             DefenseBuff buff = defenseBuffs[i];
-            _totalPlayerDefense += buff.value;
-
-            // Decrement the number of turns left for the buff; if it has expired, remove it from the list
             buff.turnsLeft--;
             if (buff.turnsLeft <= 0)
             {
-                defenseBuffs.RemoveAt(i);
+                attackBuffs.RemoveAt(i);
                 i--;
             }
         }
+        if (listCount != defenseBuffs.Count) CalculateDefBuffs();
     }
-    public void RunMultiHitBuffTurns()
+
+    public void DecreaseHitBuffTurns()
     {
-        // Loop through all multi-hit buffs and apply them to the player's multi-hit value
+        int listCount = multiHitBuffs.Count;
+        // Loop through all multi-hit buffs and reduce turns left by 1
         for (int i = 0; i < multiHitBuffs.Count; i++)
         {
             MultiHitBuff buff = multiHitBuffs[i];
-            _totalNumberOfAttacks += buff.value;
-
-            // Decrement the number of turns left for the buff; if it has expired, remove it from the list
             buff.turnsLeft--;
             if (buff.turnsLeft <= 0)
             {
@@ -236,67 +315,16 @@ public class PlayerStats : MonoBehaviour
                 i--;
             }
         }
+        if (listCount != multiHitBuffs.Count) CalculateHitBuffs();
     }
-    public void RunPierceBuffTurns()
-    {
-        // Loop through all pierce buffs & enable pierce bool
-        for (int i = 0; i < pierceBuffs.Count; i++)
-        {
-            PierceBuff buff = pierceBuffs[i];
-            _pierce = buff.pierce;
 
-            // Decrement the number of turns left for the buff; if it has expired, remove it from the list
-            buff.turnsLeft--;
-            if (buff.turnsLeft <= 0)
-            {
-                pierceBuffs.RemoveAt(i);
-                i--;
-            }
-        }
-    }
-    public void RunSharpBuffTurns()
+    public void DecreaseCritBuffTurns()
     {
-        // Loop through all sharp buffs & enable sharp bool
-        for (int i = 0; i < sharpBuffs.Count; i++)
-        {
-            SharpBuff buff = sharpBuffs[i];
-            _pierce = buff.sharp;
-
-            // Decrement the number of turns left for the buff; if it has expired, remove it from the list
-            buff.turnsLeft--;
-            if (buff.turnsLeft <= 0)
-            {
-                sharpBuffs.RemoveAt(i);
-                i--;
-            }
-        }
-    }
-    public void RunHeavykBuffTurns()
-    {
-        // Loop through all heavy buffs & enable heavy bool
-        for (int i = 0; i < heavyBuffs.Count; i++)
-        {
-            HeavyBuff buff = heavyBuffs[i];
-            _heavy = buff.heavy;
-
-            // Decrement the number of turns left for the buff; if it has expired, remove it from the list
-            buff.turnsLeft--;
-            if (buff.turnsLeft <= 0)
-            {
-                heavyBuffs.RemoveAt(i);
-                i--;
-            }
-        }
-    }
-    public void RunCritBuffTurns()
-    {
-        // Loop through all crit buffs & apply them to the player's crit chance
+        int listCount = critBuffs.Count;
+        // Loop through all crit buffs and reduce turns left by 1
         for (int i = 0; i < critBuffs.Count; i++)
         {
             CritBuff buff = critBuffs[i];
-            _totalCritChance = buff.percent;
-
-            // Decrement the number of turns left for the buff; if it has expired, remove it from the list
             buff.turnsLeft--;
             if (buff.turnsLeft <= 0)
             {
@@ -304,6 +332,58 @@ public class PlayerStats : MonoBehaviour
                 i--;
             }
         }
+        if (listCount != critBuffs.Count) CalculateCritBuffs();
+    }
+
+    public void DecreasePierceBuffTurns()
+    {
+        int listCount = pierceBuffs.Count;
+        // Loop through all def buffs and reduce turns left by 1
+        for (int i = 0; i < pierceBuffs.Count; i++)
+        {
+            PierceBuff buff = pierceBuffs[i];
+            buff.turnsLeft--;
+            if (buff.turnsLeft <= 0)
+            {
+                pierceBuffs.RemoveAt(i);
+                i--;
+            }
+        }
+        if (listCount != pierceBuffs.Count) CalculatePierceBuffs();
+    }
+
+    public void DecreaseSharpBuffTurns()
+    {
+        int listCount = sharpBuffs.Count;
+        // Loop through all def buffs and reduce turns left by 1
+        for (int i = 0; i < sharpBuffs.Count; i++)
+        {
+            SharpBuff buff = sharpBuffs[i];
+            buff.turnsLeft--;
+            if (buff.turnsLeft <= 0)
+            {
+                sharpBuffs.RemoveAt(i);
+                i--;
+            }
+        }
+        if (listCount != sharpBuffs.Count) CalculateSharpBuffs();
+    }
+
+    public void DecreaseHeavyBuffTurns()
+    {
+        int listCount = heavyBuffs.Count;
+        // Loop through all def buffs and reduce turns left by 1
+        for (int i = 0; i < heavyBuffs.Count; i++)
+        {
+            HeavyBuff buff = heavyBuffs[i];
+            buff.turnsLeft--;
+            if (buff.turnsLeft <= 0)
+            {
+                heavyBuffs.RemoveAt(i);
+                i--;
+            }
+        }
+        if (listCount != heavyBuffs.Count) CalculateHeavyBuffs();
     }
 
     #endregion

@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         centralManager._camController.SetTarget1(gameObject);
         centralManager._camController.SetTarget2(null);
         centralManager._inventoryController.ToggleButtonActive();
-
+        centralManager._playerHUD.ToggleButtonActive();
     }
 
     bool CheckTile(Vector2 direction)
