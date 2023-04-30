@@ -137,6 +137,7 @@ public class Health : MonoBehaviour, IDamageable
                 }
                 else if (_critOccured)
                 {
+                    _critOccured = false;
                     centralManager._sfxPlayer.Audio_DmgCrit();
                     enemy._hurtCrit = true;
                 }
@@ -148,12 +149,7 @@ public class Health : MonoBehaviour, IDamageable
 
             }
 
-            if (_critOccured)
-            {
-                _critOccured = false;
-                yield return new WaitForSeconds(0.7f);
-            }
-            else yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.7f);
 
         }
 

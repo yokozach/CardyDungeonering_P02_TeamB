@@ -2418,7 +2418,7 @@ MonoBehaviour:
   _gameController: {fileID: 7063388120798126951}
   _gridManager: {fileID: 3906783404054940048}
   _deckManager: {fileID: 754067465}
-  inputManager: {fileID: 0}
+  inputManager: {fileID: 1811401685}
   _introFade: {fileID: 388705580}
   _background: {fileID: 2094458535}
   _musicPlayer: {fileID: 565640558}
@@ -2448,7 +2448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059165271}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 877.4504, y: 779.1068, z: -8.162139}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3088,10 +3088,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1271250009}
-    - target: {fileID: 7737809585147680691, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 7737809585147680653, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1038970057}
     - target: {fileID: 8024271391184090936, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: m_Name
       value: PlayerHUD_Canvas
@@ -3100,10 +3100,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 161072605}
-    - target: {fileID: 8090464807707735270, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleDisplay
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
 --- !u!1 &5203619527293469395 stripped

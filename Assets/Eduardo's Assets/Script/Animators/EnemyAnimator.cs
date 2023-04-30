@@ -62,7 +62,7 @@ public class EnemyAnimator : MonoBehaviour
 
         if (_enemy._hurt) return LockState(GetAnimHash("Hurt"), 0.4f);
 
-        if (_enemy._hurtCrit) return LockState(GetAnimHash("HurtCrit"), 0.8f);
+        if (_enemy._hurtCrit) return LockState(GetAnimHash("HurtCrit"), 0.69f);
 
         // if (_enemy._shield) return LockState(GetAnimHash("ShieldUp"), ___);
 
