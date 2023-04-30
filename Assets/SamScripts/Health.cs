@@ -173,6 +173,7 @@ public class Health : MonoBehaviour, IDamageable
         else if (unitType == UnitType.Enemy) 
         {
             enemy._killed = true;
+            centralManager._sfxPlayer.Audio_Death();
             centralManager._playerHUD.HealthCalc();
             StartCoroutine(EnemyDeathWaitTimer(1));
         }

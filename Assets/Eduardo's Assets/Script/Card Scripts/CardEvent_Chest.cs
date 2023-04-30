@@ -27,17 +27,21 @@ public class CardEvent_Chest : IEvent
 
     private IEnumerator GrantCard()
     {
-<<<<<<< Updated upstream
-        yield return new WaitForSeconds(1f);
-=======
         centralManager._playerController.playerActive = false;
+
+        centralManager._camController.SetTarget1(centralManager._playerController.gameObject);
+        centralManager._camController.SetTarget2(gameObject);
+        centralManager._camController.ToggleFocus();
+
         chestAnim.OpenChest();
         yield return new WaitForSeconds(1.1f);
 
->>>>>>> Stashed changes
         centralManager._deckManager.AddRandomCard();
         centralManager._sfxPlayer.Audio_CardCollected();
         yield return new WaitForSeconds(1.6f);
+
+        centralManager._camController.SetTarget2(null);
+        centralManager._camController.ToggleFocus();
 
         centralManager._playerController.playerActive = true;
         EndEvent(this.gameObject);
