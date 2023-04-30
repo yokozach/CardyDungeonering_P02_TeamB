@@ -103,6 +103,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5005299151964079459}
   - component: {fileID: 1726996220738252779}
+  - component: {fileID: 6157001184071820375}
+  - component: {fileID: 6216644388406773884}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -177,6 +179,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6157001184071820375
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363680137705094047}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a42784c101320a418389618e6baebc4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6216644388406773884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363680137705094047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59058b0b1c0a0f94c886188e91aa0ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: 0
 --- !u!1 &8617039454236701898
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centralManager: {fileID: 0}
   tileType: 1
+  chestAnim: {fileID: 6216644388406773884}
 --- !u!1 &8968638246908826889
 GameObject:
   m_ObjectHideFlags: 0
