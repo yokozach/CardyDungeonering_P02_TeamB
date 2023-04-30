@@ -98,8 +98,9 @@ MonoBehaviour:
   cardName: Life Force Potion
   cardType: 1
   cardDescription: Increase Max HP by 1-3
-  countInDeck: 1
+  countInDeck: 3
   invNum: 0
+  deckNum: 14
   animationSpeed: 1.5
   isMoving: 0
   healType: 2

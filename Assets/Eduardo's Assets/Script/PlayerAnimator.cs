@@ -7,7 +7,6 @@ public class PlayerAnimator : MonoBehaviour
 
     private PlayerController _player;
     private Animator _anim;
-    private SpriteRenderer _renderer;
 
     private float _lockedTill;
 
@@ -15,7 +14,6 @@ public class PlayerAnimator : MonoBehaviour
     {
         _player = GetComponentInParent<PlayerController>();
         _anim = GetComponent<Animator>();
-        _renderer = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update

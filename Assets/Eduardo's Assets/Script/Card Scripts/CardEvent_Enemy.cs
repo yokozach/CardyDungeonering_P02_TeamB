@@ -40,10 +40,15 @@ public class CardEvent_Enemy : IEvent
     public override void PlayEvent()
     {
         centralManager._sfxPlayer.Audio_EnemyEncounter();
+        centralManager._enemyHealth = health;
+        centralManager._enemyController = this;
+
+        // Might have to change some code below to optomize the game (specifically FindObjectOfType; they take a lot of power)
         GameFSM _gameController = (GameFSM)FindObjectOfType(typeof(GameFSM));
         GameController _controller = (GameController)FindObjectOfType(typeof(GameController));
         _controller._enemyHealth = health;
         _controller._enemyStats = this;
+
         _gameController.ChangeToBattle();
     }
 

@@ -98,8 +98,9 @@ MonoBehaviour:
   cardName: Wrath+ Potion
   cardType: 3
   cardDescription: +1 attack for 3 turns
-  countInDeck: 2
+  countInDeck: 3
   invNum: 0
+  deckNum: 20
   animationSpeed: 1.5
   isMoving: 0
   _buffType: 0

@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e58046c7c5c344db8050fb0d9d5485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Trial Scene
+  sceneToLoad: Floor1
   loadingScreenUI: {fileID: 1772443011}
   progressBar: {fileID: 1772443013}
   minimumWaitTime: 2

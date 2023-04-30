@@ -29,6 +29,7 @@ public class InventoryController : MonoBehaviour
         if (inventoryCards.Count < maxCapacity)
         {
             inventoryCards.Add(card);
+            SortCardsByPosition();
         }
     }
 
@@ -45,7 +46,7 @@ public class InventoryController : MonoBehaviour
 
     public void SortCardsByPosition()
     {
-        for (int i = 0; i < Mathf.Min(inventoryCards.Count, cardPositions.Count); i++)
+        for (int i = 0; i < inventoryCards.Count; i++)
         {
             inventoryCards[i].GetComponent<InvCard>().SetNewOriginalPosition(cardPositions[i]);
             inventoryCards[i].transform.position = cardCanvas.transform.TransformPoint(cardPositions[i]);

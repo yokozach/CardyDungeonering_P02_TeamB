@@ -13,7 +13,7 @@ public class InvCard_Attack : InvCard
     [SerializeField] bool pierce = false;
     [SerializeField] bool sharp = false;
     [SerializeField] bool heavy = false;
-    [Range(0, 1)] [SerializeField] float Crit = 0.01f;
+    [Range(0, 1)] [SerializeField] float crit = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +30,9 @@ public class InvCard_Attack : InvCard
     public override void ActivateCardEffects()
     {
 
-        PlayerStats.ChangeBaseStats(attDmg, 0, hits, pierce, sharp, heavy, Crit);
+        PlayerStats.ChangeBaseStats(attDmg, 0, hits, crit, pierce, sharp, heavy);
         centralManager._sfxPlayer.Audio_EquipWeapon();
-
+        centralManager._playerStats.CalculateBuffEffects();
         RemoveCardFromInv();
 
     }

@@ -97,7 +97,7 @@ MonoBehaviour:
   selectBtn: {fileID: 4924147351935745368}
   cardName: Wrath Potion
   cardType: 3
-  cardDescription: +3 attack for 3 turns
+  cardDescription: +3 dmg for 3 turns
   countInDeck: 1
   invNum: 0
   animationSpeed: 1.5

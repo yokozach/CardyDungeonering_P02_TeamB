@@ -230,13 +230,14 @@ MonoBehaviour:
   selectBtn: {fileID: 8383673517530330934}
   cardName: Sharp Axe
   cardType: 0
-  cardDescription: (Sharp) Inflict 6 dmg
+  cardDescription: (Sharp) Inflict 5 dmg
   countInDeck: 2
   invNum: 0
+  deckNum: 5
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
-  attDmg: 6
+  attDmg: 5
   hits: 1
   pierce: 0
   sharp: 1

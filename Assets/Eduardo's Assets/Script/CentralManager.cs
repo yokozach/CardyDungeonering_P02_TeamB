@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CentralManager : MonoBehaviour
 {
@@ -18,12 +19,18 @@ public class CentralManager : MonoBehaviour
     public Background _background;
     public MusicPlayer _musicPlayer;
     public AudioClipPlayer_Floors _sfxPlayer;
+    public TextMeshProUGUI _cardDescriptionText;
 
     [Header("Player")]
     public Player_Hud _playerHUD;
     public PlayerController _playerController;
     public PlayerStats _playerStats;
     public InventoryController _inventoryController;
+
+    [Header("Current Enemy")]
+    // public Enemy_Hud _enemyHUD;
+    public CardEvent_Enemy _enemyController;
+    public Health _enemyHealth;
 
     [Header("Cards")]
     public CardEvent_Stairs _stairs;
@@ -35,21 +42,21 @@ public class CentralManager : MonoBehaviour
     {
         if (PlayerData.shareData)
         {
+            PlayerData.shareData = false;
+
+            // Sets Players inventory
+            _deckManager.addCardsAtStart = 1;
+            _deckManager.InstantiateDeck(PlayerData.deckNumInv);
+
+            // Sets Player HP & SH
             Health playerHealth = _playerController.GetComponent<Health>();
             playerHealth._curHP = PlayerData.curHP;
             playerHealth._curDef = PlayerData.curShield;
             playerHealth._maxHP = PlayerData.maxHP;
             playerHealth._maxDef = PlayerData.maxShield;
 
-            _playerStats._playerBaseAttack = PlayerData.baseAttack;
-            _playerStats._playerBaseDefense = PlayerData.baseDefense;
-            _playerStats._numberOfAttacks = PlayerData.numberOfAttacks;
-            _playerStats._pierce = PlayerData.pierce;
-            _playerStats._sharp = PlayerData.sharp;
-            _playerStats._heavy = PlayerData.heavy;
-            _playerStats._baseCritChance = PlayerData.baseCritChance;
-
-            PlayerData.shareData = false;
+            // Sets Player Combat Ability
+            _playerStats.ChangeBaseStats(PlayerData.baseAttack, PlayerData.baseDefense, PlayerData.numberOfAttacks, PlayerData.baseCritChance, PlayerData.pierce, PlayerData.sharp, PlayerData.heavy);
 
         }
 

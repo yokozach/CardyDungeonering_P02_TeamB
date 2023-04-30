@@ -56,6 +56,7 @@ public class PlayerBattleState : State
         //Check if Enemy health is <= 0 then switch states if true
         if(_enemyHealth._curHP <= 0)
         {
+            // _controller._enemyHUD.SetActive(false);
             _controller._battleTurn = 0;
             _controller._enemiesDefeated++;
             Debug.Log("enemyDefeated in playerState");
@@ -79,7 +80,8 @@ public class PlayerBattleState : State
     public void PlayerAttack()
     {
         Debug.Log("Attacked");
-        _enemyHealth.TakeDamage(_controller._playerStats._totalPlayerAttack);
+        PlayerStats stats = _controller._playerStats;
+        _enemyHealth.TakeDamage(stats._finalAtt);
         _controller._battleTurn++;
         if (_enemyHealth._curHP > 0)
         {
