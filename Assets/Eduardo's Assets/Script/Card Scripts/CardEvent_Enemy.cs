@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CardEvent_Enemy : IEvent
 {
+    private GameController _controller;
     [Header("Combat Values")]
     [SerializeField] public bool active;
     [Range(1, 25)] [SerializeField] public int _minAttackRange = 1;
@@ -28,6 +29,7 @@ public class CardEvent_Enemy : IEvent
     {
         centralManager = FindObjectOfType<CentralManager>();
         health = GetComponent<Health>();
+        health = _controller._enemyHealth;
     }
 
     // Update is called once per frame
