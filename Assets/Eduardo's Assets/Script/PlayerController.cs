@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Data")]
     [SerializeField] public bool playerActive = false; // is player actionable?
-    [SerializeField] public bool invOpen = false; // is player in inventory?
+    [HideInInspector] public bool invOpen = false; // is player in inventory?
+    [HideInInspector] public bool paused = false; // is player in inventory?
     [SerializeField] private Vector2Int startGridPos = new Vector2Int(2, 2); // Where on the grid the player starts
     [SerializeField] private float moveCooldown = 0.2f; // Cooldown for movement
 
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator MovePlayer(Vector2 direction)
     {        
-        if (isMoving || curCooldown > 0 || !playerActive || invOpen)
+        if (isMoving || curCooldown > 0 || !playerActive || invOpen || paused)
             yield break;
 
         // Checks if the tile attempted to move onto is empty, occupied, invalid, etc.

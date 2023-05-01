@@ -5,16 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuFix : MonoBehaviour
 {
+    [SerializeField] CentralManager centralManager;
     [SerializeField] GameObject pauseMenu;
+
     public void Pause()
     {
         pauseMenu.SetActive(true);
+        centralManager._playerController.paused = true;
         Time.timeScale = 0f;
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
+        centralManager._playerController.paused = false;
         Time.timeScale = 1f;
     }
 

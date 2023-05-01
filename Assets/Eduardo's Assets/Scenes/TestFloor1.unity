@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3633513612611259252, guid: de1ad796e62554b45af02562f588b487, type: 3}
+      propertyPath: centralManager
+      value: 
+      objectReference: {fileID: 2059165272}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de1ad796e62554b45af02562f588b487, type: 3}
 --- !u!114 &161072605 stripped
@@ -3121,14 +3125,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2543739954484687287, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 2543739954484687287, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5203619526143658959, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: baseCritTxt
       value: 
@@ -3189,22 +3185,6 @@ PrefabInstance:
       propertyPath: centralManager
       value: 
       objectReference: {fileID: 2059165272}
-    - target: {fileID: 5203619527508662933, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1050
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203619527508662938, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 5203619527508662938, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 5203619527508662938, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4281282559
-      objectReference: {fileID: 0}
     - target: {fileID: 5489649658454431753, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3221,22 +3201,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 161072605}
-    - target: {fileID: 9045217678624362416, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 9045217678624362416, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 9078966152207077420, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 9078966152207077420, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
 --- !u!1 &5203619527293469395 stripped
@@ -3297,14 +3261,6 @@ PrefabInstance:
       propertyPath: centralManager
       value: 
       objectReference: {fileID: 2059165272}
-    - target: {fileID: 1617371895, guid: 787e6021fae13c4429865466d44467a1, type: 3}
-      propertyPath: m_fontSize
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617371895, guid: 787e6021fae13c4429865466d44467a1, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 180
-      objectReference: {fileID: 0}
     - target: {fileID: 5645301749776997863, guid: 787e6021fae13c4429865466d44467a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3393,10 +3349,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Inventory
       objectReference: {fileID: 0}
-    - target: {fileID: 5645301749776997883, guid: 787e6021fae13c4429865466d44467a1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787e6021fae13c4429865466d44467a1, type: 3}
 --- !u!4 &5744954214258672266
@@ -3450,13 +3402,13 @@ MonoBehaviour:
   _playerHP: {fileID: 5239304314239634614}
   _playerStats: {fileID: 5239304314239634616}
   _inBattle: 0
-  _checkTouched: {fileID: 0}
+  _checkTouched: {fileID: 1811401685}
   _youWin: {fileID: 429455466}
   _youLose: {fileID: 805696989}
   _stairs: {fileID: 1270542895}
   _playerAttackButton: {fileID: 651392814}
   _returnToMainMenuButton: {fileID: 737606806}
-  _nextFloorButton: {fileID: 0}
+  _nextFloorButton: {fileID: 1318294148}
   _playerTurnImage: {fileID: 5203619527293469395}
   _enemyTurnImage: {fileID: 5203619527293469396}
   _enemyHealth: {fileID: 0}

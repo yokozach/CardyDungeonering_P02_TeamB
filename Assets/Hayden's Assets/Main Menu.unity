@@ -148,17 +148,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265632726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.9289, y: 0.9289, z: 0.81470907}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2062809512}
-  m_RootOrder: 8
+  m_Father: {fileID: 454693337}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 245.5, y: -236.40602}
+  m_AnchoredPosition: {x: -0.000045776367, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265632728
@@ -231,6 +231,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1061997046}
+  - {fileID: 690060590}
+  - {fileID: 454693337}
   m_Father: {fileID: 2062809512}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -333,6 +335,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280662996}
   m_CullTransparentMesh: 1
+--- !u!1 &454693336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454693337}
+  m_Layer: 5
+  m_Name: SwordGroup_r
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &454693337
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454693336}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2511932, y: 0.2511932, z: 0.58744895}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 265632727}
+  - {fileID: 792951612}
+  m_Father: {fileID: 280662997}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 61.667908, y: -0.17074585}
+  m_SizeDelta: {x: 92.890015, y: 92.89}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &547641631
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +405,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2086835645}
+  - {fileID: 2076790261}
+  - {fileID: 1123263328}
   m_Father: {fileID: 2062809512}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,6 +509,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547641631}
   m_CullTransparentMesh: 1
+--- !u!1 &690060589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690060590}
+  m_Layer: 5
+  m_Name: SwordGroup_l
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &690060590
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690060589}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2511932, y: 0.2511932, z: 0.58744895}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1635047726}
+  - {fileID: 1357088809}
+  m_Father: {fileID: 280662997}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -62.001984, y: -0.17074585}
+  m_SizeDelta: {x: 92.89, y: 92.89}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &792951611
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,17 +572,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792951611}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9289, y: 0.9289, z: 0.81470907}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2062809512}
-  m_RootOrder: 9
+  m_Father: {fileID: 454693337}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 245.5, y: -236.40602}
+  m_AnchoredPosition: {x: -0.000045776367, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792951613
@@ -748,8 +828,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -848,17 +928,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123263327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9289, y: 0.9289, z: 0.81470907}
+  m_LocalScale: {x: 0.23333335, y: 0.23333335, z: 0.47859997}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2062809512}
-  m_RootOrder: 11
+  m_Father: {fileID: 547641632}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256.27, y: -439.15002}
+  m_AnchoredPosition: {x: 64.373245, y: 0.21359253}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123263329
@@ -926,15 +1006,15 @@ RectTransform:
   m_GameObject: {fileID: 1357088808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9289, y: 0.9289, z: 0.8147091}
+  m_LocalScale: {x: 0.9289, y: 0.9289, z: 0.8147092}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2062809512}
-  m_RootOrder: 7
+  m_Father: {fileID: 690060590}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -246.83, y: -236.40602}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357088810
@@ -1036,8 +1116,8 @@ MonoBehaviour:
   m_text: The Dungeon ahead holds unimaginable wealth but no one has escaped the
     denizens inside alive...Do you have what it takes to kill them and escape?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1202,15 +1282,15 @@ RectTransform:
   m_GameObject: {fileID: 1635047725}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.9289, y: 0.9289, z: 0.8147091}
+  m_LocalScale: {x: -0.9289, y: 0.9289, z: 0.8147092}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2062809512}
-  m_RootOrder: 6
+  m_Father: {fileID: 690060590}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -246.83, y: -236.40602}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635047727
@@ -1339,7 +1419,7 @@ GameObject:
   - component: {fileID: 1942143378}
   - component: {fileID: 1942143377}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1564,8 +1644,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cardy Dungeoneering
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1674,12 +1754,6 @@ RectTransform:
   - {fileID: 2087886671}
   - {fileID: 280662997}
   - {fileID: 547641632}
-  - {fileID: 1635047726}
-  - {fileID: 1357088809}
-  - {fileID: 265632727}
-  - {fileID: 792951612}
-  - {fileID: 2076790261}
-  - {fileID: 1123263328}
   m_Father: {fileID: 1954247776}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1725,17 +1799,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076790260}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9289, y: 0.9289, z: 0.81470907}
+  m_LocalScale: {x: 0.23333335, y: 0.23333335, z: 0.47859997}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2062809512}
-  m_RootOrder: 10
+  m_Father: {fileID: 547641632}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -246.83, y: -439.15002}
+  m_AnchoredPosition: {x: -62.001984, y: 0.21359253}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2076790262
@@ -1838,8 +1912,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1974,8 +2048,8 @@ MonoBehaviour:
   m_text: "Controls:\n Swipe to Move Tiles\nTap to attack enemies (On your turn)\nTap
     the Chest in the bottom right to access your items"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1987,9 +2061,9 @@ MonoBehaviour:
   m_colorMode: 2
   m_fontColorGradient:
     topLeft: {r: 0.85490197, g: 1, b: 0, a: 1}
-    topRight: {r: 0.85490197, g: 1, b: 0, a: 1}
+    topRight: {r: 1, g: 0.42802835, b: 0, a: 1}
     bottomLeft: {r: 0.18212414, g: 1, b: 0, a: 1}
-    bottomRight: {r: 0.18212414, g: 1, b: 0, a: 1}
+    bottomRight: {r: 0.8547108, g: 1, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0

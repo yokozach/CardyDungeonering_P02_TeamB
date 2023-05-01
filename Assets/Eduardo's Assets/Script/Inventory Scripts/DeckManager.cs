@@ -7,6 +7,7 @@ public class DeckManager : MonoBehaviour
     [SerializeField] private CentralManager centralManager;
     [SerializeField] public int addCardsAtStart;
     [SerializeField] private List<GameObject> deck = new List<GameObject>();
+    [SerializeField] private List<GameObject> startingInv = new List<GameObject>();
 
     private List<GameObject> availableDeck = new List<GameObject>();
     private bool _sfxAtStart;
@@ -17,6 +18,15 @@ public class DeckManager : MonoBehaviour
 
         // If available deck is empty, add cards to availableDeck until their count reaches zero
         if (availableDeck.Count == 0) InitializeAvailableDeck();
+
+        foreach (GameObject cardPrefab in startingInv)
+        {
+            InvCard invCard = cardPrefab.GetComponent<InvCard>();
+            if (invCard != null)
+            {
+                AddSpecificCard(invCard.deckNum);
+            }
+        }
 
         for (int i=0; i < addCardsAtStart; i++)
         {

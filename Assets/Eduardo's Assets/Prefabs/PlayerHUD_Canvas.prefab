@@ -2370,7 +2370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3955064132856372436, guid: a4ddac0f86cafe041a56ab669389cfe2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1159
+      value: -1050
       objectReference: {fileID: 0}
     - target: {fileID: 3955064132856372436, guid: a4ddac0f86cafe041a56ab669389cfe2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2391,11 +2391,11 @@ PrefabInstance:
     - target: {fileID: 3955064132856372443, guid: a4ddac0f86cafe041a56ab669389cfe2, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 401e0dcd105624747b715e9bf256b976, type: 2}
+      objectReference: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
     - target: {fileID: 3955064132856372443, guid: a4ddac0f86cafe041a56ab669389cfe2, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 6784127733612686732, guid: 401e0dcd105624747b715e9bf256b976, type: 2}
+      objectReference: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4ddac0f86cafe041a56ab669389cfe2, type: 3}
 --- !u!224 &5203619527508662933 stripped

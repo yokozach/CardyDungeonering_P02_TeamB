@@ -462,7 +462,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &3633513612409565858
 MonoBehaviour:
@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2502be1399fce248a8aed51ad9b1810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   pauseMenu: {fileID: 3633513612611259240}
 --- !u!1 &3633513612678773117
 GameObject:
@@ -666,8 +667,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Paused
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3f554468a1024b4fba5ba11b9c199f1, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: d3f554468a1024b4fba5ba11b9c199f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -877,8 +878,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3f554468a1024b4fba5ba11b9c199f1, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: d3f554468a1024b4fba5ba11b9c199f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1012,8 +1013,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3f554468a1024b4fba5ba11b9c199f1, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: d3f554468a1024b4fba5ba11b9c199f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1147,8 +1148,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Objective: Kill at least 3 monsters and find the stairs to the next floor'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
