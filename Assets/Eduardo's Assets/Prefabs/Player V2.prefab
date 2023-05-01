@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2815393853810834793}
   - component: {fileID: 8196916071806066834}
   - component: {fileID: 2815393853810834799}
+  - component: {fileID: 4880794467101953411}
   m_Layer: 0
   m_Name: Player V2
   m_TagString: Untagged
@@ -46,9 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98d1d45eada249479563936935a6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 10
-  _curHP: 10
-  _curDef: 0
+  centralManager: {fileID: 0}
+  unitType: 0
+  _maxHP: 15
+  _curHP: 15
+  _maxDef: 10
+  _curDef: 7
 --- !u!114 &2815393853810834799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ec99a1bab142e439bee758c322580d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerActive: 1
+  playerActive: 0
+  invOpen: 0
   startGridPos: {x: 2, y: 4}
   moveCooldown: 0.2
   move:
@@ -113,11 +118,11 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
-  health: {fileID: 8196916071806066834}
+  centralManager: {fileID: 0}
   inputManager: {fileID: 0}
-  gridManager: {fileID: 0}
-  playerAnim: {fileID: 1783684818716578054}
   _entering: 0
+  _exiting: 0
+  _exited: 0
   _appear: 0
   _teleport: 0
   _killed: 0
@@ -128,6 +133,43 @@ MonoBehaviour:
   _healed: 0
   _lowHP: 0
   _dead: 0
+--- !u!114 &4880794467101953411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2815393853810834798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e4c5f8f17317047a2c9a3069f61b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
+  _baseAtt: 3
+  _baseDef: 0
+  _baseHit: 1
+  _baseCrit: 0.01
+  _basePierce: 0
+  _baseSharp: 0
+  _baseHeavy: 0
+  _buffAtt: 0
+  _buffDef: 0
+  _buffHit: 0
+  _buffCrit: 0
+  _buffPierce: 0
+  _buffSharp: 0
+  _buffHeavy: 0
+  _finalAtt: 0
+  _finalDef: 0
+  _finalHit: 0
+  _finalCrit: 0
+  _finalPierce: 0
+  _finalSharp: 0
+  _finalHeavy: 0
+  _sharpMultiplier: 2
+  _heavyMultiplier: 2
+  _critMultiplier: 2
 --- !u!1 &5049954620238714238
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +181,7 @@ GameObject:
   - component: {fileID: 574922945911791327}
   - component: {fileID: 6621582936786861138}
   - component: {fileID: 2856571607595147290}
-  - component: {fileID: 1783684818716578054}
+  - component: {fileID: 552300950}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -200,7 +242,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 975571735
+  m_SortingLayerID: 971486919
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00834636ad478c94db8238a34494d4fb, type: 3}
@@ -234,7 +276,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1783684818716578054
+--- !u!114 &552300950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,6 +285,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5049954620238714238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415366a2c052b8447952f0ebc2d5af97, type: 3}
+  m_Script: {fileID: 11500000, guid: 09be3c81c46fba940850b4585028c151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

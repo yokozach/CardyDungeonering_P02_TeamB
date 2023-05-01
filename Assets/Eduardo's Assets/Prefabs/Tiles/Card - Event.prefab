@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1830327579
+  m_SortingLayerID: 1025760709
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82a32b6713090274d87e81790269e172, type: 3}
@@ -133,8 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Event
   _event: {fileID: 6470827763276548727}
-  _cardCol: 0
-  _cardRow: 0
   _cover: {fileID: 7334612307633808633}
   _face: {fileID: 1814478487233234925}
 --- !u!114 &6470827763276548727
@@ -149,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f48fda99c638d943926bbc0b7f58f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   tileType: 2
 --- !u!1 &7334612307633808633
 GameObject:
@@ -221,7 +220,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1830327579
+  m_SortingLayerID: 1025760709
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c993dd44ba3082a458031a56326ae1fa, type: 3}

@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1830327579
+  m_SortingLayerID: 1025760709
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1684146204, guid: ff35ba7083ee9544683cb71fa6d06e0e, type: 3}
@@ -133,8 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Stairs
   _event: {fileID: -855093689739001020}
-  _cardCol: 0
-  _cardRow: 0
   _cover: {fileID: 7334612307633808633}
   _face: {fileID: 1814478487233234925}
 --- !u!114 &-855093689739001020
@@ -149,9 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af5224f2b14481a40be87b34643476aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   tileType: 4
   _renderer: {fileID: 199120991384243110}
   _litStairs: {fileID: -493237519, guid: ff35ba7083ee9544683cb71fa6d06e0e, type: 3}
+  _finalStairs: {fileID: -1277678670, guid: ff35ba7083ee9544683cb71fa6d06e0e, type: 3}
+  _enemiesNeededToWin: 1
+  _anotherScene: 1
+  _sceneManager: {fileID: 0}
+  _nextScene: Trial Scene 1
   _revealed: 0
   _active: 0
 --- !u!1 &7334612307633808633
@@ -225,7 +229,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1830327579
+  m_SortingLayerID: 1025760709
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c993dd44ba3082a458031a56326ae1fa, type: 3}

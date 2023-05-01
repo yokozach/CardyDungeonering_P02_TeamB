@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1830327579
+  m_SortingLayerID: 1025760709
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9675c549920695a409edf3bdb70ba066, type: 3}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4508711894340619747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a27927626927f4f8c4a0d3387bc7df, type: 3}
+  m_Script: {fileID: 11500000, guid: 56a40e5d5a6225a4c8c9f76fc3952b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyName: Ghost
@@ -190,7 +190,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1830327579
+  m_SortingLayerID: 1025760709
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c993dd44ba3082a458031a56326ae1fa, type: 3}
@@ -262,8 +262,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardName: Ghost
   _event: {fileID: 3350995307457116367}
-  _cardCol: 0
-  _cardRow: 0
   _cover: {fileID: 6812480159421019060}
   _face: {fileID: 8968638246908826889}
 --- !u!114 &3445632939812759407
@@ -278,9 +276,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98d1d45eada249479563936935a6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 10
-  _curHP: 10
-  _curDef: 0
+  centralManager: {fileID: 0}
+  unitType: 1
+  _maxHP: 3
+  _curHP: 3
+  _maxDef: 10
+  _curDef: 10
 --- !u!114 &3350995307457116367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,10 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb808324978df6498d4f0302c0091d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  centralManager: {fileID: 0}
   tileType: 0
   active: 1
-  _minAttackRange: 2
-  _maxAttackRange: 3
+  _minAttackRange: 4
+  _maxAttackRange: 6
   _killed: 0
   _hurt: 0
   _hurtCrit: 0

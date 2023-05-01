@@ -18,11 +18,13 @@ public class EnemyBattleState : State
     {
         base.Enter();
         Debug.Log("Entering Enemy Battle State");
+        _controller._enemyTurnImage.SetActive(true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        _controller._enemyTurnImage.SetActive(false);
     }
 
     public override void FixedTick()
@@ -38,8 +40,21 @@ public class EnemyBattleState : State
         {
             _stateMachine.ChangeState(_stateMachine.LoseState);
         }
+
+        if(_controller._enemyHealth._curHP <= 0)
+        {
+            Debug.Log("enemyDefeated in enemyState");
+            //_controller._battleTurn = 0;
+            //_controller._enemiesDefeated++;
+            if (_controller._enemiesDefeated >= _controller._stairs._enemiesNeededToWin)
+            {
+                _controller._stairs.ActivateStairs();
+            }
+            _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
+        }
+
         //Enemy Attack After thinking 
-        if (StateDuration >= 2.5f)
+        else if (StateDuration >= 2.5f)
         {
             EnemyBasicAttack();
         }
@@ -48,8 +63,7 @@ public class EnemyBattleState : State
     public void EnemyBasicAttack()
     {
         Debug.Log("EnemyAttack");
-        int _damage;
-        _damage = Random.Range(1, 4);
+        int _damage = Random.Range(_controller._enemyStats._minAttackRange, _controller._enemyStats._maxAttackRange);
         _controller._playerHP.TakeDamage(_damage);
         _stateMachine.ChangeState(_stateMachine.PlayerBattleState);
     }

@@ -38,7 +38,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -119,9 +119,9 @@ TextureImporter:
       name: rpg_equipment_32x32_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 4
         y: 39
-        width: 32
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3abd3566bf0e6547b88e4b328880ed7
-      internalID: 1337507992
+      spriteID: 1c8920b61eba89140a36cb0e577c1526
+      internalID: 802656025
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc14214b7a0e7b74d96ca762a3f05c5b
-      internalID: -539255083
+      spriteID: 2044ca94236f061458dfa36505140123
+      internalID: 2111986169
       vertices: []
       indices: 
       edges: []
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 892567ba4972b5444b9fb66a9d17c2af
-      internalID: 2029743153
+      spriteID: 160018b2ee50e1341bf2c28c04293a4b
+      internalID: -1889999906
       vertices: []
       indices: 
       edges: []
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06c15a82c40acf64abf76a8258dad6f5
-      internalID: -767658037
+      spriteID: 9a8539e4c0cd5e94ebb65efd2bf1546f
+      internalID: -51129843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rpg_equipment_32x32_5
+      name: rpg_equipment_32x32_4
       rect:
         serializedVersion: 2
         x: 150
@@ -214,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b1a896090103cf4392da16d8085e21a
-      internalID: 46220222
+      spriteID: cb95b4ce679ad934291ec4a03cb85942
+      internalID: -324868765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rpg_equipment_32x32_6
+      name: rpg_equipment_32x32_5
       rect:
         serializedVersion: 2
         x: 187
@@ -235,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759a8f8d3a0d13e45834e195c27a0a1e
-      internalID: 27081189
+      spriteID: 1cd688c37e81f5b42b1ea36bf9d8217a
+      internalID: -1527914673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rpg_equipment_32x32_7
+      name: rpg_equipment_32x32_6
       rect:
         serializedVersion: 2
         x: 224
@@ -256,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa4560f2744993f4ba6dab75c81767f0
-      internalID: -1495840882
+      spriteID: f5f5582a9b9225d4a8eed057f805dcc9
+      internalID: -1274439481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rpg_equipment_32x32_8
+      name: rpg_equipment_32x32_7
       rect:
         serializedVersion: 2
         x: 39
@@ -277,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57dcf5ad379012946991ddfff105a6da
-      internalID: -145001469
+      spriteID: f4b72db0f33b61748b65d71972f4927d
+      internalID: -1789597565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rpg_equipment_32x32_9
+      name: rpg_equipment_32x32_8
       rect:
         serializedVersion: 2
         x: 150
@@ -298,8 +298,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6320497fef1230b42aaf5f47663308b0
-      internalID: -1199182820
+      spriteID: 038a15ad53c76174b92d734f7a3bbee3
+      internalID: -166635915
       vertices: []
       indices: 
       edges: []
@@ -315,16 +315,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rpg_equipment_32x32_8: -145001469
-      rpg_equipment_32x32_9: -1199182820
-      rpg_equipment_32x32_3: -767658037
-      rpg_equipment_32x32_7: -1495840882
-      rpg_equipment_32x32_0: 1337507992
-      rpg_equipment_32x32_5: 46220222
-      rpg_equipment_32x32_6: 27081189
-      rpg_equipment_32x32_2: 2029743153
-      rpg_equipment_32x32_1: -539255083
-      rpg_equipment_32x32_4: 2080298076
+      rpg_equipment_32x32_8: -166635915
+      rpg_equipment_32x32_9: 799726593
+      rpg_equipment_32x32_3: -51129843
+      rpg_equipment_32x32_7: -1789597565
+      rpg_equipment_32x32_0: 802656025
+      rpg_equipment_32x32_5: -1527914673
+      rpg_equipment_32x32_6: -1274439481
+      rpg_equipment_32x32_2: -1889999906
+      rpg_equipment_32x32_1: 2111986169
+      rpg_equipment_32x32_4: -324868765
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

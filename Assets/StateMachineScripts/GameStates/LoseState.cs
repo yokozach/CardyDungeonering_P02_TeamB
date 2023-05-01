@@ -19,12 +19,14 @@ public class LoseState : State
         base.Enter();
         Debug.Log("Entering Lose State");
         _controller._youLose.SetActive(true);
+        _controller._returnToMainMenuButton.SetActive(true);
     }
 
     public override void Exit()
     {
         base.Exit();
         _controller._youLose.SetActive(false);
+        _controller._returnToMainMenuButton.SetActive(false);
     }
 
     public override void FixedTick()

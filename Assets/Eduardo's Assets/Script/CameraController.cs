@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] private CentralManager centralManager;
+
     [Header("Original Cam Settings")]
     [SerializeField] private Vector3 _startPos = new Vector3(0, 0, -10);
     [SerializeField] private float _startSize = 8;
@@ -15,15 +18,15 @@ public class CameraController : MonoBehaviour
     [SerializeField] float _animationSpeed = 5f;
     [SerializeField] float _camZoom = 1f;
     [SerializeField] float _minSize = 5.0f;
-    [SerializeField] bool combatFocus;
+    [SerializeField] bool focusEnabled;
 
     [Header("Camera Shake Settings")]
     [SerializeField] float shakeDuration = 0.2f;
     [SerializeField] float shakeIntensity = 0.1f;
 
-    [Header("Combat Targets")]
-    [SerializeField] GameObject _player;
-    [SerializeField] GameObject _target;
+    [Header("Cam Targets")]
+    [SerializeField] GameObject _target1;
+    [SerializeField] GameObject _target2;
 
     private Camera _camera;
     private Vector3 _targetPos;
@@ -32,6 +35,11 @@ public class CameraController : MonoBehaviour
 
     private float _shakeTime;
     private Vector3 _shakeOffset = Vector3.zero;
+
+    private void Awake()
+    {
+
+    }
 
     void Start()
     {
@@ -43,9 +51,9 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
-        if (combatFocus && _player != null && _target != null)
+        if (focusEnabled && _target1 != null && _target2 != null)
         {
-            CameraFocus(_player.transform.position, _target.transform.position, _camZoom);
+            CameraFocus(_target1.transform.position, _target2.transform.position, _camZoom);
         }
         else
         {
@@ -123,9 +131,21 @@ public class CameraController : MonoBehaviour
         _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, _targetSize, Time.deltaTime * _animationSpeed);
     }
 
-    public void SetTarget(GameObject target)
+    public void StartFloor()
     {
-        _target = target;
+        _target1 = centralManager._gridManager.ReturnTileDictionary()[centralManager._playerController.ReturnCurGridPos()].gameObject;
+        _target2 = centralManager._gridManager.ReturnTileDictionary()[centralManager._playerController.ReturnCurGridPos()].gameObject;
+        focusEnabled = true;
+    }
+
+    public void SetTarget1(GameObject target)
+    {
+        _target1 = target;
+    }
+
+    public void SetTarget2(GameObject target)
+    {
+        _target2 = target;
     }
 
     public void CameraShake(float shakeAmount)
@@ -134,5 +154,10 @@ public class CameraController : MonoBehaviour
         shakeIntensity = shakeAmount;
     }
 
+    public void ToggleFocus()
+    {
+        if (focusEnabled) focusEnabled = false;
+        else focusEnabled = true;
+    }
 
 }
