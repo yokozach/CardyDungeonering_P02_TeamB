@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Hayden's Assets/Fonts/alagard SDF.asset.meta
+guid: 349b0b38e1a9b8b438f72b12b5b11eec
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+=======
+guid: 8bfc7369a12c2cf46a82ef31603c046f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+>>>>>>> SamPolishContinued:Assets/Zachary Assets/prefabs/enemyHUD.cs.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -35,6 +35,7 @@ public class PlayerBattleState : State
             _enemyHealth = _controller._enemyHealth;
             _controller._cam.SetTarget2(_enemyHealth.gameObject);
             _controller._cam.ToggleFocus();
+            _controller._enemyHUD.TurnOffAndOn(true);
         }
     }
 
@@ -68,6 +69,7 @@ public class PlayerBattleState : State
             _controller._cam.ToggleFocus();
             _controller._cam.SetTarget2(null);
             _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
+            _controller._enemyHUD.TurnOffAndOn(false);
         }
         if(_controller._playerHP._curHP <= 0)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CardEvent_Enemy : IEvent
 {
+    private GameController _controller;
     [Header("Combat Values")]
     [SerializeField] public bool active;
     [Range(1, 25)] [SerializeField] public int _minAttackRange = 1;
@@ -28,6 +29,7 @@ public class CardEvent_Enemy : IEvent
     {
         centralManager = FindObjectOfType<CentralManager>();
         health = GetComponent<Health>();
+        health = _controller._enemyHealth;
     }
 
     // Update is called once per frame
@@ -42,6 +44,11 @@ public class CardEvent_Enemy : IEvent
         centralManager._sfxPlayer.Audio_EnemyEncounter();
         centralManager._enemyHealth = health;
         centralManager._enemyController = this;
+        centralManager._enemyHUD._enemyHealth = health;
+
+        //recalculates the new enemies stats
+        centralManager._enemyHUD.HealthCalc();
+        centralManager._enemyHUD.ShieldCalc();
 
         // Might have to change some code below to optomize the game (specifically FindObjectOfType; they take a lot of power)
         GameFSM _gameController = (GameFSM)FindObjectOfType(typeof(GameFSM));
