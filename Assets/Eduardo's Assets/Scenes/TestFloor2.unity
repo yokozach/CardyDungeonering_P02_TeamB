@@ -670,8 +670,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5116127577447181589, guid: 88a6b3e5cd687c34a96a26fd8ffc429d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88a6b3e5cd687c34a96a26fd8ffc429d, type: 3}
 --- !u!1 &651392814 stripped
 GameObject:
@@ -2205,43 +2204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ef41f3ca313754c8f1544623e7e01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1811401683 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5116127577447181590, guid: 88a6b3e5cd687c34a96a26fd8ffc429d, type: 3}
-  m_PrefabInstance: {fileID: 650419351}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1811401685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811401683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e6ffafa227d104479923c1e4d09b100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _touched: 0
-  position:
-    m_Name: Position
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a2fc0ffe-5e2f-45a9-89f9-cb0cc1244c4e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  press:
-    m_Name: Press
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: c0358ae3-ddfe-4154-82d7-ba11dfa58258
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  swipeRes: 100
 --- !u!1 &1905595325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,7 +2498,7 @@ MonoBehaviour:
   _gameController: {fileID: 7063388120798126951}
   _gridManager: {fileID: 3906783404054940048}
   _deckManager: {fileID: 754067465}
-  inputManager: {fileID: 1811401685}
+  inputManager: {fileID: 0}
   _introFade: {fileID: 388705580}
   _background: {fileID: 2094458535}
   _musicPlayer: {fileID: 565640558}
@@ -3430,7 +3392,7 @@ MonoBehaviour:
   _playerHP: {fileID: 5239304314239634614}
   _playerStats: {fileID: 5239304314239634616}
   _inBattle: 0
-  _checkTouched: {fileID: 1811401685}
+  _checkTouched: {fileID: 0}
   _youWin: {fileID: 429455466}
   _youLose: {fileID: 805696989}
   _stairs: {fileID: 1270542895}
@@ -3501,7 +3463,7 @@ PrefabInstance:
     - target: {fileID: 2815393853810834799, guid: dacc1431d21a51043a2b954cf0f9a2bc, type: 3}
       propertyPath: inputManager
       value: 
-      objectReference: {fileID: 1811401685}
+      objectReference: {fileID: 0}
     - target: {fileID: 2815393853810834799, guid: dacc1431d21a51043a2b954cf0f9a2bc, type: 3}
       propertyPath: centralManager
       value: 
