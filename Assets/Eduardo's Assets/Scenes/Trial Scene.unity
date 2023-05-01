@@ -2931,10 +2931,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3246700142944540815, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5203619526143658959, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: centralManager
       value: 
@@ -2943,10 +2939,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1271250009}
-    - target: {fileID: 7800149855558539843, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8024271391184090936, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: m_Name
       value: PlayerHUD_Canvas

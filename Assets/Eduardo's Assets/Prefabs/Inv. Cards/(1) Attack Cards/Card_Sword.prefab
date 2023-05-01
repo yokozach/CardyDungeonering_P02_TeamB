@@ -230,7 +230,7 @@ MonoBehaviour:
   selectBtn: {fileID: 8383673517530330934}
   cardName: Sword
   cardType: 0
-  cardDescription: (Sharp) Inflict 4 dmg
+  cardDescription: (Pierce) Inflict 4 dmg
   countInDeck: 3
   invNum: 0
   animationSpeed: 1.5

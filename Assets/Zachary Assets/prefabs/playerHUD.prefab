@@ -700,13 +700,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6a388b68221a94baec355205976bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealhBar: {fileID: 7823607412098742887}
-  ShielhBar: {fileID: 5721776307746182718}
+  centralManager: {fileID: 0}
+  healthBar: {fileID: 0}
+  shieldBar: {fileID: 0}
   healthNum: {fileID: 6453194417752499318}
   defenseNum: {fileID: 523655250768419441}
   attackNum: {fileID: 521717992010401261}
-  playerHP: {fileID: 9063207721097772109, guid: ea78d64b63d194d48878ec26f164e330, type: 3}
-  playerAttack: {fileID: -5206863508291066323, guid: ea78d64b63d194d48878ec26f164e330, type: 3}
 --- !u!1 &6229130536022863070
 GameObject:
   m_ObjectHideFlags: 0

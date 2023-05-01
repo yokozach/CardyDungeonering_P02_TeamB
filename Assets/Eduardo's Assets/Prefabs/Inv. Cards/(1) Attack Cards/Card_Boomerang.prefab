@@ -230,9 +230,10 @@ MonoBehaviour:
   selectBtn: {fileID: 8383673517530330934}
   cardName: Boomerang
   cardType: 0
-  cardDescription: 'Inflict 2 dmg (2x) '
+  cardDescription: Inflict 2 dmg (2x) with 5% crit
   countInDeck: 3
   invNum: 0
+  deckNum: 8
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
@@ -241,7 +242,7 @@ MonoBehaviour:
   pierce: 0
   sharp: 0
   heavy: 0
-  Crit: 0.01
+  crit: 0.05
 --- !u!1 &3106591490731462499
 GameObject:
   m_ObjectHideFlags: 0

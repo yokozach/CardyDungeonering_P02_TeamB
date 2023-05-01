@@ -31,7 +31,7 @@ public class Health : MonoBehaviour, IDamageable
 
     void Awake()
     {
-        _curHP = _maxHP;
+        
     }
 
     void Start()
@@ -39,6 +39,8 @@ public class Health : MonoBehaviour, IDamageable
         playerController = centralManager._playerController;
         playerStats = centralManager._playerStats;
         enemy = GetComponent<CardEvent_Enemy>();
+
+        if (_curHP < 0.3 * _maxHP) playerController._lowHP = true;
 
     }
 
@@ -54,10 +56,10 @@ public class Health : MonoBehaviour, IDamageable
     private void PlayerTakeDamage(int dmg)
     {
         // Reduces dmg by player defense
-        playerStats.RunDefenseBuffTurns();
-        if (playerController != null) dmg -= playerStats._totalPlayerDefense;
+        if (playerController != null) dmg -= playerStats._finalDef;
+        if (dmg < 0) dmg = 0;
 
-        if (_curDef >= 1)
+        if (_curDef >= 1 || dmg == 0)
         {
             centralManager._sfxPlayer.Audio_DmgShield();
             _curDef -= dmg;
@@ -89,52 +91,51 @@ public class Health : MonoBehaviour, IDamageable
                 playerController._hurt = true;
             }
         }
-        playerStats.ResetBuffEffects();
 
         if (_curHP <= 0.3 * _maxHP) playerController._lowHP = true;
+
+        playerStats.ReduceDefBuffTurns();
 
     }
 
     private IEnumerator EnemyTakeDamage(int dmg)
     {
-        centralManager._playerStats.RunOffensiveBuffEffects();
-        for (int i = 0; i < playerStats._totalNumberOfAttacks; i++)
+        for (int i = 0; i < playerStats._finalHit; i++)
         {
             // Calculate if dmg inflicted was a critical hit
             float randomValue = Random.Range(0f, 1f);
-            if (playerStats._totalCritChance > randomValue)
+            if (playerStats._finalCrit > randomValue)
             {
-                dmg = Mathf.RoundToInt(dmg * playerStats._CritMultiplier);
+                dmg = Mathf.RoundToInt(dmg * playerStats._critMultiplier);
                 _critOccured = true;
             }
 
             // Deal dmg to shield if any; deal dmg to HP if pierce enabled or no shield remaining
-            if (_curDef >= 1 && !playerStats._pierce)
+            if (_curDef >= 1 && !playerStats._finalPierce)
             {
-                if (playerStats._heavy) dmg = Mathf.RoundToInt(dmg * playerStats._heavyMultiplier);
+                if (playerStats._finalHeavy) dmg = Mathf.RoundToInt(dmg * playerStats._heavyMultiplier);
 
                 centralManager._sfxPlayer.Audio_DmgShield();
                 _curDef -= dmg;
                 if (_curDef < 0) _curDef = 0;
-                // centralManager._enemyHUD.Shieldcalc();
                 enemy._hurtShield = true;
+                // centralManager._enemyHUD.Shieldcalc();
             }
             else
             {
-                if (playerStats._sharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
+                if (playerStats._finalSharp) dmg = Mathf.RoundToInt(dmg * playerStats._sharpMultiplier);
 
                 _curHP -= dmg;
                 if (_curHP < 0) _curHP = 0;
                 // centralManager._enemyHUD.HealthCalc();
+               
 
                 if (_curHP <= 0)
                 {
-                    centralManager._playerStats.ResetBuffEffects();
                     Kill();
                     break;
                 }
-
-                if (_critOccured)
+                else if (_critOccured)
                 {
                     _critOccured = false;
                     centralManager._sfxPlayer.Audio_DmgCrit();
@@ -148,11 +149,11 @@ public class Health : MonoBehaviour, IDamageable
 
             }
 
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(0.7f);
 
         }
 
-        centralManager._playerStats.ResetBuffEffects();
+        playerStats.ReduceOffBuffTurns();
 
     }
 
@@ -161,21 +162,23 @@ public class Health : MonoBehaviour, IDamageable
         if (unitType == UnitType.Player)
         {
             playerController._killed = true;
-            // centralManager._enemyHUD.HealthCalc();
+            centralManager._sfxPlayer.Audio_Death();
+            centralManager._playerHUD.HealthCalc();
+            centralManager._musicPlayer.GetComponent<AudioSource>().mute = true;
         }
         else if (unitType == UnitType.Enemy) 
         {
             enemy._killed = true;
+            centralManager._sfxPlayer.Audio_Death();
             centralManager._playerHUD.HealthCalc();
             StartCoroutine(EnemyDeathWaitTimer(1));
         }
-        centralManager._sfxPlayer.Audio_Death();
-
     }
 
     public void HealHP(int value)
     {
         _curHP += value;
+        if (_curHP > 0.3 * _maxHP) playerController._lowHP = false;
         if (_curHP > _maxHP) _curHP = _maxHP;
 
         if (unitType == UnitType.Player) centralManager._playerHUD.HealthCalc();

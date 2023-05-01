@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CardEvent_Chest : IEvent
 {
+
+    [SerializeField] ChestAnimator chestAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +27,23 @@ public class CardEvent_Chest : IEvent
 
     private IEnumerator GrantCard()
     {
-        yield return new WaitForSeconds(1f);
+        centralManager._playerController.playerActive = false;
+
+        centralManager._camController.SetTarget1(centralManager._playerController.gameObject);
+        centralManager._camController.SetTarget2(gameObject);
+        centralManager._camController.ToggleFocus();
+
+        chestAnim.OpenChest();
+        yield return new WaitForSeconds(1.1f);
+
         centralManager._deckManager.AddRandomCard();
         centralManager._sfxPlayer.Audio_CardCollected();
+        yield return new WaitForSeconds(1.6f);
+
+        centralManager._camController.SetTarget2(null);
+        centralManager._camController.ToggleFocus();
+
+        centralManager._playerController.playerActive = true;
         EndEvent(this.gameObject);
     }
 

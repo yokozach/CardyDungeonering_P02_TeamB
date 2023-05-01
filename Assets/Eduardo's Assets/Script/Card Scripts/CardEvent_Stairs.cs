@@ -7,6 +7,7 @@ public class CardEvent_Stairs : IEvent
 {
     [SerializeField] SpriteRenderer _renderer;
     [SerializeField] Sprite _litStairs;
+    [SerializeField] Sprite _finalStairs;
     [SerializeField] public int _enemiesNeededToWin = 3;
     [SerializeField] bool _anotherScene;
     [SerializeField] SceneLoader _sceneManager = null;
@@ -40,7 +41,7 @@ public class CardEvent_Stairs : IEvent
     public void ActivateStairs()
     {
         _active = true;
-        _renderer.sprite = _litStairs;
+        if (_anotherScene) _renderer.sprite = _litStairs; else _renderer.sprite = _finalStairs;
 
     }
 
@@ -49,17 +50,18 @@ public class CardEvent_Stairs : IEvent
     {
         if (_active == true)
         {
-            Debug.Log("Floor Cleared!");
             if (_anotherScene && _nextScene != null)
             {
                 // Add code to change state machine to next floor transition!
                 if(_sceneManager != null)
                 {
+                    centralManager._playerController.playerActive = false;
+                    centralManager._playerController._exiting = true;
+                    StartCoroutine(centralManager._introFade.FadePanelIn());
                     PlayerData.StoreData(playerHealth._curHP, playerHealth._curDef, playerHealth._maxHP, playerHealth._maxDef,
-                        playerStats._playerBaseAttack, playerStats._playerBaseDefense, playerStats._numberOfAttacks, playerStats._pierce, 
-                        playerStats._sharp, playerStats._heavy, playerStats._baseCritChance, centralManager._inventoryController.inventoryCards);
-                    PlayerData.shareData = true;
-                    StartCoroutine(StairsWaitTimer(1));
+                        playerStats._baseAtt, playerStats._baseDef, playerStats._baseHit, playerStats._baseCrit, playerStats._basePierce, 
+                        playerStats._baseSharp, playerStats._baseHeavy, centralManager._inventoryController.inventoryCards);
+                    StartCoroutine(StairsWaitTimer(1f));
                 }
             }
             else

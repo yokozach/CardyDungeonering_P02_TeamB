@@ -51,19 +51,11 @@ MonoBehaviour:
   _heightSpacing: 1.5
   _tilePrafab: {fileID: 1070388423398743686, guid: 3d6b8b80748463746b45137554a83cfc, type: 3}
   _emptyCardPrefab: {fileID: 5536843888676496263, guid: dc71f8c693c7c2647862966dd8ba3ecd, type: 3}
-  _fixedCards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  gridPositions:
-  - {x: 3, y: 3}
-  - {x: 0, y: 4}
-  - {x: 4, y: 4}
-  - {x: 2, y: 3}
-  - {x: 4, y: 0}
-  - {x: 0, y: 0}
-  - {x: 2, y: 0}
+  _randomized: 0
+  _blockedPos: []
+  _fixedCards: []
+  _fixedGridPos:
+  - {x: 2, y: 2}
+  - {x: 1, y: 3}
+  _variableCards: []
+  _variableGridPos: []

@@ -46,7 +46,7 @@ public class MusicPlayer : MonoBehaviour
             audioSource.Play();
             lastClip = audioSource.clip;
             loopHistory.Insert(0, lastClip);
-            Debug.Log(string.Join(", ", loopHistory));
+            // Debug.Log(string.Join(", ", loopHistory));
         }
 
     }
@@ -84,7 +84,7 @@ public class MusicPlayer : MonoBehaviour
             loopHistory.RemoveAt(maxLoopHistorySize);
         }
 
-        Debug.Log(string.Join(", ", loopHistory));
+        // Debug.Log(string.Join(", ", loopHistory));
 
         // Chooses random clip from nonLoopTracks; if in loopHistory, picks another song
         int randomClip;

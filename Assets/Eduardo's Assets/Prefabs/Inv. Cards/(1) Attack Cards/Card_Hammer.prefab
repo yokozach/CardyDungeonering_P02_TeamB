@@ -230,13 +230,14 @@ MonoBehaviour:
   selectBtn: {fileID: 8383673517530330934}
   cardName: Hammer
   cardType: 0
-  cardDescription: (Heavy) Inflict 5 dmg
-  countInDeck: 1
+  cardDescription: (Heavy) Inflict 4 dmg
+  countInDeck: 2
   invNum: 0
+  deckNum: 7
   animationSpeed: 1.5
   isMoving: 0
   PlayerStats: {fileID: 0}
-  attDmg: 5
+  attDmg: 4
   hits: 1
   pierce: 0
   sharp: 0

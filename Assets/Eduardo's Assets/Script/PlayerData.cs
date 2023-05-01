@@ -17,9 +17,9 @@ public static class PlayerData
     public static bool sharp { get; set; }
     public static bool heavy { get; set; }
     public static float baseCritChance { get; set; }
-    public static List<GameObject> currentInventory { get; set; }
+    public static List<int> deckNumInv { get; set; }
 
-    public static void StoreData(int hp, int sh, int mhp, int msh, int att, int def, int num, bool P, bool S, bool H, float C, List<GameObject> curInv)
+    public static void StoreData(int hp, int sh, int mhp, int msh, int att, int def, int num, float C, bool P, bool S, bool H, List<GameObject> curInv)
     {
         curHP = hp;
         curShield = sh;
@@ -28,13 +28,16 @@ public static class PlayerData
         baseAttack = att;
         baseDefense = def;
         numberOfAttacks = num;
+        baseCritChance = C;
         pierce = P;
         sharp = S;
         heavy = H;
-        baseCritChance = C;
-
-        currentInventory = curInv;
-
+        deckNumInv = new List<int>(curInv.Count);
+        foreach (GameObject cardPrefab in curInv)
+        {
+            deckNumInv.Add(cardPrefab.GetComponent<InvCard>().deckNum);
+        }
+        shareData = true;
     }
 
 
