@@ -6,15 +6,9 @@ using UnityEngine.UI;
 public class enemyHUD : MonoBehaviour
 {
     private GameController _controller;
-    public Health _enemyHealth;
+    public Health _enemyHealth = null;
     [SerializeField] Image healthBar;
     [SerializeField] Image shieldBar;
-
-    void Start()
-    {
-        _enemyHealth = _controller._enemyHealth;
-    }
-
 
     public void ShieldCalc()
     {
@@ -30,4 +24,8 @@ public class enemyHUD : MonoBehaviour
       
     }
 
+    public void TurnOffAndOn(bool set)
+    {
+        this.gameObject.SetActive(set);
+    }
 }

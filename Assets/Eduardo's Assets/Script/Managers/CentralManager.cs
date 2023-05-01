@@ -31,6 +31,7 @@ public class CentralManager : MonoBehaviour
     // public Enemy_Hud _enemyHUD;
     public CardEvent_Enemy _enemyController;
     public Health _enemyHealth;
+    public enemyHUD _enemyHUD;
 
     [Header("Cards")]
     public CardEvent_Stairs _stairs;

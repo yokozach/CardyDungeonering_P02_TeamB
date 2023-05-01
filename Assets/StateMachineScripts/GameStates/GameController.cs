@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] public GameObject _nextFloorButton = null;
     [SerializeField] public GameObject _playerTurnImage = null;
     [SerializeField] public GameObject _enemyTurnImage = null;
+    [SerializeField] public enemyHUD _enemyHUD = null;
     // [SerializeField] public GameObject _enemyHUD = null;
 
     public Health _enemyHealth = null;

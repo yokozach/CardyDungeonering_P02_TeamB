@@ -120,6 +120,7 @@ public class Health : MonoBehaviour, IDamageable
                 if (_curDef < 0) _curDef = 0;
                 enemy._hurtShield = true;
                 // centralManager._enemyHUD.Shieldcalc();
+                centralManager._enemyHUD.ShieldCalc();
             }
             else
             {
@@ -128,7 +129,7 @@ public class Health : MonoBehaviour, IDamageable
                 _curHP -= dmg;
                 if (_curHP < 0) _curHP = 0;
                 // centralManager._enemyHUD.HealthCalc();
-               
+                centralManager._enemyHUD.HealthCalc();
 
                 if (_curHP <= 0)
                 {
