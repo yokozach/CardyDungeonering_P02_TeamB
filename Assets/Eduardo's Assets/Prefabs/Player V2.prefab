@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 574922945911791327}
   - component: {fileID: 6621582936786861138}
   - component: {fileID: 2856571607595147290}
-  - component: {fileID: 1783684818716578054}
+  - component: {fileID: 552300950}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -242,8 +242,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 193590861
-  m_SortingLayer: 4
+  m_SortingLayerID: 971486919
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00834636ad478c94db8238a34494d4fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -276,7 +276,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1783684818716578054
+--- !u!114 &552300950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,6 +285,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5049954620238714238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415366a2c052b8447952f0ebc2d5af97, type: 3}
+  m_Script: {fileID: 11500000, guid: 09be3c81c46fba940850b4585028c151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
