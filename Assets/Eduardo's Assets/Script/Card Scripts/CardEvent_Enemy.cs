@@ -28,8 +28,8 @@ public class CardEvent_Enemy : IEvent
     void Start()
     {
         centralManager = FindObjectOfType<CentralManager>();
+        _controller = centralManager._gameController;
         health = GetComponent<Health>();
-        health = _controller._enemyHealth;
     }
 
     // Update is called once per frame
@@ -46,16 +46,15 @@ public class CardEvent_Enemy : IEvent
         centralManager._enemyController = this;
         centralManager._enemyHUD._enemyHealth = health;
 
+        _controller._enemyHealth = health;
+        _controller._enemyStats = this;
+
         //recalculates the new enemies stats
         centralManager._enemyHUD.HealthCalc();
         centralManager._enemyHUD.ShieldCalc();
 
         // Might have to change some code below to optomize the game (specifically FindObjectOfType; they take a lot of power)
         GameFSM _gameController = (GameFSM)FindObjectOfType(typeof(GameFSM));
-        GameController _controller = (GameController)FindObjectOfType(typeof(GameController));
-        _controller._enemyHealth = health;
-        _controller._enemyStats = this;
-
         _gameController.ChangeToBattle();
     }
 

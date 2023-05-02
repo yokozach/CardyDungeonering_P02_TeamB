@@ -69,8 +69,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Objective: Kill enemies and find the stairs'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
-  m_sharedMaterial: {fileID: 8995255345761156859, guid: b6dfbee3895bf894e90c35832a6da479, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 475c9198ba534d445887fbadccd7f95a, type: 2}
+  m_sharedMaterial: {fileID: -2067357436847901347, guid: 475c9198ba534d445887fbadccd7f95a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
