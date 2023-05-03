@@ -8,6 +8,8 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         Debug.Log("Going to Scene: " + sceneName);
+        CentralManager _centralManager = (CentralManager)FindObjectOfType(typeof(CentralManager));
+        StartCoroutine(_centralManager._introFade.FadePanelIn());
         SceneManager.LoadScene(sceneName);
     }
 

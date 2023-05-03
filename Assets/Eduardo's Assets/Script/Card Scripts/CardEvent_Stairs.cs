@@ -35,6 +35,11 @@ public class CardEvent_Stairs : IEvent
     public override void PlayEvent()
     {
         _revealed = true;
+        GameController _gameController = (GameController)FindObjectOfType(typeof(GameController));
+        if (_enemiesNeededToWin == _gameController._enemiesDefeated && _revealed)
+        {
+            _gameController._nextFloorButton.SetActive(true);
+        }
     }
 
     // Visually activates stairs & indicate it's now accessible by players
@@ -42,7 +47,6 @@ public class CardEvent_Stairs : IEvent
     {
         _active = true;
         if (_anotherScene) _renderer.sprite = _litStairs; else _renderer.sprite = _finalStairs;
-
     }
 
     // Check if mission is fulfilled; Next floor if done

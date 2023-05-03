@@ -9,6 +9,13 @@ public class enemyHUD : MonoBehaviour
     public Health _enemyHealth = null;
     [SerializeField] Image healthBar;
     [SerializeField] Image shieldBar;
+    [SerializeField] RectTransform _enemyHUDValues;
+    private RectTransform _enemyHUDTransform;
+
+    private void Start()
+    {
+        _enemyHUDTransform = _enemyHUDValues;
+    }
 
     public void ShieldCalc()
     {
@@ -28,4 +35,12 @@ public class enemyHUD : MonoBehaviour
     {
         this.gameObject.SetActive(set);
     }
+
+    public void AnimationStart()
+    {
+        _enemyHUDValues.anchoredPosition = new Vector2(0, 100);
+        _enemyHUDValues.position = Vector2.MoveTowards(_enemyHUDValues.position, _enemyHUDTransform.position, 5f);
+    }
+
+    IEnumerator
 }
