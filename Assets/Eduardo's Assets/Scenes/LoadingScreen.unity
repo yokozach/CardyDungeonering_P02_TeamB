@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e58046c7c5c344db8050fb0d9d5485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Floor1
+  sceneToLoad: TestFloor1
   loadingScreenUI: {fileID: 1772443011}
   progressBar: {fileID: 1772443013}
   minimumWaitTime: 2
@@ -741,8 +741,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Loading -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 401e0dcd105624747b715e9bf256b976, type: 2}
-  m_sharedMaterial: {fileID: 6784127733612686732, guid: 401e0dcd105624747b715e9bf256b976, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
