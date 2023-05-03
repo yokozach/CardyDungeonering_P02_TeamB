@@ -772,6 +772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemyHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 2250823690912664574, guid: 5a85d12e970fc5a42ba4d385fe2929af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a85d12e970fc5a42ba4d385fe2929af, type: 3}
 --- !u!114 &722545330 stripped
@@ -3206,6 +3210,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3246700142944540812, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246700142944540812, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246700142944540815, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5203619526143658959, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: baseCritTxt
       value: 
@@ -3274,7 +3290,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1038970057}
-    - target: {fileID: 7737809585147680691, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+    - target: {fileID: 7800149855558539840, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 810
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800149855558539840, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800149855558539843, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

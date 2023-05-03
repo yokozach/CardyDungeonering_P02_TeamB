@@ -12,6 +12,7 @@ public class PauseMenuFix : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         centralManager._playerController.paused = true;
+        centralManager._musicPlayer.SetMuffled(true);
         Time.timeScale = 0f;
     }
 
@@ -19,6 +20,7 @@ public class PauseMenuFix : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         centralManager._playerController.paused = false;
+        centralManager._musicPlayer.SetMuffled(false);
         Time.timeScale = 1f;
     }
 

@@ -59,6 +59,10 @@ public class CentralManager : MonoBehaviour
             // Sets Player Combat Ability
             _playerStats.ChangeBaseStats(PlayerData.baseAttack, PlayerData.baseDefense, PlayerData.numberOfAttacks, PlayerData.baseCritChance, PlayerData.pierce, PlayerData.sharp, PlayerData.heavy);
 
+            // Set Other Game Data
+            _deckManager.SetCurrentAvailableDeck(PlayerData.remainingDeck);
+            _musicPlayer.SetLoopHistory(PlayerData.musicLog);
+
         }
 
     }

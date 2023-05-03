@@ -47,6 +47,11 @@ public class MainCard : MonoBehaviour
 
     }
 
+    public string ReturnCardName()
+    {
+        return _cardName;
+    }
+
     public IEvent ReturnEvent()
     {
         return _event;

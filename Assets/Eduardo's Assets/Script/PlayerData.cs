@@ -19,7 +19,7 @@ public static class PlayerData
     public static float baseCritChance { get; set; }
     public static List<int> deckNumInv { get; set; }
 
-    public static void StoreData(int hp, int sh, int mhp, int msh, int att, int def, int num, float C, bool P, bool S, bool H, List<GameObject> curInv)
+    public static void StorePlayerData(int hp, int sh, int mhp, int msh, int att, int def, int num, float C, bool P, bool S, bool H, List<GameObject> curInv)
     {
         curHP = hp;
         curShield = sh;
@@ -40,5 +40,14 @@ public static class PlayerData
         shareData = true;
     }
 
+
+    public static List<GameObject> remainingDeck { get; set; }
+    public static List<AudioClip> musicLog { get; set; }
+
+    public static void StoreOtherData(List<GameObject> curDeckPool, List<AudioClip> loopLog)
+    {
+        remainingDeck = curDeckPool;
+        musicLog = loopLog;
+    }
 
 }

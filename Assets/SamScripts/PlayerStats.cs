@@ -180,6 +180,7 @@ public class PlayerStats : MonoBehaviour
     {
         _buffAtt = 0;
         // Loop through all attack buffs and apply them to the buff att value
+        if (attackBuffs == null) return;
         for (int i = 0; i < attackBuffs.Count; i++)
         {
             AttackBuff buff = attackBuffs[i];
@@ -192,6 +193,7 @@ public class PlayerStats : MonoBehaviour
     {
         _buffDef = 0;
         // Loop through all defense buffs and apply them to the buff def value
+        if (defenseBuffs == null) return;
         for (int i = 0; i < defenseBuffs.Count; i++)
         {
             DefenseBuff buff = defenseBuffs[i];
@@ -204,6 +206,7 @@ public class PlayerStats : MonoBehaviour
     {
         _buffHit = 0;
         // Loop through all multi-hit buffs and apply them to the buff hit value
+        if (multiHitBuffs == null) return;
         for (int i = 0; i < multiHitBuffs.Count; i++)
         {
             MultiHitBuff buff = multiHitBuffs[i];
@@ -216,6 +219,7 @@ public class PlayerStats : MonoBehaviour
     {
         _buffCrit = 0;
         // Loop through all crit buffs and apply them to the buff crit value
+        if (critBuffs == null) return;
         for (int i = 0; i < critBuffs.Count; i++)
         {
             CritBuff buff = critBuffs[i];
@@ -228,6 +232,7 @@ public class PlayerStats : MonoBehaviour
     {
         _buffPierce = false;
         // Check if any pierce buffs are active
+        if (pierceBuffs == null) return;
         for (int i = 0; i < pierceBuffs.Count; i++)
         {
             PierceBuff buff = pierceBuffs[i];
@@ -241,6 +246,7 @@ public class PlayerStats : MonoBehaviour
     {
         _buffSharp = false;
         // Check if any sharp buffs are active
+        if (sharpBuffs == null) return;
         for (int i = 0; i < sharpBuffs.Count; i++)
         {
             SharpBuff buff = sharpBuffs[i];
@@ -254,6 +260,7 @@ public class PlayerStats : MonoBehaviour
     {
         _buffHeavy = false;
         // Check if any heavy buffs are active
+        if (heavyBuffs == null) return;
         for (int i = 0; i < heavyBuffs.Count; i++)
         {
             HeavyBuff buff = heavyBuffs[i];
@@ -271,6 +278,7 @@ public class PlayerStats : MonoBehaviour
     {
         int listCount = attackBuffs.Count;
         // Loop through all att buffs and reduce turns left by 1
+        if (attackBuffs == null) return;
         for (int i = 0; i < attackBuffs.Count; i++)
         {
             AttackBuff buff = attackBuffs[i];
@@ -288,13 +296,14 @@ public class PlayerStats : MonoBehaviour
     {
         int listCount = defenseBuffs.Count;
         // Loop through all def buffs and reduce turns left by 1
+        if (defenseBuffs == null) return;
         for (int i = 0; i < defenseBuffs.Count; i++)
         {
             DefenseBuff buff = defenseBuffs[i];
             buff.turnsLeft--;
             if (buff.turnsLeft <= 0)
             {
-                attackBuffs.RemoveAt(i);
+                defenseBuffs.RemoveAt(i);
                 i--;
             }
         }
@@ -305,6 +314,7 @@ public class PlayerStats : MonoBehaviour
     {
         int listCount = multiHitBuffs.Count;
         // Loop through all multi-hit buffs and reduce turns left by 1
+        if (multiHitBuffs == null) return;
         for (int i = 0; i < multiHitBuffs.Count; i++)
         {
             MultiHitBuff buff = multiHitBuffs[i];
@@ -322,6 +332,7 @@ public class PlayerStats : MonoBehaviour
     {
         int listCount = critBuffs.Count;
         // Loop through all crit buffs and reduce turns left by 1
+        if (critBuffs == null) return;
         for (int i = 0; i < critBuffs.Count; i++)
         {
             CritBuff buff = critBuffs[i];
@@ -339,6 +350,7 @@ public class PlayerStats : MonoBehaviour
     {
         int listCount = pierceBuffs.Count;
         // Loop through all def buffs and reduce turns left by 1
+        if (pierceBuffs == null) return;
         for (int i = 0; i < pierceBuffs.Count; i++)
         {
             PierceBuff buff = pierceBuffs[i];
@@ -356,6 +368,7 @@ public class PlayerStats : MonoBehaviour
     {
         int listCount = sharpBuffs.Count;
         // Loop through all def buffs and reduce turns left by 1
+        if (sharpBuffs == null) return;
         for (int i = 0; i < sharpBuffs.Count; i++)
         {
             SharpBuff buff = sharpBuffs[i];
@@ -373,6 +386,7 @@ public class PlayerStats : MonoBehaviour
     {
         int listCount = heavyBuffs.Count;
         // Loop through all def buffs and reduce turns left by 1
+        if (heavyBuffs == null) return;
         for (int i = 0; i < heavyBuffs.Count; i++)
         {
             HeavyBuff buff = heavyBuffs[i];

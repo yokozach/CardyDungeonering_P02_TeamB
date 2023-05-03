@@ -100,5 +100,19 @@ public class MusicPlayer : MonoBehaviour
         audioSource.Play();
     }
 
+    public List<AudioClip> ReturnLoopHistory()
+    {
+        return loopHistory;
+    }
+
+    public void SetLoopHistory(List<AudioClip> prevLoopHistory)
+    {
+        loopHistory = prevLoopHistory;
+    }
+
+    public void SetMuffled(bool state)
+    {
+        muffled = state;
+    }
 
 }

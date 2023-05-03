@@ -44,7 +44,10 @@ public class CardEvent_Enemy : IEvent
         centralManager._sfxPlayer.Audio_EnemyEncounter();
         centralManager._enemyHealth = health;
         centralManager._enemyController = this;
+
+        centralManager._enemyHUD.SetHUDName(GetComponent<MainCard>().ReturnCardName()); ;
         centralManager._enemyHUD._enemyHealth = health;
+        centralManager._enemyHUD._enemyStats = this;
 
         _controller._enemyHealth = health;
         _controller._enemyStats = this;
@@ -52,6 +55,7 @@ public class CardEvent_Enemy : IEvent
         //recalculates the new enemies stats
         centralManager._enemyHUD.HealthCalc();
         centralManager._enemyHUD.ShieldCalc();
+        centralManager._enemyHUD.SetAttackValues();
 
         // Might have to change some code below to optomize the game (specifically FindObjectOfType; they take a lot of power)
         GameFSM _gameController = (GameFSM)FindObjectOfType(typeof(GameFSM));
@@ -63,12 +67,5 @@ public class CardEvent_Enemy : IEvent
         centralManager._deckManager.AddRandomCard();
         base.EndEvent(mainCard);
     }
-
-    public Vector2Int AttackRange
-    {
-        get { return new Vector2Int(_minAttackRange, _maxAttackRange); }
-    }
-
-
 
 }

@@ -126,4 +126,14 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentAvailableDeck(List<GameObject> prevCurDeck)
+    {
+        availableDeck = prevCurDeck;
+    }
+
+    public List<GameObject> ReturnCurAvailableDeck()
+    {
+        return availableDeck;
+    }
+
 }

@@ -58,9 +58,10 @@ public class CardEvent_Stairs : IEvent
                     centralManager._playerController.playerActive = false;
                     centralManager._playerController._exiting = true;
                     StartCoroutine(centralManager._introFade.FadePanelIn());
-                    PlayerData.StoreData(playerHealth._curHP, playerHealth._curDef, playerHealth._maxHP, playerHealth._maxDef,
+                    PlayerData.StorePlayerData(playerHealth._curHP, playerHealth._curDef, playerHealth._maxHP, playerHealth._maxDef,
                         playerStats._baseAtt, playerStats._baseDef, playerStats._baseHit, playerStats._baseCrit, playerStats._basePierce, 
                         playerStats._baseSharp, playerStats._baseHeavy, centralManager._inventoryController.inventoryCards);
+                    PlayerData.StoreOtherData(centralManager._deckManager.ReturnCurAvailableDeck(), centralManager._musicPlayer.ReturnLoopHistory());
                     StartCoroutine(StairsWaitTimer(1f));
                 }
             }
