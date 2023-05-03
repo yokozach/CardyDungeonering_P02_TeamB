@@ -145,10 +145,10 @@ public class PlayerController : MonoBehaviour
         centralManager._sfxPlayer.Audio_Step();
 
         // Animates movement of player towards desired tile
-        for (int i=0; i<60; i++)
+        for (int i=0; i<10; i++)
         {
             yield return null;
-            transform.position += new Vector3(direction.x * moveDis * Time.deltaTime, direction.y * moveDis * Time.deltaTime, transform.position.z);
+            transform.position += new Vector3(direction.x * moveDis * 2, direction.y * moveDis * 2, transform.position.z);
         }
 
         // Fixes player onto the tile they are supposed to be on

@@ -1644,7 +1644,7 @@ PrefabInstance:
       objectReference: {fileID: 2059165272}
     - target: {fileID: -855093689739001020, guid: dde87e2dae721c74db515e7aa43bc839, type: 3}
       propertyPath: _enemiesNeededToWin
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 199120991384243110, guid: dde87e2dae721c74db515e7aa43bc839, type: 3}
       propertyPath: m_SortingLayer
