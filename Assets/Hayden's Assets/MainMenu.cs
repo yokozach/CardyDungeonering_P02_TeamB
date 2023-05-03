@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class MainMenu : MonoBehaviour
 {
-
     public delegate void StartTouchEvent(Vector2 position, float time);
     public event StartTouchEvent OnStartTouch;
     public delegate void EndTouchEvent(Vector2 position, float time);
