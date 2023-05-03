@@ -17,6 +17,13 @@ public class enemyHUD : MonoBehaviour
     [SerializeField] TextMeshProUGUI curHPText;
     [SerializeField] TextMeshProUGUI curSHText;
     [SerializeField] TextMeshProUGUI atkText;
+    [SerializeField] RectTransform _enemyHUDValues;
+    private RectTransform _enemyHUDTransform;
+
+    private void Start()
+    {
+        _enemyHUDTransform = _enemyHUDValues;
+    }
 
     public void ShieldCalc()
     {
@@ -37,6 +44,14 @@ public class enemyHUD : MonoBehaviour
     {
         this.gameObject.SetActive(set);
     }
+
+    public void AnimationStart()
+    {
+        _enemyHUDValues.anchoredPosition = new Vector2(0, 100);
+        _enemyHUDValues.position = Vector2.MoveTowards(_enemyHUDValues.position, _enemyHUDTransform.position, 5f);
+    }
+
+    IEnumerator
 
     public void SetHUDName(string name)
     {

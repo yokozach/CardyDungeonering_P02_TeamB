@@ -36,6 +36,10 @@ public class PlayerBattleState : State
             _controller._cam.SetTarget2(_enemyHealth.gameObject);
             _controller._cam.ToggleFocus();
             _controller._enemyHUD.TurnOffAndOn(true);
+            if (_controller._stairs._enemiesNeededToWin == _controller._enemiesDefeated && _controller._stairs._revealed)
+            {
+                _controller._nextFloorButton.SetActive(false);
+            }
         }
     }
 
@@ -70,6 +74,11 @@ public class PlayerBattleState : State
             _controller._cam.SetTarget2(null);
             _stateMachine.ChangeState(_stateMachine.PlayerChooseCardState);
             _controller._enemyHUD.TurnOffAndOn(false);
+            _controller._enemyHUD.AnimationStart();
+            if (_controller._stairs._enemiesNeededToWin == _controller._enemiesDefeated && _controller._stairs._revealed)
+            {
+                _controller._nextFloorButton.SetActive(true);
+            }
         }
         if(_controller._playerHP._curHP <= 0)
         {
