@@ -872,6 +872,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349b0b38e1a9b8b438f72b12b5b11eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &722545331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6037414491079042167, guid: 5a85d12e970fc5a42ba4d385fe2929af, type: 3}
+  m_PrefabInstance: {fileID: 722545329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &723878511 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1617371895, guid: 787e6021fae13c4429865466d44467a1, type: 3}
@@ -2631,6 +2636,7 @@ MonoBehaviour:
   _playerController: {fileID: 5239304314239634612}
   _playerStats: {fileID: 5239304314239634616}
   _inventoryController: {fileID: 1271250009}
+  _enemyHUDAnim: {fileID: 0}
   _enemyController: {fileID: 0}
   _enemyHealth: {fileID: 0}
   _enemyHUD: {fileID: 722545330}
@@ -3293,11 +3299,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3246700142944540815, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
   m_PrefabInstance: {fileID: 5203619527293469394}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5203619527293469396 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7800149855558539843, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
-  m_PrefabInstance: {fileID: 5203619527293469394}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5203619527293469397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7737809585147680691, guid: 76b7138921d3c864698fdb9221aba7f7, type: 3}
@@ -3512,7 +3513,7 @@ MonoBehaviour:
   _returnToMainMenuButton: {fileID: 737606806}
   _nextFloorButton: {fileID: 5203619527293469397}
   _playerTurnImage: {fileID: 5203619527293469395}
-  _enemyTurnImage: {fileID: 5203619527293469396}
+  _enemyTurnImage: {fileID: 722545331}
   _enemyHUD: {fileID: 722545330}
   _enemyHealth: {fileID: 0}
   _enemyStats: {fileID: 0}

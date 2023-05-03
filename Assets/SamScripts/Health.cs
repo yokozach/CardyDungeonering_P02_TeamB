@@ -24,7 +24,6 @@ public class Health : MonoBehaviour, IDamageable
     private PlayerController playerController;
     private PlayerStats playerStats;
     private CardEvent_Enemy enemy;
-    private CardEvent_Enemy enemyStats;
 
     private List<Regen> regenList = new List<Regen>();
     private bool _critOccured;
@@ -172,7 +171,7 @@ public class Health : MonoBehaviour, IDamageable
             enemy._killed = true;
             centralManager._sfxPlayer.Audio_Death();
             centralManager._playerHUD.HealthCalc();
-            StartCoroutine(EnemyDeathWaitTimer(2));
+            StartCoroutine(EnemyDeathWaitTimer(1.45f));
         }
     }
 

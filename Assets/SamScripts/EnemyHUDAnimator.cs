@@ -44,19 +44,19 @@ public class EnemyHUDAnimator : MonoBehaviour
         if (enter)
         {
             idle = true;
-            return LockState(Enter, 0.33f);
+            return LockState(Enter, 0.83f);
         }
 
         if (exit)
         {
             idle = false;
-            return LockState(Exit, 0.33f);
+            return LockState(Exit, 0.83f);
         }
 
-        if (idle) return Idle;
+        if (idle) return Active;
         else
         {
-            return Exited;
+            return Inactive;
         }
 
         int LockState(int s, float t)
@@ -71,9 +71,9 @@ public class EnemyHUDAnimator : MonoBehaviour
     private int _currentState;
 
     private static readonly int Enter = Animator.StringToHash("EnemyHUDDropIn");
-    private static readonly int Idle = Animator.StringToHash("Idle");
+    private static readonly int Active = Animator.StringToHash("Active");
     private static readonly int Exit = Animator.StringToHash("EnemyHUDDropOut");
-    private static readonly int Exited = Animator.StringToHash("Active");
+    private static readonly int Inactive = Animator.StringToHash("Idle");
 
     #endregion
 }

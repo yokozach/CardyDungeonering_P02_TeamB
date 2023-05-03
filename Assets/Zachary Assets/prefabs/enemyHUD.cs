@@ -51,8 +51,6 @@ public class enemyHUD : MonoBehaviour
         _enemyHUDValues.position = Vector2.MoveTowards(_enemyHUDValues.position, _enemyHUDTransform.position, 5f);
     }
 
-    IEnumerator
-
     public void SetHUDName(string name)
     {
         _enemyName = name;

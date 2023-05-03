@@ -28,7 +28,7 @@ public class CentralManager : MonoBehaviour
     public InventoryController _inventoryController;
 
     [Header("Current Enemy")]
-    // public Enemy_Hud _enemyHUD;
+    // public EnemyHUDAnimator _enemyHUDAnim;
     public CardEvent_Enemy _enemyController;
     public Health _enemyHealth;
     public enemyHUD _enemyHUD;

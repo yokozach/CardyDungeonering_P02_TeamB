@@ -49,6 +49,8 @@ public class CardEvent_Enemy : IEvent
         centralManager._enemyHUD._enemyHealth = health;
         centralManager._enemyHUD._enemyStats = this;
 
+        // centralManager._enemyHUDAnim.ToggleDisplay();
+
         _controller._enemyHealth = health;
         _controller._enemyStats = this;
 
@@ -65,6 +67,7 @@ public class CardEvent_Enemy : IEvent
     public override void EndEvent(GameObject mainCard)
     {
         centralManager._deckManager.AddRandomCard();
+        // centralManager._enemyHUDAnim.ToggleDisplay();
         base.EndEvent(mainCard);
     }
 

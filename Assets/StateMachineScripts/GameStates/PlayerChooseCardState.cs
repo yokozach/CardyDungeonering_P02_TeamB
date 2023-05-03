@@ -40,7 +40,7 @@ public class PlayerChooseCardState : State
     public override void Tick()
     {
         base.Tick();
-        if(StateDuration >= 2f && _canMoveYet == false)
+        if(StateDuration >= 1.5f && _canMoveYet == false)
         {
             _controller._playerController.SetPlayerActiveState(true);
             _canMoveYet = true;
